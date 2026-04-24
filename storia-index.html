@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Storia — Histoires magiques pour enfants</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --pink: #FF6B9D;
+  --purple: #A855F7;
+  --blue: #3B82F6;
+  --yellow: #FCD34D;
+  --green: #34D399;
+  --orange: #FB923C;
+  --bg: #FFF8F0;
+  --white: #FFFFFF;
+  --text: #2D1B4E;
+  --muted: #9C8AB4;
+  --card: #FFFFFF;
+  --font-display: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;}
+
+/* BLOBS BG */
+.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:0.15;pointer-events:none;z-index:0;}
+.blob1{width:500px;height:500px;background:var(--pink);top:-100px;left:-100px;}
+.blob2{width:400px;height:400px;background:var(--purple);top:30%;right:-100px;}
+.blob3{width:350px;height:350px;background:var(--yellow);bottom:10%;left:20%;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;}
+nav.scrolled{background:rgba(255,248,240,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(168,85,247,0.1);}
+.logo{font-family:var(--font-display);font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo span{font-size:20px;}
+.nav-cta{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border:none;border-radius:50px;padding:10px 24px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 15px rgba(168,85,247,0.3);transition:transform 0.2s,box-shadow 0.2s;}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(168,85,247,0.4);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;position:relative;z-index:1;}
+.hero-emoji{font-size:72px;margin-bottom:1.5rem;animation:float 3s ease-in-out infinite;display:block;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.5rem,7vw,5rem);font-weight:800;line-height:1.1;margin-bottom:1.25rem;color:var(--text);}
+.hero h1 .grad{background:linear-gradient(135deg,var(--pink),var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:520px;margin:0 auto 2.5rem;line-height:1.7;font-weight:400;}
+.hero-btn{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border:none;border-radius:50px;padding:18px 48px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 8px 30px rgba(168,85,247,0.35);transition:transform 0.2s,box-shadow 0.2s;display:inline-flex;align-items:center;gap:10px;}
+.hero-btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(168,85,247,0.45);}
+.hero-note{margin-top:1.5rem;font-size:13px;color:var(--muted);}
+.stars{color:var(--yellow);font-size:16px;}
+.hero-cards{display:flex;gap:1rem;margin-top:3rem;flex-wrap:wrap;justify-content:center;}
+.hcard{background:white;border-radius:16px;padding:0.75rem 1.25rem;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text);box-shadow:0 4px 15px rgba(0,0,0,0.06);}
+.hcard span{font-size:20px;}
+
+/* GENERATOR */
+.generator{padding:4rem 2rem;position:relative;z-index:1;}
+.gen-inner{max-width:680px;margin:0 auto;}
+.gen-card{background:white;border-radius:28px;padding:2.5rem;box-shadow:0 20px 60px rgba(168,85,247,0.12);border:2px solid rgba(168,85,247,0.08);}
+.gen-title{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:0.4rem;text-align:center;}
+.gen-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:2rem;}
+.steps-bar{display:flex;gap:6px;margin-bottom:2rem;}
+.sbar{height:4px;flex:1;border-radius:4px;background:#F0E8FF;transition:background 0.3s;}
+.sbar.on{background:linear-gradient(90deg,var(--pink),var(--purple));}
+.step{display:none;}.step.active{display:block;}
+.field-label{font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.field-label .fl-icon{font-size:16px;}
+.field-group{margin-bottom:1.5rem;}
+.input-styled{width:100%;background:#FAF5FF;border:2px solid #E9D5FF;border-radius:12px;color:var(--text);font-size:14px;padding:12px 16px;font-family:var(--font-body);outline:none;transition:border-color 0.2s;}
+.input-styled:focus{border-color:var(--purple);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.choice{background:#FAF5FF;border:2px solid #E9D5FF;border-radius:12px;padding:0.85rem;cursor:pointer;text-align:center;transition:all 0.2s;}
+.choice:hover{border-color:var(--purple);background:#F3E8FF;}
+.choice.sel{border-color:var(--purple);background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(255,107,157,0.08));}
+.choice .ci{font-size:24px;display:block;margin-bottom:4px;}
+.choice .cl{font-size:12px;font-weight:700;color:var(--text);}
+.choice.sel .cl{color:var(--purple);}
+.slider-wrap{display:flex;align-items:center;gap:12px;}
+.slider-wrap input[type=range]{flex:1;accent-color:var(--purple);}
+.slider-val{font-size:14px;font-weight:700;color:var(--purple);min-width:30px;}
+.gen-nav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+.btn-next{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border:none;border-radius:50px;padding:12px 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 15px rgba(168,85,247,0.3);transition:all 0.2s;}
+.btn-next:hover{transform:translateY(-2px);}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+.btn-back{background:transparent;border:2px solid #E9D5FF;border-radius:50px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
+.btn-back:hover{border-color:var(--purple);color:var(--purple);}
+/* RESULT */
+.spinner-wrap{text-align:center;padding:3rem;}
+.spinner{width:48px;height:48px;border:4px solid #E9D5FF;border-top-color:var(--purple);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 1rem;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.spin-txt{font-size:14px;color:var(--muted);font-weight:600;}
+.spin-txt span{display:block;font-size:24px;margin-bottom:0.5rem;animation:float 2s ease-in-out infinite;}
+.story-result{animation:fadeUp 0.5s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+.story-header{text-align:center;margin-bottom:1.5rem;}
+.story-title{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--text);margin-bottom:0.5rem;}
+.story-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem;}
+.stag{background:#F3E8FF;color:var(--purple);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.story-body{background:linear-gradient(135deg,#FFF8F0,#FAF5FF);border-radius:16px;padding:1.5rem;font-size:14px;color:var(--text);line-height:1.9;font-weight:400;white-space:pre-wrap;margin-bottom:1.5rem;border:1px solid rgba(168,85,247,0.1);}
+.story-moral{background:linear-gradient(135deg,rgba(252,211,77,0.15),rgba(251,146,60,0.1));border-radius:12px;padding:1rem 1.25rem;font-size:13px;color:#92400E;font-style:italic;border-left:3px solid var(--yellow);margin-bottom:1.5rem;}
+.story-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.btn-dl{background:linear-gradient(135deg,var(--green),#059669);color:white;border:none;border-radius:50px;padding:12px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 15px rgba(52,211,153,0.3);display:flex;align-items:center;gap:8px;}
+.btn-dl:hover{transform:translateY(-2px);}
+.btn-new{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border:none;border-radius:50px;padding:12px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 15px rgba(168,85,247,0.3);display:flex;align-items:center;gap:8px;}
+.btn-new:hover{transform:translateY(-2px);}
+.errbox{background:#FFF0F0;border:2px solid #FFD5D5;border-radius:12px;padding:1rem;font-size:13px;color:#DC2626;text-align:center;}
+.btn-retry{background:var(--pink);color:white;border:none;border-radius:50px;padding:8px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font-body);margin-top:0.75rem;}
+
+/* HOW IT WORKS */
+.how{padding:6rem 2rem;position:relative;z-index:1;}
+.section-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;color:var(--text);margin-bottom:0.5rem;}
+.section-sub{font-size:15px;color:var(--muted);text-align:center;margin-bottom:3rem;}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:900px;margin:0 auto;}
+.how-card{background:white;border-radius:20px;padding:1.75rem;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,0.06);}
+.how-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:20px;font-weight:800;color:white;margin:0 auto 1rem;}
+.how-card:nth-child(1) .how-num{background:linear-gradient(135deg,var(--pink),var(--orange));}
+.how-card:nth-child(2) .how-num{background:linear-gradient(135deg,var(--purple),var(--blue));}
+.how-card:nth-child(3) .how-num{background:linear-gradient(135deg,var(--green),var(--blue));}
+.how-card:nth-child(4) .how-num{background:linear-gradient(135deg,var(--yellow),var(--orange));}
+.how-card h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;}
+.how-card p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* THEMES */
+.themes{padding:4rem 2rem 6rem;position:relative;z-index:1;}
+.themes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;max-width:800px;margin:0 auto;}
+.theme-pill{background:white;border-radius:16px;padding:1.25rem;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.06);transition:transform 0.2s;}
+.theme-pill:hover{transform:translateY(-4px);}
+.theme-pill .ti{font-size:32px;display:block;margin-bottom:6px;}
+.theme-pill .tl{font-size:13px;font-weight:700;color:var(--text);}
+
+/* PRICING */
+.pricing{padding:6rem 2rem;background:white;position:relative;z-index:1;}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;max-width:800px;margin:3rem auto 0;}
+.pcard{border-radius:20px;padding:2rem;border:2px solid #F0E8FF;}
+.pcard.featured{background:linear-gradient(135deg,rgba(168,85,247,0.05),rgba(255,107,157,0.05));border-color:var(--purple);}
+.pcard-emoji{font-size:36px;margin-bottom:1rem;}
+.pcard-name{font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:0.25rem;}
+.pcard-price{font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(--text);}
+.pcard-price span{font-size:15px;color:var(--muted);font-family:var(--font-body);font-weight:400;}
+.pcard-desc{font-size:13px;color:var(--muted);margin:0.5rem 0 1.25rem;line-height:1.6;}
+.pcard-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;}
+.pcard-list li{font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;font-weight:600;}
+.pcard-list li::before{content:'✓';color:var(--green);font-weight:800;}
+.pcard-btn{width:100%;padding:12px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);border:none;transition:all 0.2s;}
+.pcard-btn.outline{background:transparent;border:2px solid var(--purple);color:var(--purple);}
+.pcard-btn.outline:hover{background:#F3E8FF;}
+.pcard-btn.solid{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;box-shadow:0 4px 15px rgba(168,85,247,0.3);}
+.pcard-btn.solid:hover{transform:translateY(-2px);}
+
+/* FOOTER */
+footer{padding:2.5rem 2rem;text-align:center;border-top:1px solid #F0E8FF;position:relative;z-index:1;}
+.foot-logo{font-family:var(--font-display);font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem;}
+footer p{font-size:12px;color:var(--muted);}
+
+@media(max-width:600px){
+  nav{padding:1rem;}
+  .grid2,.grid3{grid-template-columns:1fr 1fr;}
+  .hero-cards{gap:0.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<nav id="navbar">
+  <div class="logo">Storia <span>✨</span></div>
+  <button class="nav-cta" onclick="scrollToGen()">Créer une histoire</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-emoji">📖</span>
+  <h1>Des histoires <span class="grad">magiques</span><br/>rien que pour eux</h1>
+  <p class="hero-sub">Entrez le prénom de votre enfant, choisissez un univers — l'IA crée une histoire unique et personnalisée en quelques secondes.</p>
+  <button class="hero-btn" onclick="scrollToGen()">✨ Créer mon histoire gratuite</button>
+  <p class="hero-note"><span class="stars">★★★★★</span> &nbsp;Plus de 5 000 histoires créées cette semaine</p>
+  <div class="hero-cards">
+    <div class="hcard"><span>🧒</span> Personnalisée avec le prénom</div>
+    <div class="hcard"><span>⚡</span> Générée en 15 secondes</div>
+    <div class="hcard"><span>📄</span> Téléchargeable en PDF</div>
+    <div class="hcard"><span>🌍</span> 100% en français</div>
+  </div>
+</section>
+
+<!-- GENERATOR -->
+<section class="generator" id="generator">
+  <div class="gen-inner">
+    <div class="gen-card">
+      <div class="gen-title">✨ Créer une histoire</div>
+      <div class="gen-sub">3 étapes · 30 secondes · magie garantie</div>
+      <div class="steps-bar">
+        <div class="sbar on" id="sb0"></div>
+        <div class="sbar" id="sb1"></div>
+        <div class="sbar" id="sb2"></div>
+        <div class="sbar" id="sb3"></div>
+      </div>
+
+      <!-- Step 0 : Enfant -->
+      <div class="step active" id="st0">
+        <div class="field-group">
+          <div class="field-label"><span class="fl-icon">👶</span> Prénom de l'enfant</div>
+          <input class="input-styled" type="text" id="f-prenom" placeholder="Ex : Emma, Lucas, Léa..." oninput="chk0()"/>
+        </div>
+        <div class="field-group">
+          <div class="field-label"><span class="fl-icon">🎂</span> Âge</div>
+          <div class="slider-wrap">
+            <input type="range" min="2" max="12" value="5" step="1" id="f-age" oninput="document.getElementById('ageval').textContent=this.value+' ans'"/>
+            <span class="slider-val" id="ageval">5 ans</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field-label"><span class="fl-icon">👫</span> C'est un garçon ou une fille ?</div>
+          <div class="grid2">
+            <div class="choice" data-v="garçon" onclick="pick(this,'genre')"><span class="ci">👦</span><div class="cl">Garçon</div></div>
+            <div class="choice" data-v="fille" onclick="pick(this,'genre')"><span class="ci">👧</span><div class="cl">Fille</div></div>
+          </div>
+        </div>
+        <div class="gen-nav"><span></span><button class="btn-next" id="n0" onclick="gostep(1)" disabled>Suivant →</button></div>
+      </div>
+
+      <!-- Step 1 : Univers -->
+      <div class="step" id="st1">
+        <div class="field-group">
+          <div class="field-label"><span class="fl-icon">🌍</span> Choisis l'univers de l'histoire</div>
+          <div class="grid3">
+            <div class="choice" data-v="magique et féerique avec des fées, licornes et châteaux enchantés" onclick="pick(this,'univers')"><span class="ci">🧚</span><div class="cl">Fées & Magie</div></div>
+            <div class="choice" data-v="aventure dans la jungle avec des animaux parlants" onclick="pick(this,'univers')"><span class="ci">🦁</span><div class="cl">Jungle & Animaux</div></div>
+            <div class="choice" data-v="espace et planètes avec des astronautes et aliens gentils" onclick="pick(this,'univers')"><span class="ci">🚀</span><div class="cl">Espace</div></div>
+            <div class="choice" data-v="pirates et trésors cachés sur des îles mystérieuses" onclick="pick(this,'univers')"><span class="ci">🏴‍☠️</span><div class="cl">Pirates</div></div>
+            <div class="choice" data-v="dinosaures et préhistoire" onclick="pick(this,'univers')"><span class="ci">🦕</span><div class="cl">Dinosaures</div></div>
+            <div class="choice" data-v="super-héros avec des pouvoirs extraordinaires" onclick="pick(this,'univers')"><span class="ci">🦸</span><div class="cl">Super-héros</div></div>
+            <div class="choice" data-v="sous la mer avec des sirènes et des créatures marines" onclick="pick(this,'univers')"><span class="ci">🧜</span><div class="cl">Fond marin</div></div>
+            <div class="choice" data-v="forêt enchantée avec des gnomes et des elfes" onclick="pick(this,'univers')"><span class="ci">🌲</span><div class="cl">Forêt magique</div></div>
+            <div class="choice" data-v="chevaliers, dragons et royaumes médiévaux" onclick="pick(this,'univers')"><span class="ci">🐉</span><div class="cl">Dragons</div></div>
+          </div>
+        </div>
+        <div class="gen-nav">
+          <button class="btn-back" onclick="gostep(0)">← Retour</button>
+          <button class="btn-next" id="n1" onclick="gostep(2)" disabled>Suivant →</button>
+        </div>
+      </div>
+
+      <!-- Step 2 : Valeur & longueur -->
+      <div class="step" id="st2">
+        <div class="field-group">
+          <div class="field-label"><span class="fl-icon">💡</span> La leçon de l'histoire (optionnel)</div>
+          <div class="grid2">
+            <div class="choice" data-v="le courage" onclick="pick(this,'valeur')"><span class="ci">💪</span><div class="cl">Le courage</div></div>
+            <div class="choice" data-v="l'amitié" onclick="pick(this,'valeur')"><span class="ci">🤝</span><div class="cl">L'amitié</div></div>
+            <div class="choice" data-v="la gentillesse" onclick="pick(this,'valeur')"><span class="ci">💝</span><div class="cl">La gentillesse</div></div>
+            <div class="choice" data-v="la persévérance" onclick="pick(this,'valeur')"><span class="ci">🌟</span><div class="cl">La persévérance</div></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field-label"><span class="fl-icon">📏</span> Longueur de l'histoire</div>
+          <div class="grid3">
+            <div class="choice" data-v="courte (3 paragraphes)" onclick="pick(this,'longueur')"><span class="ci">⚡</span><div class="cl">Courte</div></div>
+            <div class="choice sel" data-v="moyenne (5 paragraphes)" onclick="pick(this,'longueur')"><span class="ci">📖</span><div class="cl">Moyenne</div></div>
+            <div class="choice" data-v="longue (7 paragraphes)" onclick="pick(this,'longueur')"><span class="ci">📚</span><div class="cl">Longue</div></div>
+          </div>
+        </div>
+        <div class="gen-nav">
+          <button class="btn-back" onclick="gostep(1)">← Retour</button>
+          <button class="btn-next" id="n2" onclick="gostep(3)">✨ Créer l'histoire !</button>
+        </div>
+      </div>
+
+      <!-- Step 3 : Résultat -->
+      <div class="step" id="st3">
+        <div id="result-zone">
+          <div class="spinner-wrap">
+            <div class="spinner"></div>
+            <div class="spin-txt"><span>✨</span>Création de l'histoire en cours...</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-title">Comment ça marche ? 🪄</div>
+  <div class="section-sub">Simple comme bonjour</div>
+  <div class="how-grid">
+    <div class="how-card"><div class="how-num">1</div><h3>Décris l'enfant</h3><p>Prénom, âge, et si c'est un garçon ou une fille.</p></div>
+    <div class="how-card"><div class="how-num">2</div><h3>Choisis l'univers</h3><p>Fées, espace, pirates, dinosaures — 9 univers disponibles.</p></div>
+    <div class="how-card"><div class="how-num">3</div><h3>L'IA écrit</h3><p>Une histoire unique avec le prénom de l'enfant comme héros.</p></div>
+    <div class="how-card"><div class="how-num">4</div><h3>Télécharge & lis</h3><p>PDF prêt en quelques secondes, à lire au moment du coucher.</p></div>
+  </div>
+</section>
+
+<!-- THEMES -->
+<section class="themes">
+  <div class="section-title">9 univers magiques 🌈</div>
+  <div class="section-sub">Un nouveau monde à chaque histoire</div>
+  <div class="themes-grid">
+    <div class="theme-pill"><span class="ti">🧚</span><div class="tl">Fées & Magie</div></div>
+    <div class="theme-pill"><span class="ti">🦁</span><div class="tl">Jungle</div></div>
+    <div class="theme-pill"><span class="ti">🚀</span><div class="tl">Espace</div></div>
+    <div class="theme-pill"><span class="ti">🏴‍☠️</span><div class="tl">Pirates</div></div>
+    <div class="theme-pill"><span class="ti">🦕</span><div class="tl">Dinosaures</div></div>
+    <div class="theme-pill"><span class="ti">🦸</span><div class="tl">Super-héros</div></div>
+    <div class="theme-pill"><span class="ti">🧜</span><div class="tl">Fond marin</div></div>
+    <div class="theme-pill"><span class="ti">🌲</span><div class="tl">Forêt magique</div></div>
+    <div class="theme-pill"><span class="ti">🐉</span><div class="tl">Dragons</div></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-title">Tarifs 💎</div>
+  <div class="section-sub">Simple et transparent</div>
+  <div class="pricing-grid">
+    <div class="pcard">
+      <div class="pcard-emoji">🎁</div>
+      <div class="pcard-name">Découverte</div>
+      <div class="pcard-price">0€ <span>pour toujours</span></div>
+      <div class="pcard-desc">Pour tester et offrir une première histoire.</div>
+      <ul class="pcard-list">
+        <li>1 histoire gratuite par mois</li>
+        <li>Tous les univers</li>
+        <li>Lecture en ligne</li>
+      </ul>
+      <button class="pcard-btn outline" onclick="scrollToGen()">Commencer</button>
+    </div>
+    <div class="pcard featured">
+      <div class="pcard-emoji">⭐</div>
+      <div class="pcard-name">Histoire unique</div>
+      <div class="pcard-price">3,99€ <span>/ histoire</span></div>
+      <div class="pcard-desc">Parfait pour un cadeau ou une occasion spéciale.</div>
+      <ul class="pcard-list">
+        <li>1 histoire complète</li>
+        <li>Téléchargement PDF</li>
+        <li>Personnalisation complète</li>
+        <li>Valable à vie</li>
+      </ul>
+      <button class="pcard-btn solid" onclick="scrollToGen()">Créer mon histoire</button>
+    </div>
+    <div class="pcard">
+      <div class="pcard-emoji">🌟</div>
+      <div class="pcard-name">Abonnement</div>
+      <div class="pcard-price">7,99€ <span>/ mois</span></div>
+      <div class="pcard-desc">Pour les familles qui veulent une nouvelle histoire chaque soir.</div>
+      <ul class="pcard-list">
+        <li>Histoires illimitées</li>
+        <li>Tous les PDF inclus</li>
+        <li>Plusieurs enfants</li>
+        <li>Nouveaux univers chaque mois</li>
+      </ul>
+      <button class="pcard-btn outline" onclick="scrollToGen()">S'abonner</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Storia ✨</div>
+  <p>Fait avec ❤️ pour les enfants et leurs parents</p>
+</footer>
+
+<script>
+const st = { genre:'', univers:'', valeur:'', longueur:'moyenne (5 paragraphes)' };
+
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+function scrollToGen() {
+  document.getElementById('generator').scrollIntoView({behavior:'smooth'});
+}
+
+function pick(el, key) {
+  const wrap = el.closest('.grid2, .grid3');
+  if (wrap) wrap.querySelectorAll('.choice').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+  st[key] = el.dataset.v;
+  if (key === 'genre') chk0();
+  if (key === 'univers') document.getElementById('n1').disabled = false;
+}
+
+function chk0() {
+  const ok = document.getElementById('f-prenom').value.trim() && st.genre;
+  document.getElementById('n0').disabled = !ok;
+}
+
+function gostep(step) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('st' + step).classList.add('active');
+  ['sb0','sb1','sb2','sb3'].forEach((id,i) => {
+    document.getElementById(id).classList.toggle('on', i <= step);
+  });
+  document.getElementById('generator').scrollIntoView({behavior:'smooth', block:'start'});
+  if (step === 3) generate();
+}
+
+async function generate() {
+  const prenom = document.getElementById('f-prenom').value.trim();
+  const age = document.getElementById('f-age').value;
+  const valeur = st.valeur || 'la gentillesse';
+
+  const prompt = 'Ecris une histoire pour enfant en français. Reponds UNIQUEMENT avec un objet JSON brut sans markdown ni backticks. Format exact: {"titre":"string","histoire":"string","morale":"string","tags":["string","string","string"]}. Histoire pour ' + prenom + ', ' + st.genre + ' de ' + age + ' ans. Univers: ' + st.univers + '. Longueur: ' + st.longueur + '. Valeur a transmettre: ' + valeur + '. Le prenom ' + prenom + ' doit etre le heros. Ecris des paragraphes separes par des sauts de ligne. La morale est une phrase courte et douce. Les tags sont 3 mots-cles. JSON uniquement, rien dautre.';
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1500,
+        messages: [{role: 'user', content: prompt}]
+      })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+    const raw = (data.content?.map(b => b.text || '').join('') || '').trim();
+    if (!raw) throw new Error('Réponse vide');
+    let story;
+    try { story = JSON.parse(raw); }
+    catch(e1) {
+      const m = raw.match(/\{[\s\S]*\}/);
+      if (!m) throw new Error('Format inattendu');
+      story = JSON.parse(m[0]);
+    }
+    renderStory(story, prenom);
+  } catch(e) {
+    document.getElementById('result-zone').innerHTML =
+      '<div class="errbox">😕 ' + e.message + '<br/><button class="btn-retry" onclick="generate()">Réessayer ✨</button></div>';
+  }
+}
+
+function renderStory(s, prenom) {
+  const tags = (s.tags || []).map(t => '<span class="stag">' + t + '</span>').join('');
+  const html = '<div class="story-result">' +
+    '<div class="story-header">' +
+      '<div class="story-title">📖 ' + (s.titre || 'L\'histoire de ' + prenom) + '</div>' +
+      '<div class="story-tags">' + tags + '</div>' +
+    '</div>' +
+    '<div class="story-body">' + (s.histoire || '').replace(/\n/g, '<br/><br/>') + '</div>' +
+    (s.morale ? '<div class="story-moral">💡 ' + s.morale + '</div>' : '') +
+    '<div class="story-actions">' +
+      '<button class="btn-dl" onclick="downloadPDF()">📄 Télécharger en PDF</button>' +
+      '<button class="btn-new" onclick="gostep(0);resetState()">✨ Nouvelle histoire</button>' +
+    '</div>' +
+  '</div>';
+  document.getElementById('result-zone').innerHTML = html;
+  window._currentStory = s;
+}
+
+function resetState() {
+  st.genre = ''; st.univers = ''; st.valeur = ''; st.longueur = 'moyenne (5 paragraphes)';
+  document.querySelectorAll('.choice').forEach(c => c.classList.remove('sel'));
+  document.getElementById('f-prenom').value = '';
+  document.getElementById('n0').disabled = true;
+  document.getElementById('n1').disabled = true;
+}
+
+function downloadPDF() {
+  const s = window._currentStory;
+  if (!s) return;
+  const prenom = document.getElementById('f-prenom').value.trim();
+  const content = `STORIA ✨\n${'─'.repeat(40)}\n\n${s.titre}\n\n${s.histoire}\n\n${'─'.repeat(40)}\n💡 ${s.morale}\n\n${'─'.repeat(40)}\nCréé avec Storia — histoires magiques pour enfants`;
+  const blob = new Blob([content], {type: 'text/plain;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'histoire-' + prenom.toLowerCase() + '.txt';
+  a.click();
+}
+</script>
+</body>
+</html>
