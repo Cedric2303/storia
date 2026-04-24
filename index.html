@@ -4,291 +4,241 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Storia — Histoires magiques pour enfants</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --pink: #FF6B9D;
-  --purple: #A855F7;
-  --blue: #3B82F6;
-  --yellow: #FCD34D;
-  --green: #34D399;
-  --orange: #FB923C;
-  --bg: #FFF8F0;
-  --white: #FFFFFF;
-  --text: #2D1B4E;
-  --muted: #9C8AB4;
-  --card: #FFFFFF;
-  --font-display: 'Baloo 2', cursive;
-  --font-body: 'Nunito', sans-serif;
-}
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;}
-
-/* BLOBS BG */
-.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:0.15;pointer-events:none;z-index:0;}
-.blob1{width:500px;height:500px;background:var(--pink);top:-100px;left:-100px;}
-.blob2{width:400px;height:400px;background:var(--purple);top:30%;right:-100px;}
-.blob3{width:350px;height:350px;background:var(--yellow);bottom:10%;left:20%;}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;}
-nav.scrolled{background:rgba(255,248,240,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(168,85,247,0.1);}
-.logo{font-family:var(--font-display);font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.logo span{font-size:20px;}
-.nav-cta{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border:none;border-radius:50px;padding:10px 24px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 15px rgba(168,85,247,0.3);transition:transform 0.2s,box-shadow 0.2s;}
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(168,85,247,0.4);}
+body{background:#FFF8F0;color:#2D1B4E;font-family:'Nunito',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+nav.scrolled{background:rgba(255,248,240,0.97);box-shadow:0 2px 20px rgba(168,85,247,0.1);}
+.logo{font-family:'Baloo 2',cursive;font-size:24px;font-weight:800;background:linear-gradient(135deg,#FF6B9D,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-btn{background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;border:none;border-radius:50px;padding:10px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;position:relative;z-index:1;}
-.hero-emoji{font-size:72px;margin-bottom:1.5rem;animation:float 3s ease-in-out infinite;display:block;}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
-.hero h1{font-family:var(--font-display);font-size:clamp(2.5rem,7vw,5rem);font-weight:800;line-height:1.1;margin-bottom:1.25rem;color:var(--text);}
-.hero h1 .grad{background:linear-gradient(135deg,var(--pink),var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:520px;margin:0 auto 2.5rem;line-height:1.7;font-weight:400;}
-.hero-btn{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border:none;border-radius:50px;padding:18px 48px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 8px 30px rgba(168,85,247,0.35);transition:transform 0.2s,box-shadow 0.2s;display:inline-flex;align-items:center;gap:10px;}
-.hero-btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(168,85,247,0.45);}
-.hero-note{margin-top:1.5rem;font-size:13px;color:var(--muted);}
-.stars{color:var(--yellow);font-size:16px;}
-.hero-cards{display:flex;gap:1rem;margin-top:3rem;flex-wrap:wrap;justify-content:center;}
-.hcard{background:white;border-radius:16px;padding:0.75rem 1.25rem;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text);box-shadow:0 4px 15px rgba(0,0,0,0.06);}
-.hcard span{font-size:20px;}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 3rem;}
+.hero-icon{font-size:80px;margin-bottom:1.5rem;display:block;animation:bob 3s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.hero h1{font-family:'Baloo 2',cursive;font-size:clamp(2.2rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem;}
+.grad{background:linear-gradient(135deg,#FF6B9D,#A855F7,#3B82F6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{font-size:1.1rem;color:#9C8AB4;max-width:480px;margin:0 auto 2rem;line-height:1.7;}
+.hero-cta{background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;border:none;border-radius:50px;padding:16px 44px;font-size:17px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;box-shadow:0 8px 25px rgba(168,85,247,0.3);}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(168,85,247,0.4);}
+.badges{display:flex;gap:0.75rem;margin-top:2rem;flex-wrap:wrap;justify-content:center;}
+.badge{background:white;border-radius:50px;padding:8px 16px;font-size:13px;font-weight:700;box-shadow:0 3px 12px rgba(0,0,0,0.07);display:flex;align-items:center;gap:6px;}
 
-/* GENERATOR */
-.generator{padding:4rem 2rem;position:relative;z-index:1;}
-.gen-inner{max-width:680px;margin:0 auto;}
-.gen-card{background:white;border-radius:28px;padding:2.5rem;box-shadow:0 20px 60px rgba(168,85,247,0.12);border:2px solid rgba(168,85,247,0.08);}
-.gen-title{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:0.4rem;text-align:center;}
-.gen-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:2rem;}
-.steps-bar{display:flex;gap:6px;margin-bottom:2rem;}
-.sbar{height:4px;flex:1;border-radius:4px;background:#F0E8FF;transition:background 0.3s;}
-.sbar.on{background:linear-gradient(90deg,var(--pink),var(--purple));}
-.step{display:none;}.step.active{display:block;}
-.field-label{font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-.field-label .fl-icon{font-size:16px;}
-.field-group{margin-bottom:1.5rem;}
-.input-styled{width:100%;background:#FAF5FF;border:2px solid #E9D5FF;border-radius:12px;color:var(--text);font-size:14px;padding:12px 16px;font-family:var(--font-body);outline:none;transition:border-color 0.2s;}
-.input-styled:focus{border-color:var(--purple);}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-.choice{background:#FAF5FF;border:2px solid #E9D5FF;border-radius:12px;padding:0.85rem;cursor:pointer;text-align:center;transition:all 0.2s;}
-.choice:hover{border-color:var(--purple);background:#F3E8FF;}
-.choice.sel{border-color:var(--purple);background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(255,107,157,0.08));}
-.choice .ci{font-size:24px;display:block;margin-bottom:4px;}
-.choice .cl{font-size:12px;font-weight:700;color:var(--text);}
-.choice.sel .cl{color:var(--purple);}
-.slider-wrap{display:flex;align-items:center;gap:12px;}
-.slider-wrap input[type=range]{flex:1;accent-color:var(--purple);}
-.slider-val{font-size:14px;font-weight:700;color:var(--purple);min-width:30px;}
-.gen-nav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
-.btn-next{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border:none;border-radius:50px;padding:12px 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 15px rgba(168,85,247,0.3);transition:all 0.2s;}
-.btn-next:hover{transform:translateY(-2px);}
-.btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
-.btn-back{background:transparent;border:2px solid #E9D5FF;border-radius:50px;padding:12px 24px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
-.btn-back:hover{border-color:var(--purple);color:var(--purple);}
+/* GENERATOR SECTION */
+.gen-section{padding:3rem 1.5rem 5rem;}
+.gen-wrap{max-width:660px;margin:0 auto;}
+.gen-card{background:white;border-radius:24px;padding:2.25rem;box-shadow:0 15px 50px rgba(168,85,247,0.1);}
+.gen-head{text-align:center;margin-bottom:1.75rem;}
+.gen-head h2{font-family:'Baloo 2',cursive;font-size:1.6rem;font-weight:800;margin-bottom:0.25rem;}
+.gen-head p{font-size:13px;color:#9C8AB4;}
+.progress{display:flex;gap:6px;margin-bottom:2rem;}
+.prog-bar{height:5px;flex:1;border-radius:5px;background:#F0E8FF;transition:background 0.3s;}
+.prog-bar.active{background:linear-gradient(90deg,#FF6B9D,#A855F7);}
+
+/* STEPS */
+.step{display:none;}
+.step.show{display:block;}
+.flabel{font-size:13px;font-weight:700;color:#2D1B4E;margin-bottom:8px;display:block;}
+.fgroup{margin-bottom:1.5rem;}
+.finput{width:100%;background:#FAF5FF;border:2px solid #E9D5FF;border-radius:12px;color:#2D1B4E;font-size:15px;padding:12px 16px;font-family:'Nunito',sans-serif;outline:none;transition:border-color 0.2s;}
+.finput:focus{border-color:#A855F7;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.opt{background:#FAF5FF;border:2px solid #E9D5FF;border-radius:12px;padding:0.9rem 0.75rem;cursor:pointer;text-align:center;transition:all 0.15s;user-select:none;}
+.opt:hover{border-color:#A855F7;background:#F3E8FF;}
+.opt.on{border-color:#A855F7;background:linear-gradient(135deg,rgba(168,85,247,0.08),rgba(255,107,157,0.06));}
+.opt .oi{font-size:26px;display:block;margin-bottom:5px;}
+.opt .ol{font-size:12px;font-weight:700;color:#2D1B4E;}
+.opt.on .ol{color:#A855F7;}
+.slider-row{display:flex;align-items:center;gap:12px;}
+.slider-row input{flex:1;accent-color:#A855F7;}
+.slider-val{font-size:15px;font-weight:700;color:#A855F7;min-width:50px;}
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.75rem;padding-top:1.25rem;border-top:2px solid #F0E8FF;}
+.btn-next{background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;border:none;border-radius:50px;padding:11px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:opacity 0.2s;}
+.btn-next:disabled{opacity:0.35;cursor:not-allowed;}
+.btn-back{background:transparent;border:2px solid #E9D5FF;border-radius:50px;padding:11px 22px;font-size:14px;font-weight:600;color:#9C8AB4;cursor:pointer;font-family:'Nunito',sans-serif;}
+.btn-back:hover{border-color:#A855F7;color:#A855F7;}
+
 /* RESULT */
-.spinner-wrap{text-align:center;padding:3rem;}
-.spinner{width:48px;height:48px;border:4px solid #E9D5FF;border-top-color:var(--purple);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 1rem;}
+.loader{text-align:center;padding:3.5rem 1rem;}
+.spin{width:50px;height:50px;border:4px solid #E9D5FF;border-top-color:#A855F7;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 1.25rem;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.spin-txt{font-size:14px;color:var(--muted);font-weight:600;}
-.spin-txt span{display:block;font-size:24px;margin-bottom:0.5rem;animation:float 2s ease-in-out infinite;}
-.story-result{animation:fadeUp 0.5s ease;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-.story-header{text-align:center;margin-bottom:1.5rem;}
-.story-title{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--text);margin-bottom:0.5rem;}
-.story-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem;}
-.stag{background:#F3E8FF;color:var(--purple);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
-.story-body{background:linear-gradient(135deg,#FFF8F0,#FAF5FF);border-radius:16px;padding:1.5rem;font-size:14px;color:var(--text);line-height:1.9;font-weight:400;white-space:pre-wrap;margin-bottom:1.5rem;border:1px solid rgba(168,85,247,0.1);}
-.story-moral{background:linear-gradient(135deg,rgba(252,211,77,0.15),rgba(251,146,60,0.1));border-radius:12px;padding:1rem 1.25rem;font-size:13px;color:#92400E;font-style:italic;border-left:3px solid var(--yellow);margin-bottom:1.5rem;}
-.story-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-.btn-dl{background:linear-gradient(135deg,var(--green),#059669);color:white;border:none;border-radius:50px;padding:12px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 15px rgba(52,211,153,0.3);display:flex;align-items:center;gap:8px;}
-.btn-dl:hover{transform:translateY(-2px);}
-.btn-new{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border:none;border-radius:50px;padding:12px 28px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);box-shadow:0 4px 15px rgba(168,85,247,0.3);display:flex;align-items:center;gap:8px;}
-.btn-new:hover{transform:translateY(-2px);}
-.errbox{background:#FFF0F0;border:2px solid #FFD5D5;border-radius:12px;padding:1rem;font-size:13px;color:#DC2626;text-align:center;}
-.btn-retry{background:var(--pink);color:white;border:none;border-radius:50px;padding:8px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font-body);margin-top:0.75rem;}
+.load-msg{font-size:14px;color:#9C8AB4;font-weight:600;}
+.errbox{background:#FFF0F0;border:2px solid #FFD5D5;border-radius:12px;padding:1.25rem;color:#DC2626;font-size:14px;text-align:center;margin-top:1rem;}
+.retry-btn{background:#FF6B9D;color:white;border:none;border-radius:50px;padding:8px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:0.75rem;}
 
-/* HOW IT WORKS */
-.how{padding:6rem 2rem;position:relative;z-index:1;}
-.section-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;color:var(--text);margin-bottom:0.5rem;}
-.section-sub{font-size:15px;color:var(--muted);text-align:center;margin-bottom:3rem;}
-.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;max-width:900px;margin:0 auto;}
-.how-card{background:white;border-radius:20px;padding:1.75rem;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,0.06);}
-.how-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:20px;font-weight:800;color:white;margin:0 auto 1rem;}
-.how-card:nth-child(1) .how-num{background:linear-gradient(135deg,var(--pink),var(--orange));}
-.how-card:nth-child(2) .how-num{background:linear-gradient(135deg,var(--purple),var(--blue));}
-.how-card:nth-child(3) .how-num{background:linear-gradient(135deg,var(--green),var(--blue));}
-.how-card:nth-child(4) .how-num{background:linear-gradient(135deg,var(--yellow),var(--orange));}
-.how-card h3{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;}
-.how-card p{font-size:13px;color:var(--muted);line-height:1.6;}
+/* STORY DISPLAY */
+.story-wrap{animation:fadeup 0.5s ease;}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.story-cover{text-align:center;margin-bottom:1.75rem;}
+.story-badge{display:inline-block;background:#F3E8FF;color:#A855F7;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:0.75rem;}
+.story-title{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:#2D1B4E;margin-bottom:0.5rem;}
+.story-tags{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}
+.stag{background:#FFF0FA;color:#FF6B9D;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.chap{border-radius:14px;overflow:hidden;border:1.5px solid #F0E8FF;margin-bottom:1.25rem;}
+.chap-img{background:linear-gradient(135deg,#FFF8F0,#FAF5FF);padding:1.75rem;text-align:center;border-bottom:1.5px solid #F0E8FF;}
+.chap-emoji{font-size:60px;display:block;margin-bottom:0.5rem;}
+.chap-img-desc{font-size:12px;color:#9C8AB4;font-style:italic;}
+.chap-body{padding:1.25rem 1.5rem;}
+.chap-num{font-size:10px;font-weight:700;color:#A855F7;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px;}
+.chap-title{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;}
+.chap-text{font-size:14px;line-height:1.9;color:#3D2B5E;}
+.moral{background:linear-gradient(135deg,rgba(252,211,77,0.12),rgba(251,146,60,0.08));border-radius:12px;padding:1rem 1.25rem;font-size:13px;color:#92400E;font-style:italic;border-left:3px solid #FCD34D;margin:1.25rem 0;}
+.story-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:1rem;}
+.btn-dl{background:linear-gradient(135deg,#34D399,#059669);color:white;border:none;border-radius:50px;padding:12px 26px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;box-shadow:0 4px 15px rgba(52,211,153,0.3);}
+.btn-new{background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;border:none;border-radius:50px;padding:12px 26px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;box-shadow:0 4px 15px rgba(168,85,247,0.3);}
 
-/* THEMES */
-.themes{padding:4rem 2rem 6rem;position:relative;z-index:1;}
-.themes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;max-width:800px;margin:0 auto;}
-.theme-pill{background:white;border-radius:16px;padding:1.25rem;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.06);transition:transform 0.2s;}
-.theme-pill:hover{transform:translateY(-4px);}
-.theme-pill .ti{font-size:32px;display:block;margin-bottom:6px;}
-.theme-pill .tl{font-size:13px;font-weight:700;color:var(--text);}
-
-/* PRICING */
-.pricing{padding:6rem 2rem;background:white;position:relative;z-index:1;}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;max-width:800px;margin:3rem auto 0;}
-.pcard{border-radius:20px;padding:2rem;border:2px solid #F0E8FF;}
-.pcard.featured{background:linear-gradient(135deg,rgba(168,85,247,0.05),rgba(255,107,157,0.05));border-color:var(--purple);}
-.pcard-emoji{font-size:36px;margin-bottom:1rem;}
-.pcard-name{font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:0.25rem;}
-.pcard-price{font-family:var(--font-display);font-size:2.5rem;font-weight:800;color:var(--text);}
-.pcard-price span{font-size:15px;color:var(--muted);font-family:var(--font-body);font-weight:400;}
-.pcard-desc{font-size:13px;color:var(--muted);margin:0.5rem 0 1.25rem;line-height:1.6;}
-.pcard-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;}
-.pcard-list li{font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;font-weight:600;}
-.pcard-list li::before{content:'✓';color:var(--green);font-weight:800;}
-.pcard-btn{width:100%;padding:12px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font-body);border:none;transition:all 0.2s;}
-.pcard-btn.outline{background:transparent;border:2px solid var(--purple);color:var(--purple);}
-.pcard-btn.outline:hover{background:#F3E8FF;}
-.pcard-btn.solid{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;box-shadow:0 4px 15px rgba(168,85,247,0.3);}
-.pcard-btn.solid:hover{transform:translateY(-2px);}
-
-/* FOOTER */
-footer{padding:2.5rem 2rem;text-align:center;border-top:1px solid #F0E8FF;position:relative;z-index:1;}
-.foot-logo{font-family:var(--font-display);font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem;}
-footer p{font-size:12px;color:var(--muted);}
-
-@media(max-width:600px){
-  nav{padding:1rem;}
-  .grid2,.grid3{grid-template-columns:1fr 1fr;}
-  .hero-cards{gap:0.5rem;}
-}
-
-/* CHAPTERS */
-.story-cover-badge{display:inline-block;background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(255,107,157,0.08));color:var(--purple);font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;margin-bottom:1rem;border:1px solid rgba(168,85,247,0.2);}
-.chap-block{margin-bottom:2rem;border-radius:16px;overflow:hidden;border:1px solid rgba(168,85,247,0.1);background:white;}
-.chap-img-zone{background:linear-gradient(135deg,#FFF8F0,#FAF5FF);padding:2rem;text-align:center;border-bottom:1px solid rgba(168,85,247,0.08);}
-.chap-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:0.75rem;}
-.chap-emoji-big{font-size:64px;line-height:1;filter:drop-shadow(0 4px 8px rgba(168,85,247,0.2));}
-.chap-img-desc{font-size:12px;color:var(--muted);font-style:italic;max-width:300px;line-height:1.5;}
-.chap-content{padding:1.5rem;}
-.chap-num{font-size:10px;font-weight:700;color:var(--purple);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
-.chap-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:1rem;}
-.chap-text{font-size:14px;color:var(--text);line-height:1.9;font-weight:400;}
-
+/* HOW & PRICING */
+.section{padding:5rem 2rem;}
+.section-title{font-family:'Baloo 2',cursive;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;text-align:center;margin-bottom:0.5rem;}
+.section-sub{font-size:15px;color:#9C8AB4;text-align:center;margin-bottom:2.5rem;}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;max-width:860px;margin:0 auto;}
+.how-card{background:white;border-radius:18px;padding:1.5rem;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,0.05);}
+.how-n{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-size:18px;font-weight:800;color:white;margin:0 auto 0.9rem;}
+.n1{background:linear-gradient(135deg,#FF6B9D,#FB923C);}
+.n2{background:linear-gradient(135deg,#A855F7,#3B82F6);}
+.n3{background:linear-gradient(135deg,#34D399,#3B82F6);}
+.n4{background:linear-gradient(135deg,#FCD34D,#FB923C);}
+.how-card h3{font-family:'Baloo 2',cursive;font-size:0.95rem;font-weight:700;margin-bottom:0.35rem;}
+.how-card p{font-size:12px;color:#9C8AB4;line-height:1.6;}
+.pricing-section{padding:5rem 2rem;background:white;}
+.p-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;max-width:780px;margin:0 auto;}
+.pcard{border-radius:18px;padding:1.75rem;border:2px solid #F0E8FF;}
+.pcard.feat{border-color:#A855F7;background:linear-gradient(135deg,rgba(168,85,247,0.04),rgba(255,107,157,0.03));}
+.pcard-icon{font-size:32px;margin-bottom:0.75rem;}
+.pcard-name{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;margin-bottom:0.2rem;}
+.pcard-price{font-family:'Baloo 2',cursive;font-size:2.2rem;font-weight:800;}
+.pcard-price small{font-size:13px;color:#9C8AB4;font-family:'Nunito',sans-serif;font-weight:400;}
+.pcard-desc{font-size:12px;color:#9C8AB4;margin:0.5rem 0 1.25rem;line-height:1.6;}
+.pcard ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:1.5rem;}
+.pcard ul li{font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px;}
+.pcard ul li::before{content:"✓";color:#34D399;font-weight:800;}
+.pbtn{width:100%;padding:11px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;border:none;transition:all 0.2s;}
+.pbtn.outline{background:transparent;border:2px solid #A855F7;color:#A855F7;}
+.pbtn.solid{background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;box-shadow:0 4px 15px rgba(168,85,247,0.25);}
+footer{padding:2rem;text-align:center;border-top:1px solid #F0E8FF;}
+.foot-logo{font-family:'Baloo 2',cursive;font-size:18px;font-weight:800;background:linear-gradient(135deg,#FF6B9D,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.4rem;}
+footer p{font-size:12px;color:#9C8AB4;}
+@media(max-width:500px){.g3{grid-template-columns:1fr 1fr;}.g2{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
 
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
-
-<nav id="navbar">
-  <div class="logo">Storia <span>✨</span></div>
-  <button class="nav-cta" onclick="scrollToGen()">Créer une histoire</button>
+<nav id="nav">
+  <div class="logo">Storia ✨</div>
+  <button class="nav-btn" onclick="document.getElementById('gen').scrollIntoView({behavior:'smooth'})">Créer une histoire</button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <span class="hero-emoji">📖</span>
+  <span class="hero-icon">📖</span>
   <h1>Des histoires <span class="grad">magiques</span><br/>rien que pour eux</h1>
-  <p class="hero-sub">Entrez le prénom de votre enfant, choisissez un univers — l'IA crée une histoire unique et personnalisée en quelques secondes.</p>
-  <button class="hero-btn" onclick="scrollToGen()">✨ Créer mon histoire gratuite</button>
-  <p class="hero-note"><span class="stars">★★★★★</span> &nbsp;Plus de 5 000 histoires créées cette semaine</p>
-  <div class="hero-cards">
-    <div class="hcard"><span>🧒</span> Personnalisée avec le prénom</div>
-    <div class="hcard"><span>⚡</span> Générée en 15 secondes</div>
-    <div class="hcard"><span>📄</span> Téléchargeable en PDF</div>
-    <div class="hcard"><span>🌍</span> 100% en français</div>
+  <p>Entrez le prénom de votre enfant, choisissez un univers — l'IA crée une histoire unique et personnalisée en quelques secondes.</p>
+  <button class="hero-cta" onclick="document.getElementById('gen').scrollIntoView({behavior:'smooth'})">✨ Créer mon histoire gratuite</button>
+  <div class="badges">
+    <div class="badge">👶 Avec le prénom de l'enfant</div>
+    <div class="badge">⚡ En 30 secondes</div>
+    <div class="badge">📄 PDF téléchargeable</div>
   </div>
 </section>
 
-<!-- GENERATOR -->
-<section class="generator" id="generator">
-  <div class="gen-inner">
+<section class="gen-section" id="gen">
+  <div class="gen-wrap">
     <div class="gen-card">
-      <div class="gen-title">✨ Créer une histoire</div>
-      <div class="gen-sub">3 étapes · 30 secondes · magie garantie</div>
-      <div class="steps-bar">
-        <div class="sbar on" id="sb0"></div>
-        <div class="sbar" id="sb1"></div>
-        <div class="sbar" id="sb2"></div>
-        <div class="sbar" id="sb3"></div>
+      <div class="gen-head">
+        <h2>✨ Créer une histoire</h2>
+        <p>3 étapes · magie garantie</p>
+      </div>
+      <div class="progress">
+        <div class="prog-bar active" id="pb0"></div>
+        <div class="prog-bar" id="pb1"></div>
+        <div class="prog-bar" id="pb2"></div>
+        <div class="prog-bar" id="pb3"></div>
       </div>
 
-      <!-- Step 0 : Enfant -->
-      <div class="step active" id="st0">
-        <div class="field-group">
-          <div class="field-label"><span class="fl-icon">👶</span> Prénom de l'enfant</div>
-          <input class="input-styled" type="text" id="f-prenom" placeholder="Ex : Emma, Lucas, Léa..." oninput="chk0()"/>
+      <!-- STEP 0 -->
+      <div class="step show" id="s0">
+        <div class="fgroup">
+          <label class="flabel">👶 Prénom de l'enfant</label>
+          <input class="finput" type="text" id="inp-prenom" placeholder="Ex : Emma, Lucas, Léa..." oninput="checkS0()"/>
         </div>
-        <div class="field-group">
-          <div class="field-label"><span class="fl-icon">🎂</span> Âge</div>
-          <div class="slider-wrap">
-            <input type="range" min="2" max="12" value="5" step="1" id="f-age" oninput="document.getElementById('ageval').textContent=this.value+' ans'"/>
-            <span class="slider-val" id="ageval">5 ans</span>
+        <div class="fgroup">
+          <label class="flabel">🎂 Âge</label>
+          <div class="slider-row">
+            <input type="range" min="2" max="12" value="5" id="inp-age" oninput="document.getElementById('age-v').textContent=this.value+' ans'"/>
+            <span class="slider-val" id="age-v">5 ans</span>
           </div>
         </div>
-        <div class="field-group">
-          <div class="field-label"><span class="fl-icon">👫</span> C'est un garçon ou une fille ?</div>
-          <div class="grid2">
-            <div class="choice" data-v="garçon" onclick="pick(this,'genre')"><span class="ci">👦</span><div class="cl">Garçon</div></div>
-            <div class="choice" data-v="fille" onclick="pick(this,'genre')"><span class="ci">👧</span><div class="cl">Fille</div></div>
+        <div class="fgroup">
+          <label class="flabel">👫 Garçon ou fille ?</label>
+          <div class="g2" id="genre-grid">
+            <div class="opt" id="opt-garcon" onclick="selectOpt('genre','garçon','genre-grid','opt-garcon')">
+              <span class="oi">👦</span><div class="ol">Garçon</div>
+            </div>
+            <div class="opt" id="opt-fille" onclick="selectOpt('genre','fille','genre-grid','opt-fille')">
+              <span class="oi">👧</span><div class="ol">Fille</div>
+            </div>
           </div>
         </div>
-        <div class="gen-nav"><span></span><button class="btn-next" id="n0" onclick="gostep(1)" disabled>Suivant →</button></div>
-      </div>
-
-      <!-- Step 1 : Univers -->
-      <div class="step" id="st1">
-        <div class="field-group">
-          <div class="field-label"><span class="fl-icon">🌍</span> Choisis l'univers de l'histoire</div>
-          <div class="grid3">
-            <div class="choice" data-v="magique et féerique avec des fées, licornes et châteaux enchantés" onclick="pick(this,'univers')"><span class="ci">🧚</span><div class="cl">Fées & Magie</div></div>
-            <div class="choice" data-v="aventure dans la jungle avec des animaux parlants" onclick="pick(this,'univers')"><span class="ci">🦁</span><div class="cl">Jungle & Animaux</div></div>
-            <div class="choice" data-v="espace et planètes avec des astronautes et aliens gentils" onclick="pick(this,'univers')"><span class="ci">🚀</span><div class="cl">Espace</div></div>
-            <div class="choice" data-v="pirates et trésors cachés sur des îles mystérieuses" onclick="pick(this,'univers')"><span class="ci">🏴‍☠️</span><div class="cl">Pirates</div></div>
-            <div class="choice" data-v="dinosaures et préhistoire" onclick="pick(this,'univers')"><span class="ci">🦕</span><div class="cl">Dinosaures</div></div>
-            <div class="choice" data-v="super-héros avec des pouvoirs extraordinaires" onclick="pick(this,'univers')"><span class="ci">🦸</span><div class="cl">Super-héros</div></div>
-            <div class="choice" data-v="sous la mer avec des sirènes et des créatures marines" onclick="pick(this,'univers')"><span class="ci">🧜</span><div class="cl">Fond marin</div></div>
-            <div class="choice" data-v="forêt enchantée avec des gnomes et des elfes" onclick="pick(this,'univers')"><span class="ci">🌲</span><div class="cl">Forêt magique</div></div>
-            <div class="choice" data-v="chevaliers, dragons et royaumes médiévaux" onclick="pick(this,'univers')"><span class="ci">🐉</span><div class="cl">Dragons</div></div>
-          </div>
-        </div>
-        <div class="gen-nav">
-          <button class="btn-back" onclick="gostep(0)">← Retour</button>
-          <button class="btn-next" id="n1" onclick="gostep(2)" disabled>Suivant →</button>
+        <div class="step-nav">
+          <span></span>
+          <button class="btn-next" id="btn-s0" onclick="goStep(1)" disabled>Suivant →</button>
         </div>
       </div>
 
-      <!-- Step 2 : Valeur & longueur -->
-      <div class="step" id="st2">
-        <div class="field-group">
-          <div class="field-label"><span class="fl-icon">💡</span> La leçon de l'histoire (optionnel)</div>
-          <div class="grid2">
-            <div class="choice" data-v="le courage" onclick="pick(this,'valeur')"><span class="ci">💪</span><div class="cl">Le courage</div></div>
-            <div class="choice" data-v="l'amitié" onclick="pick(this,'valeur')"><span class="ci">🤝</span><div class="cl">L'amitié</div></div>
-            <div class="choice" data-v="la gentillesse" onclick="pick(this,'valeur')"><span class="ci">💝</span><div class="cl">La gentillesse</div></div>
-            <div class="choice" data-v="la persévérance" onclick="pick(this,'valeur')"><span class="ci">🌟</span><div class="cl">La persévérance</div></div>
+      <!-- STEP 1 -->
+      <div class="step" id="s1">
+        <div class="fgroup">
+          <label class="flabel">🌍 Univers de l'histoire</label>
+          <div class="g3" id="univers-grid">
+            <div class="opt" onclick="selectOpt('univers','magique et féerique avec fées et licornes','univers-grid',this)"><span class="oi">🧚</span><div class="ol">Fées & Magie</div></div>
+            <div class="opt" onclick="selectOpt('univers','aventure jungle avec animaux parlants','univers-grid',this)"><span class="oi">🦁</span><div class="ol">Jungle</div></div>
+            <div class="opt" onclick="selectOpt('univers','espace et planètes avec astronautes','univers-grid',this)"><span class="oi">🚀</span><div class="ol">Espace</div></div>
+            <div class="opt" onclick="selectOpt('univers','pirates et trésors sur des îles','univers-grid',this)"><span class="oi">🏴‍☠️</span><div class="ol">Pirates</div></div>
+            <div class="opt" onclick="selectOpt('univers','dinosaures et préhistoire','univers-grid',this)"><span class="oi">🦕</span><div class="ol">Dinosaures</div></div>
+            <div class="opt" onclick="selectOpt('univers','super-héros avec pouvoirs extraordinaires','univers-grid',this)"><span class="oi">🦸</span><div class="ol">Super-héros</div></div>
+            <div class="opt" onclick="selectOpt('univers','fond marin avec sirènes et poissons','univers-grid',this)"><span class="oi">🧜</span><div class="ol">Fond marin</div></div>
+            <div class="opt" onclick="selectOpt('univers','forêt enchantée avec gnomes et elfes','univers-grid',this)"><span class="oi">🌲</span><div class="ol">Forêt magique</div></div>
+            <div class="opt" onclick="selectOpt('univers','chevaliers dragons et royaumes médiévaux','univers-grid',this)"><span class="oi">🐉</span><div class="ol">Dragons</div></div>
           </div>
         </div>
-        <div class="field-group">
-          <div class="field-label"><span class="fl-icon">📏</span> Longueur de l'histoire</div>
-          <div class="grid3">
-            <div class="choice" data-v="courte" onclick="pick(this,'longueur')"><span class="ci">⚡</span><div class="cl">Courte<br/><small style="font-size:10px;color:#9C8AB4">~8 pages</small></div></div>
-            <div class="choice sel" data-v="moyenne" onclick="pick(this,'longueur')"><span class="ci">📖</span><div class="cl">Moyenne<br/><small style="font-size:10px;color:#9C8AB4">~15 pages</small></div></div>
-            <div class="choice" data-v="longue" onclick="pick(this,'longueur')"><span class="ci">📚</span><div class="cl">Longue<br/><small style="font-size:10px;color:#9C8AB4">~25 pages</small></div></div>
-          </div>
-        </div>
-        <div class="gen-nav">
-          <button class="btn-back" onclick="gostep(1)">← Retour</button>
-          <button class="btn-next" id="n2" onclick="gostep(3)">✨ Créer l'histoire !</button>
+        <div class="step-nav">
+          <button class="btn-back" onclick="goStep(0)">← Retour</button>
+          <button class="btn-next" id="btn-s1" onclick="goStep(2)" disabled>Suivant →</button>
         </div>
       </div>
 
-      <!-- Step 3 : Résultat -->
-      <div class="step" id="st3">
+      <!-- STEP 2 -->
+      <div class="step" id="s2">
+        <div class="fgroup">
+          <label class="flabel">💡 La leçon de l'histoire</label>
+          <div class="g2" id="valeur-grid">
+            <div class="opt" onclick="selectOpt('valeur','le courage','valeur-grid',this)"><span class="oi">💪</span><div class="ol">Le courage</div></div>
+            <div class="opt" onclick="selectOpt('valeur','l amitié','valeur-grid',this)"><span class="oi">🤝</span><div class="ol">L'amitié</div></div>
+            <div class="opt" onclick="selectOpt('valeur','la gentillesse','valeur-grid',this)"><span class="oi">💝</span><div class="ol">La gentillesse</div></div>
+            <div class="opt" onclick="selectOpt('valeur','la persévérance','valeur-grid',this)"><span class="oi">🌟</span><div class="ol">La persévérance</div></div>
+          </div>
+        </div>
+        <div class="fgroup">
+          <label class="flabel">📏 Longueur</label>
+          <div class="g3" id="longueur-grid">
+            <div class="opt" onclick="selectOpt('longueur','courte','longueur-grid',this)"><span class="oi">⚡</span><div class="ol">Courte<br/><small style="font-size:10px;color:#9C8AB4">8 chapitres</small></div></div>
+            <div class="opt on" id="opt-moyenne" onclick="selectOpt('longueur','moyenne','longueur-grid',this)"><span class="oi">📖</span><div class="ol">Moyenne<br/><small style="font-size:10px;color:#9C8AB4">15 chapitres</small></div></div>
+            <div class="opt" onclick="selectOpt('longueur','longue','longueur-grid',this)"><span class="oi">📚</span><div class="ol">Longue<br/><small style="font-size:10px;color:#9C8AB4">25 chapitres</small></div></div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="goStep(1)">← Retour</button>
+          <button class="btn-next" onclick="goStep(3)">✨ Créer l'histoire !</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step" id="s3">
         <div id="result-zone">
-          <div class="spinner-wrap">
-            <div class="spinner"></div>
-            <div class="spin-txt"><span>✨</span>Création de l'histoire en cours...</div>
+          <div class="loader">
+            <div class="spin"></div>
+            <div class="load-msg">✨ Création de l'histoire en cours...<br/>Cela peut prendre 30 secondes.</div>
           </div>
         </div>
       </div>
@@ -298,76 +248,45 @@ footer p{font-size:12px;color:var(--muted);}
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how">
+<section class="section">
   <div class="section-title">Comment ça marche ? 🪄</div>
   <div class="section-sub">Simple comme bonjour</div>
   <div class="how-grid">
-    <div class="how-card"><div class="how-num">1</div><h3>Décris l'enfant</h3><p>Prénom, âge, et si c'est un garçon ou une fille.</p></div>
-    <div class="how-card"><div class="how-num">2</div><h3>Choisis l'univers</h3><p>Fées, espace, pirates, dinosaures — 9 univers disponibles.</p></div>
-    <div class="how-card"><div class="how-num">3</div><h3>L'IA écrit</h3><p>Une histoire unique avec le prénom de l'enfant comme héros.</p></div>
-    <div class="how-card"><div class="how-num">4</div><h3>Télécharge & lis</h3><p>PDF prêt en quelques secondes, à lire au moment du coucher.</p></div>
-  </div>
-</section>
-
-<!-- THEMES -->
-<section class="themes">
-  <div class="section-title">9 univers magiques 🌈</div>
-  <div class="section-sub">Un nouveau monde à chaque histoire</div>
-  <div class="themes-grid">
-    <div class="theme-pill"><span class="ti">🧚</span><div class="tl">Fées & Magie</div></div>
-    <div class="theme-pill"><span class="ti">🦁</span><div class="tl">Jungle</div></div>
-    <div class="theme-pill"><span class="ti">🚀</span><div class="tl">Espace</div></div>
-    <div class="theme-pill"><span class="ti">🏴‍☠️</span><div class="tl">Pirates</div></div>
-    <div class="theme-pill"><span class="ti">🦕</span><div class="tl">Dinosaures</div></div>
-    <div class="theme-pill"><span class="ti">🦸</span><div class="tl">Super-héros</div></div>
-    <div class="theme-pill"><span class="ti">🧜</span><div class="tl">Fond marin</div></div>
-    <div class="theme-pill"><span class="ti">🌲</span><div class="tl">Forêt magique</div></div>
-    <div class="theme-pill"><span class="ti">🐉</span><div class="tl">Dragons</div></div>
+    <div class="how-card"><div class="how-n n1">1</div><h3>Décris l'enfant</h3><p>Prénom, âge, garçon ou fille.</p></div>
+    <div class="how-card"><div class="how-n n2">2</div><h3>Choisis l'univers</h3><p>9 univers disponibles.</p></div>
+    <div class="how-card"><div class="how-n n3">3</div><h3>L'IA écrit</h3><p>Une histoire unique avec le prénom comme héros.</p></div>
+    <div class="how-card"><div class="how-n n4">4</div><h3>Télécharge & lis</h3><p>PDF prêt à lire au coucher.</p></div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section class="pricing" id="pricing">
+<section class="pricing-section" id="pricing">
   <div class="section-title">Tarifs 💎</div>
   <div class="section-sub">Simple et transparent</div>
-  <div class="pricing-grid">
+  <div class="p-grid">
     <div class="pcard">
-      <div class="pcard-emoji">🎁</div>
+      <div class="pcard-icon">🎁</div>
       <div class="pcard-name">Découverte</div>
-      <div class="pcard-price">0€ <span>pour toujours</span></div>
+      <div class="pcard-price">0€ <small>/ toujours</small></div>
       <div class="pcard-desc">Pour tester et offrir une première histoire.</div>
-      <ul class="pcard-list">
-        <li>1 histoire gratuite par mois</li>
-        <li>Tous les univers</li>
-        <li>Lecture en ligne</li>
-      </ul>
-      <button class="pcard-btn outline" onclick="scrollToGen()">Commencer</button>
+      <ul><li>1 histoire gratuite / mois</li><li>Tous les univers</li><li>Lecture en ligne</li></ul>
+      <button class="pbtn outline" onclick="document.getElementById('gen').scrollIntoView({behavior:'smooth'})">Commencer</button>
     </div>
-    <div class="pcard featured">
-      <div class="pcard-emoji">⭐</div>
+    <div class="pcard feat">
+      <div class="pcard-icon">⭐</div>
       <div class="pcard-name">Histoire unique</div>
-      <div class="pcard-price">3,99€ <span>/ histoire</span></div>
+      <div class="pcard-price">3,99€ <small>/ histoire</small></div>
       <div class="pcard-desc">Parfait pour un cadeau ou une occasion spéciale.</div>
-      <ul class="pcard-list">
-        <li>1 histoire complète</li>
-        <li>Téléchargement PDF</li>
-        <li>Personnalisation complète</li>
-        <li>Valable à vie</li>
-      </ul>
-      <button class="pcard-btn solid" onclick="scrollToGen()">Créer mon histoire</button>
+      <ul><li>1 histoire complète</li><li>Téléchargement PDF</li><li>Personnalisation complète</li></ul>
+      <button class="pbtn solid" onclick="document.getElementById('gen').scrollIntoView({behavior:'smooth'})">Créer mon histoire</button>
     </div>
     <div class="pcard">
-      <div class="pcard-emoji">🌟</div>
+      <div class="pcard-icon">🌟</div>
       <div class="pcard-name">Abonnement</div>
-      <div class="pcard-price">7,99€ <span>/ mois</span></div>
-      <div class="pcard-desc">Pour les familles qui veulent une nouvelle histoire chaque soir.</div>
-      <ul class="pcard-list">
-        <li>Histoires illimitées</li>
-        <li>Tous les PDF inclus</li>
-        <li>Plusieurs enfants</li>
-        <li>Nouveaux univers chaque mois</li>
-      </ul>
-      <button class="pcard-btn outline" onclick="scrollToGen()">S'abonner</button>
+      <div class="pcard-price">7,99€ <small>/ mois</small></div>
+      <div class="pcard-desc">Pour une nouvelle histoire chaque soir.</div>
+      <ul><li>Histoires illimitées</li><li>Tous les PDF inclus</li><li>Plusieurs enfants</li></ul>
+      <button class="pbtn outline" onclick="document.getElementById('gen').scrollIntoView({behavior:'smooth'})">S'abonner</button>
     </div>
   </div>
 </section>
@@ -378,153 +297,150 @@ footer p{font-size:12px;color:var(--muted);}
 </footer>
 
 <script>
-const st = { genre:'', univers:'', valeur:'', longueur:'moyenne' };
+// State
+var S = { genre: '', univers: '', valeur: 'la gentillesse', longueur: 'moyenne' };
+var story = null;
+var storyPrenom = '';
 
-window.addEventListener('scroll', function() {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-});
+// Nav scroll
+window.onscroll = function() {
+  document.getElementById('nav').className = window.scrollY > 40 ? 'scrolled' : '';
+};
 
-function scrollToGen() {
-  document.getElementById('generator').scrollIntoView({behavior:'smooth'});
+// Select option — works with both ID string and element reference
+function selectOpt(key, val, gridId, elOrId) {
+  var grid = document.getElementById(gridId);
+  grid.querySelectorAll('.opt').forEach(function(o) { o.classList.remove('on'); });
+  var el = (typeof elOrId === 'string') ? document.getElementById(elOrId) : elOrId;
+  el.classList.add('on');
+  S[key] = val;
+  if (key === 'genre') checkS0();
+  if (key === 'univers') document.getElementById('btn-s1').disabled = false;
 }
 
-function pick(el, key) {
-  var wrap = el.closest('.grid2, .grid3');
-  if (wrap) wrap.querySelectorAll('.choice').forEach(function(c) { c.classList.remove('sel'); });
-  el.classList.add('sel');
-  st[key] = el.dataset.v;
-  if (key === 'genre') chk0();
-  if (key === 'univers') document.getElementById('n1').disabled = false;
+function checkS0() {
+  var ok = document.getElementById('inp-prenom').value.trim().length > 0 && S.genre !== '';
+  document.getElementById('btn-s0').disabled = !ok;
 }
 
-function chk0() {
-  var ok = document.getElementById('f-prenom').value.trim() && st.genre;
-  document.getElementById('n0').disabled = !ok;
-}
-
-function gostep(step) {
-  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
-  document.getElementById('st' + step).classList.add('active');
-  ['sb0','sb1','sb2','sb3'].forEach(function(id, i) {
-    document.getElementById(id).classList.toggle('on', i <= step);
-  });
-  document.getElementById('generator').scrollIntoView({behavior:'smooth', block:'start'});
-  if (step === 3) generate();
-}
-
-async function generate() {
-  var prenom = document.getElementById('f-prenom').value.trim();
-  var age = document.getElementById('f-age').value;
-  var valeur = st.valeur || 'la gentillesse';
-
-  var longueurMap = {
-    'courte': { chapitres: 8, mots: 150 },
-    'moyenne': { chapitres: 15, mots: 200 },
-    'longue': { chapitres: 25, mots: 250 }
-  };
-  var cfg = longueurMap[st.longueur] || longueurMap['moyenne'];
-
-  var prompt = 'Tu es un auteur de livres pour enfants. Ecris une histoire LONGUE et RICHE pour ' + prenom + ', ' + st.genre + ' de ' + age + ' ans. Univers: ' + st.univers + '. Valeur: ' + valeur + '. IMPORTANT: Genere exactement ' + cfg.chapitres + ' chapitres. Chaque chapitre doit faire au moins ' + cfg.mots + ' mots. Reponds UNIQUEMENT avec un JSON brut sans markdown. Format: {"titre":"string","morale":"string","tags":["s","s","s"],"chapitres":[{"numero":1,"titre":"string","emoji":"string","texte":"string long","description_image":"courte description visuelle en 1 phrase"}]} Le prenom ' + prenom + ' est le heros. JSON uniquement, rien dautre.';
-
-  document.getElementById('result-zone').innerHTML = '<div class="spinner-wrap"><div class="spinner"></div><div class="spin-txt"><span>✨</span>Creation de l'histoire en cours... Cela peut prendre 30 secondes.</div></div>';
-
-  try {
-    var res = await fetch('/api/chat', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
-        max_tokens: 8000,
-        messages: [{role: 'user', content: prompt}]
-      })
-    });
-    var data = await res.json();
-    if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
-    var raw = (data.content && data.content.map(function(b) { return b.text || ''; }).join('') || '').trim();
-    if (!raw) throw new Error('Reponse vide');
-    var story;
-    try { story = JSON.parse(raw); }
-    catch(e1) {
-      var m = raw.match(/\{[\s\S]*\}/);
-      if (!m) throw new Error('Format inattendu: ' + raw.slice(0,100));
-      story = JSON.parse(m[0]);
-    }
-    renderStory(story, prenom);
-  } catch(e) {
-    document.getElementById('result-zone').innerHTML =
-      '<div class="errbox">😕 ' + e.message + '<br/><button class="btn-retry" onclick="generate()">Reessayer ✨</button></div>';
+function goStep(n) {
+  for (var i = 0; i < 4; i++) {
+    document.getElementById('s' + i).className = 'step' + (i === n ? ' show' : '');
+    document.getElementById('pb' + i).className = 'prog-bar' + (i <= n ? ' active' : '');
   }
+  document.getElementById('gen').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (n === 3) createStory();
 }
 
-function renderStory(s, prenom) {
-  window._currentStory = s;
-  window._currentPrenom = prenom;
-  var tags = (s.tags || []).map(function(t) { return '<span class="stag">' + t + '</span>'; }).join('');
-  var chapitres = s.chapitres || [];
+function createStory() {
+  var prenom = document.getElementById('inp-prenom').value.trim();
+  var age = document.getElementById('inp-age').value;
+  storyPrenom = prenom;
 
-  var chapHtml = '';
-  chapitres.forEach(function(ch, i) {
-    var emoji = ch.emoji || '✨';
-    var imgDesc = ch.description_image || '';
-    chapHtml += '<div class="chap-block">' +
-      '<div class="chap-img-zone"><div class="chap-img-placeholder">' +
-        '<span class="chap-emoji-big">' + emoji + '</span>' +
-        '<div class="chap-img-desc">' + imgDesc + '</div>' +
-      '</div></div>' +
-      '<div class="chap-content">' +
-        '<div class="chap-num">Chapitre ' + (i+1) + '</div>' +
-        '<div class="chap-title">' + emoji + ' ' + (ch.titre || '') + '</div>' +
-        '<div class="chap-text">' + (ch.texte || '').replace(/
-/g, '<br/>') + '</div>' +
-      '</div></div>';
+  var chapCount = S.longueur === 'courte' ? 8 : (S.longueur === 'longue' ? 25 : 15);
+  var wordsPerChap = S.longueur === 'courte' ? 150 : (S.longueur === 'longue' ? 250 : 200);
+
+  document.getElementById('result-zone').innerHTML =
+    '<div class="loader"><div class="spin"></div><div class="load-msg">✨ Création en cours...<br/>Cela peut prendre 30 secondes.</div></div>';
+
+  var prompt = 'Tu es un auteur de livres pour enfants. ' +
+    'Ecris une histoire pour ' + prenom + ' (' + S.genre + ', ' + age + ' ans). ' +
+    'Univers: ' + S.univers + '. Valeur transmise: ' + S.valeur + '. ' +
+    'Genere EXACTEMENT ' + chapCount + ' chapitres de ' + wordsPerChap + ' mots chacun minimum. ' +
+    prenom + ' est le heros principal. ' +
+    'Reponds UNIQUEMENT avec du JSON brut valide, sans markdown, sans backticks, sans texte avant ou apres. ' +
+    'Structure JSON exacte: ' +
+    '{"titre":"string","morale":"string","tags":["mot1","mot2","mot3"],"chapitres":[{"numero":1,"titre":"string","emoji":"string","texte":"string","image":"description visuelle courte"}]}';
+
+  fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-5',
+      max_tokens: 8000,
+      messages: [{ role: 'user', content: prompt }]
+    })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data.error) throw new Error(data.error.message || 'Erreur API');
+    var raw = '';
+    if (data.content) {
+      data.content.forEach(function(b) { if (b.text) raw += b.text; });
+    }
+    raw = raw.trim();
+    if (!raw) throw new Error('Réponse vide');
+    var parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch(e) {
+      var match = raw.match(/\{[\s\S]*\}/);
+      if (!match) throw new Error('JSON introuvable');
+      parsed = JSON.parse(match[0]);
+    }
+    story = parsed;
+    showStory(parsed, prenom);
+  })
+  .catch(function(err) {
+    document.getElementById('result-zone').innerHTML =
+      '<div class="errbox">😕 ' + err.message +
+      '<br/><button class="retry-btn" onclick="createStory()">Réessayer ✨</button></div>';
   });
+}
 
-  var html = '<div class="story-result">' +
-    '<div class="story-header">' +
-      '<div class="story-cover-badge">' + chapitres.length + ' chapitres · Histoire pour ' + prenom + '</div>' +
-      '<div class="story-title">📖 ' + (s.titre || 'Histoire de ' + prenom) + '</div>' +
-      '<div class="story-tags">' + tags + '</div>' +
-    '</div>' +
-    chapHtml +
-    (s.morale ? '<div class="story-moral">💡 ' + s.morale + '</div>' : '') +
-    '<div class="story-actions">' +
-      '<button class="btn-dl" onclick="downloadPDF()">📄 Telecharger le livre PDF</button>' +
-      '<button class="btn-new" onclick="gostep(0);resetState()">✨ Nouvelle histoire</button>' +
-    '</div></div>';
+function showStory(s, prenom) {
+  var tags = (s.tags || []).map(function(t) { return '<span class="stag">' + t + '</span>'; }).join('');
+  var chaps = s.chapitres || [];
+  var html = '<div class="story-wrap">';
+  html += '<div class="story-cover">';
+  html += '<div class="story-badge">' + chaps.length + ' chapitres · Pour ' + prenom + '</div>';
+  html += '<div class="story-title">📖 ' + (s.titre || 'Histoire de ' + prenom) + '</div>';
+  html += '<div class="story-tags">' + tags + '</div>';
+  html += '</div>';
+  chaps.forEach(function(ch, i) {
+    html += '<div class="chap">';
+    html += '<div class="chap-img"><span class="chap-emoji">' + (ch.emoji || '✨') + '</span>';
+    if (ch.image) html += '<div class="chap-img-desc">' + ch.image + '</div>';
+    html += '</div>';
+    html += '<div class="chap-body">';
+    html += '<div class="chap-num">Chapitre ' + (i + 1) + '</div>';
+    html += '<div class="chap-title">' + (ch.titre || '') + '</div>';
+    html += '<div class="chap-text">' + (ch.texte || '').replace(/\n/g, '<br/>') + '</div>';
+    html += '</div></div>';
+  });
+  if (s.morale) html += '<div class="moral">💡 ' + s.morale + '</div>';
+  html += '<div class="story-actions">';
+  html += '<button class="btn-dl" onclick="dlStory()">📄 Télécharger PDF</button>';
+  html += '<button class="btn-new" onclick="restart()">✨ Nouvelle histoire</button>';
+  html += '</div></div>';
   document.getElementById('result-zone').innerHTML = html;
 }
 
-function resetState() {
-  st.genre = ''; st.univers = ''; st.valeur = ''; st.longueur = 'moyenne';
-  document.querySelectorAll('.choice').forEach(function(c) { c.classList.remove('sel'); });
-  document.getElementById('f-prenom').value = '';
-  document.getElementById('n0').disabled = true;
-  document.getElementById('n1').disabled = true;
+function restart() {
+  S = { genre: '', univers: '', valeur: 'la gentillesse', longueur: 'moyenne' };
+  document.getElementById('inp-prenom').value = '';
+  document.getElementById('btn-s0').disabled = true;
+  document.getElementById('btn-s1').disabled = true;
+  document.querySelectorAll('.opt').forEach(function(o) { o.classList.remove('on'); });
+  document.getElementById('opt-moyenne').classList.add('on');
+  goStep(0);
 }
 
-function downloadPDF() {
-  var s = window._currentStory;
-  var prenom = window._currentPrenom || '';
-  if (!s) return;
-  var sep = '══════════════════════════════════════════════════';
-  var line = '──────────────────────────────────────────────────';
-  var txt = 'STORIA ✨\n' + sep + '\n\n';
-  txt += (s.titre || '') + '\n';
-  txt += 'Une histoire pour ' + prenom + '\n';
-  txt += sep + '\n\n';
-  (s.chapitres || []).forEach(function(ch, i) {
-    txt += 'CHAPITRE ' + (i+1) + ' — ' + (ch.titre || '') + '\n';
-    txt += line + '\n';
-    if (ch.description_image) txt += '[🎨 ' + ch.description_image + ']\n\n';
-    txt += (ch.texte || '') + '\n\n';
-    txt += line + '\n\n';
+function dlStory() {
+  if (!story) return;
+  var lines = ['STORIA ✨', '='.repeat(50), '', story.titre || '', 'Histoire pour ' + storyPrenom, '='.repeat(50), ''];
+  (story.chapitres || []).forEach(function(ch, i) {
+    lines.push('CHAPITRE ' + (i+1) + ' — ' + (ch.titre || ''));
+    lines.push('-'.repeat(40));
+    if (ch.image) lines.push('[Image: ' + ch.image + ']', '');
+    lines.push(ch.texte || '', '', '-'.repeat(40), '');
   });
-  if (s.morale) txt += '\n💡 La morale : ' + s.morale + '\n';
-  txt += '\n' + sep + '\nCree avec Storia — histoires magiques pour enfants';
-  var blob = new Blob([txt], {type: 'text/plain;charset=utf-8'});
+  if (story.morale) lines.push('', 'La morale: ' + story.morale);
+  lines.push('', '='.repeat(50), 'Créé avec Storia — storia.vercel.app');
+  var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'storia-' + prenom.toLowerCase() + '.txt';
+  a.download = 'storia-' + storyPrenom.toLowerCase() + '.txt';
   a.click();
 }
 </script>
