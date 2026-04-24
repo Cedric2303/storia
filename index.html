@@ -159,6 +159,19 @@ footer p{font-size:12px;color:var(--muted);}
   .grid2,.grid3{grid-template-columns:1fr 1fr;}
   .hero-cards{gap:0.5rem;}
 }
+
+/* CHAPTERS */
+.story-cover-badge{display:inline-block;background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(255,107,157,0.08));color:var(--purple);font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;margin-bottom:1rem;border:1px solid rgba(168,85,247,0.2);}
+.chap-block{margin-bottom:2rem;border-radius:16px;overflow:hidden;border:1px solid rgba(168,85,247,0.1);background:white;}
+.chap-img-zone{background:linear-gradient(135deg,#FFF8F0,#FAF5FF);padding:2rem;text-align:center;border-bottom:1px solid rgba(168,85,247,0.08);}
+.chap-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:0.75rem;}
+.chap-emoji-big{font-size:64px;line-height:1;filter:drop-shadow(0 4px 8px rgba(168,85,247,0.2));}
+.chap-img-desc{font-size:12px;color:var(--muted);font-style:italic;max-width:300px;line-height:1.5;}
+.chap-content{padding:1.5rem;}
+.chap-num{font-size:10px;font-weight:700;color:var(--purple);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
+.chap-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:1rem;}
+.chap-text{font-size:14px;color:var(--text);line-height:1.9;font-weight:400;}
+
 </style>
 </head>
 <body>
@@ -259,9 +272,9 @@ footer p{font-size:12px;color:var(--muted);}
         <div class="field-group">
           <div class="field-label"><span class="fl-icon">📏</span> Longueur de l'histoire</div>
           <div class="grid3">
-            <div class="choice" data-v="courte (3 paragraphes)" onclick="pick(this,'longueur')"><span class="ci">⚡</span><div class="cl">Courte</div></div>
-            <div class="choice sel" data-v="moyenne (5 paragraphes)" onclick="pick(this,'longueur')"><span class="ci">📖</span><div class="cl">Moyenne</div></div>
-            <div class="choice" data-v="longue (7 paragraphes)" onclick="pick(this,'longueur')"><span class="ci">📚</span><div class="cl">Longue</div></div>
+            <div class="choice" data-v="courte" onclick="pick(this,'longueur')"><span class="ci">⚡</span><div class="cl">Courte<br/><small style="font-size:10px;color:#9C8AB4">~8 pages</small></div></div>
+            <div class="choice sel" data-v="moyenne" onclick="pick(this,'longueur')"><span class="ci">📖</span><div class="cl">Moyenne<br/><small style="font-size:10px;color:#9C8AB4">~15 pages</small></div></div>
+            <div class="choice" data-v="longue" onclick="pick(this,'longueur')"><span class="ci">📚</span><div class="cl">Longue<br/><small style="font-size:10px;color:#9C8AB4">~25 pages</small></div></div>
           </div>
         </div>
         <div class="gen-nav">
@@ -365,7 +378,7 @@ footer p{font-size:12px;color:var(--muted);}
 </footer>
 
 <script>
-const st = { genre:'', univers:'', valeur:'', longueur:'moyenne (5 paragraphes)' };
+const st = { genre:'', univers:'', valeur:'', longueur:'moyenne' };
 
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
@@ -404,7 +417,28 @@ async function generate() {
   const age = document.getElementById('f-age').value;
   const valeur = st.valeur || 'la gentillesse';
 
-  const prompt = 'Ecris une histoire pour enfant en français. Reponds UNIQUEMENT avec un objet JSON brut sans markdown ni backticks. Format exact: {"titre":"string","histoire":"string","morale":"string","tags":["string","string","string"]}. Histoire pour ' + prenom + ', ' + st.genre + ' de ' + age + ' ans. Univers: ' + st.univers + '. Longueur: ' + st.longueur + '. Valeur a transmettre: ' + valeur + '. Le prenom ' + prenom + ' doit etre le heros. Ecris des paragraphes separes par des sauts de ligne. La morale est une phrase courte et douce. Les tags sont 3 mots-cles. JSON uniquement, rien dautre.';
+  const longueurMap = {
+    'courte': { chapitres: 8, mots: 150 },
+    'moyenne': { chapitres: 15, mots: 200 },
+    'longue': { chapitres: 25, mots: 250 }
+  };
+  const cfg = longueurMap[st.longueur] || longueurMap['moyenne'];
+
+  const prompt = 'Tu es un auteur de livres pour enfants. Ecris une histoire LONGUE et RICHE pour ' + prenom + ', ' + st.genre + ' de ' + age + ' ans. Univers: ' + st.univers + '. Valeur: ' + valeur + '. ' +
+    'IMPORTANT: Genere exactement ' + cfg.chapitres + ' chapitres. Chaque chapitre doit faire au moins ' + cfg.mots + ' mots. ' +
+    'Reponds UNIQUEMENT avec un JSON brut sans markdown. Format: ' +
+    '{"titre":"string","morale":"string","tags":["s","s","s"],"chapitres":[{"numero":1,"titre":"string","emoji":"string","texte":"string long de ' + cfg.mots + ' mots minimum","description_image":"courte description visuelle de la scene en 1 phrase"}]} ' +
+    'Le prenom ' + prenom + ' est le heros. Chaque chapitre a un emoji representatif et une description_image courte. JSON uniquement.';
+
+  const loadingMsgs = ['✨ L'histoire prend vie...', '🎨 Les personnages apparaissent...', '🌟 La magie opère...', '📖 Les pages se remplissent...', '🦋 Presque prêt...'];
+  let msgIdx = 0;
+  const loadInterval = setInterval(() => {
+    msgIdx = (msgIdx + 1) % loadingMsgs.length;
+    const el = document.getElementById('spin-msg');
+    if (el) el.textContent = loadingMsgs[msgIdx];
+  }, 2000);
+
+  document.getElementById('result-zone').innerHTML = '<div class="spinner-wrap"><div class="spinner"></div><div class="spin-txt"><span>✨</span><span id="spin-msg">Création de l'histoire en cours...</span></div></div>';
 
   try {
     const res = await fetch('/api/chat', {
@@ -412,10 +446,11 @@ async function generate() {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         model: 'claude-sonnet-4-5',
-        max_tokens: 1500,
+        max_tokens: 8000,
         messages: [{role: 'user', content: prompt}]
       })
     });
+    clearInterval(loadInterval);
     const data = await res.json();
     if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
     const raw = (data.content?.map(b => b.text || '').join('') || '').trim();
@@ -424,34 +459,53 @@ async function generate() {
     try { story = JSON.parse(raw); }
     catch(e1) {
       const m = raw.match(/\{[\s\S]*\}/);
-      if (!m) throw new Error('Format inattendu');
+      if (!m) throw new Error('Format inattendu: ' + raw.slice(0,100));
       story = JSON.parse(m[0]);
     }
     renderStory(story, prenom);
   } catch(e) {
+    clearInterval(loadInterval);
     document.getElementById('result-zone').innerHTML =
       '<div class="errbox">😕 ' + e.message + '<br/><button class="btn-retry" onclick="generate()">Réessayer ✨</button></div>';
   }
 }
 
 function renderStory(s, prenom) {
+  window._currentStory = s;
+  window._currentPrenom = prenom;
   const tags = (s.tags || []).map(t => '<span class="stag">' + t + '</span>').join('');
+  const chapitres = s.chapitres || [];
+
+  let chapHtml = '';
+  chapitres.forEach(function(ch, i) {
+    const emoji = ch.emoji || '✨';
+    const imgDesc = ch.description_image || '';
+    chapHtml += '<div class="chap-block">' +
+      '<div class="chap-img-zone"><div class="chap-img-placeholder">' +
+        '<span class="chap-emoji-big">' + emoji + '</span>' +
+        '<div class="chap-img-desc">' + imgDesc + '</div>' +
+      '</div></div>' +
+      '<div class="chap-content">' +
+        '<div class="chap-num">Chapitre ' + (i+1) + '</div>' +
+        '<div class="chap-title">' + emoji + ' ' + (ch.titre || '') + '</div>' +
+        '<div class="chap-text">' + (ch.texte || '').replace(/\n/g, '<br/>') + '</div>' +
+      '</div></div>';
+  });
+
   const html = '<div class="story-result">' +
     '<div class="story-header">' +
-      '<div class="story-title">📖 ' + (s.titre || 'L\'histoire de ' + prenom) + '</div>' +
+      '<div class="story-cover-badge">' + chapitres.length + ' chapitres · Histoire personnalisée pour ' + prenom + '</div>' +
+      '<div class="story-title">📖 ' + (s.titre || "L'histoire de " + prenom) + '</div>' +
       '<div class="story-tags">' + tags + '</div>' +
     '</div>' +
-    '<div class="story-body">' + (s.histoire || '').replace(/\n/g, '<br/><br/>') + '</div>' +
+    chapHtml +
     (s.morale ? '<div class="story-moral">💡 ' + s.morale + '</div>' : '') +
     '<div class="story-actions">' +
-      '<button class="btn-dl" onclick="downloadPDF()">📄 Télécharger en PDF</button>' +
+      '<button class="btn-dl" onclick="downloadPDF()">📄 Télécharger le livre PDF</button>' +
       '<button class="btn-new" onclick="gostep(0);resetState()">✨ Nouvelle histoire</button>' +
-    '</div>' +
-  '</div>';
+    '</div></div>';
   document.getElementById('result-zone').innerHTML = html;
-  window._currentStory = s;
 }
-
 function resetState() {
   st.genre = ''; st.univers = ''; st.valeur = ''; st.longueur = 'moyenne (5 paragraphes)';
   document.querySelectorAll('.choice').forEach(c => c.classList.remove('sel'));
@@ -462,13 +516,27 @@ function resetState() {
 
 function downloadPDF() {
   const s = window._currentStory;
+  const prenom = window._currentPrenom || '';
   if (!s) return;
-  const prenom = document.getElementById('f-prenom').value.trim();
-  const content = `STORIA ✨\n${'─'.repeat(40)}\n\n${s.titre}\n\n${s.histoire}\n\n${'─'.repeat(40)}\n💡 ${s.morale}\n\n${'─'.repeat(40)}\nCréé avec Storia — histoires magiques pour enfants`;
-  const blob = new Blob([content], {type: 'text/plain;charset=utf-8'});
+  const sep = '═'.repeat(50);
+  const line = '─'.repeat(50);
+  let txt = 'STORIA ✨\n' + sep + '\n\n';
+  txt += s.titre + '\n';
+  txt += 'Une histoire pour ' + prenom + '\n';
+  txt += sep + '\n\n';
+  (s.chapitres || []).forEach(function(ch, i) {
+    txt += 'CHAPITRE ' + (i+1) + ' — ' + ch.titre + '\n';
+    txt += line + '\n';
+    if (ch.description_image) txt += '[🎨 ' + ch.description_image + ']\n\n';
+    txt += ch.texte + '\n\n';
+    txt += line + '\n\n';
+  });
+  if (s.morale) txt += '\n💡 La morale : ' + s.morale + '\n';
+  txt += '\n' + sep + '\nCréé avec Storia — histoires magiques pour enfants\nstoria.vercel.app';
+  const blob = new Blob([txt], {type: 'text/plain;charset=utf-8'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'histoire-' + prenom.toLowerCase() + '.txt';
+  a.download = 'storia-' + prenom.toLowerCase() + '.txt';
   a.click();
 }
 </script>
