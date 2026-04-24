@@ -13,6 +13,19 @@ nav.scrolled{background:rgba(255,248,240,0.97);box-shadow:0 2px 20px rgba(168,85
 .logo{font-family:'Baloo 2',cursive;font-size:24px;font-weight:800;background:linear-gradient(135deg,#FF6B9D,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .nav-btn{background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;border:none;border-radius:50px;padding:10px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
 
+
+/* LANG SELECTOR */
+.lang-selector{display:flex;align-items:center;gap:8px;}
+.lang-btn{background:transparent;border:2px solid #E9D5FF;border-radius:50px;padding:6px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;color:#9C8AB4;transition:all 0.2s;display:flex;align-items:center;gap:5px;}
+.lang-btn.active{background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;border-color:transparent;}
+.lang-dropdown{position:relative;}
+.lang-dropdown-btn{background:white;border:2px solid #E9D5FF;border-radius:50px;padding:7px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;color:#2D1B4E;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.lang-dropdown-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;background:white;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.12);overflow:hidden;min-width:160px;z-index:200;border:1px solid #F0E8FF;}
+.lang-dropdown-menu.open{display:block;}
+.lang-option{padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background 0.15s;color:#2D1B4E;}
+.lang-option:hover{background:#FAF5FF;}
+.lang-option.selected{color:#A855F7;background:#F3E8FF;}
+
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 3rem;}
 .hero-icon{font-size:80px;margin-bottom:1.5rem;display:block;animation:bob 3s ease-in-out infinite;}
@@ -127,7 +140,20 @@ footer p{font-size:12px;color:#9C8AB4;}
 
 <nav id="nav">
   <div class="logo">Storia ✨</div>
-  <button class="nav-btn" onclick="document.getElementById('gen').scrollIntoView({behavior:'smooth'})">Créer une histoire</button>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div class="lang-dropdown">
+      <button class="lang-dropdown-btn" onclick="toggleLangMenu()" id="lang-btn-display">🇫🇷 Français ▾</button>
+      <div class="lang-dropdown-menu" id="lang-menu">
+        <div class="lang-option selected" onclick="setLang('fr','🇫🇷','Français')">🇫🇷 Français</div>
+        <div class="lang-option" onclick="setLang('en','🇬🇧','English')">🇬🇧 English</div>
+        <div class="lang-option" onclick="setLang('es','🇪🇸','Español')">🇪🇸 Español</div>
+        <div class="lang-option" onclick="setLang('de','🇩🇪','Deutsch')">🇩🇪 Deutsch</div>
+        <div class="lang-option" onclick="setLang('it','🇮🇹','Italiano')">🇮🇹 Italiano</div>
+        <div class="lang-option" onclick="setLang('pt','🇵🇹','Português')">🇵🇹 Português</div>
+      </div>
+    </div>
+    <button class="nav-btn" id="nav-cta-btn" onclick="document.getElementById('gen').scrollIntoView({behavior:'smooth'})">Créer une histoire</button>
+  </div>
 </nav>
 
 <section class="hero">
@@ -297,17 +323,236 @@ footer p{font-size:12px;color:#9C8AB4;}
 </footer>
 
 <script>
-// State
+// ── TRANSLATIONS ──────────────────────────────────────
+var T = {
+  fr: {
+    nav_cta: 'Créer une histoire',
+    hero_h1a: 'Des histoires ', hero_h1b: ' magiques', hero_h1c: ' rien que pour eux',
+    hero_p: "Entrez le prénom de votre enfant, choisissez un univers — l'IA crée une histoire unique et personnalisée en quelques secondes.",
+    hero_cta: '✨ Créer mon histoire gratuite',
+    badge1: '👶 Avec le prénom', badge2: '⚡ En 30 secondes', badge3: '📄 PDF téléchargeable',
+    gen_title: '✨ Créer une histoire', gen_sub: '3 étapes · magie garantie',
+    l_prenom: '👶 Prénom de l'enfant', l_prenom_ph: 'Ex : Emma, Lucas, Léa...',
+    l_age: '🎂 Âge', l_genre: '👫 Garçon ou fille ?',
+    opt_garcon: 'Garçon', opt_fille: 'Fille',
+    l_univers: '🌍 Univers de l'histoire',
+    l_valeur: '💡 La leçon de l'histoire', l_longueur: '📏 Longueur',
+    opt_courte: 'Courte', opt_moyenne: 'Moyenne', opt_longue: 'Longue',
+    ch_label: '8 chapitres', ch_label2: '15 chapitres', ch_label3: '25 chapitres',
+    btn_next: 'Suivant →', btn_back: '← Retour', btn_create: "✨ Créer l'histoire !",
+    loading: '✨ Création en cours...<br/>Cela peut prendre 30 secondes.',
+    btn_dl: '📄 Télécharger PDF', btn_new: '✨ Nouvelle histoire',
+    chap_label: 'Chapitre', story_badge: 'chapitres · Pour',
+    moral_label: '💡', retry: 'Réessayer ✨',
+    how_title: 'Comment ça marche ? 🪄', how_sub: 'Simple comme bonjour',
+    pricing_title: 'Tarifs 💎', pricing_sub: 'Simple et transparent',
+    footer: "Fait avec ❤️ pour les enfants et leurs parents",
+    prompt_lang: 'en français'
+  },
+  en: {
+    nav_cta: 'Create a story',
+    hero_h1a: '', hero_h1b: 'Magical stories', hero_h1c: ' just for them',
+    hero_p: "Enter your child's name, choose a universe — AI creates a unique personalized story in seconds.",
+    hero_cta: '✨ Create my free story',
+    badge1: '👶 With child's name', badge2: '⚡ In 30 seconds', badge3: '📄 Downloadable PDF',
+    gen_title: '✨ Create a story', gen_sub: '3 steps · magic guaranteed',
+    l_prenom: '👶 Child's name', l_prenom_ph: 'E.g. Emma, Lucas, Léa...',
+    l_age: '🎂 Age', l_genre: '👫 Boy or girl?',
+    opt_garcon: 'Boy', opt_fille: 'Girl',
+    l_univers: '🌍 Story universe',
+    l_valeur: '💡 Story lesson', l_longueur: '📏 Length',
+    opt_courte: 'Short', opt_moyenne: 'Medium', opt_longue: 'Long',
+    ch_label: '8 chapters', ch_label2: '15 chapters', ch_label3: '25 chapters',
+    btn_next: 'Next →', btn_back: '← Back', btn_create: '✨ Create the story!',
+    loading: '✨ Creating your story...<br/>This may take 30 seconds.',
+    btn_dl: '📄 Download PDF', btn_new: '✨ New story',
+    chap_label: 'Chapter', story_badge: 'chapters · For',
+    moral_label: '💡', retry: 'Try again ✨',
+    how_title: 'How does it work? 🪄', how_sub: 'Simple as can be',
+    pricing_title: 'Pricing 💎', pricing_sub: 'Simple and transparent',
+    footer: 'Made with ❤️ for children and their parents',
+    prompt_lang: 'in English'
+  },
+  es: {
+    nav_cta: 'Crear una historia',
+    hero_h1a: 'Historias ', hero_h1b: 'mágicas', hero_h1c: ' solo para ellos',
+    hero_p: 'Escribe el nombre de tu hijo, elige un universo — la IA crea una historia única y personalizada en segundos.',
+    hero_cta: '✨ Crear mi historia gratis',
+    badge1: '👶 Con el nombre del niño', badge2: '⚡ En 30 segundos', badge3: '📄 PDF descargable',
+    gen_title: '✨ Crear una historia', gen_sub: '3 pasos · magia garantizada',
+    l_prenom: '👶 Nombre del niño', l_prenom_ph: 'Ej: Emma, Lucas, Sofía...',
+    l_age: '🎂 Edad', l_genre: '👫 ¿Niño o niña?',
+    opt_garcon: 'Niño', opt_fille: 'Niña',
+    l_univers: '🌍 Universo de la historia',
+    l_valeur: '💡 La lección de la historia', l_longueur: '📏 Duración',
+    opt_courte: 'Corta', opt_moyenne: 'Media', opt_longue: 'Larga',
+    ch_label: '8 capítulos', ch_label2: '15 capítulos', ch_label3: '25 capítulos',
+    btn_next: 'Siguiente →', btn_back: '← Atrás', btn_create: '✨ ¡Crear la historia!',
+    loading: '✨ Creando la historia...<br/>Esto puede tardar 30 segundos.',
+    btn_dl: '📄 Descargar PDF', btn_new: '✨ Nueva historia',
+    chap_label: 'Capítulo', story_badge: 'capítulos · Para',
+    moral_label: '💡', retry: 'Reintentar ✨',
+    how_title: '¿Cómo funciona? 🪄', how_sub: 'Sencillo como un cuento',
+    pricing_title: 'Precios 💎', pricing_sub: 'Simple y transparente',
+    footer: 'Hecho con ❤️ para niños y sus padres',
+    prompt_lang: 'en español'
+  },
+  de: {
+    nav_cta: 'Geschichte erstellen',
+    hero_h1a: '', hero_h1b: 'Magische Geschichten', hero_h1c: ' nur für sie',
+    hero_p: 'Gib den Namen deines Kindes ein, wähle ein Universum — die KI erstellt in Sekunden eine einzigartige, personalisierte Geschichte.',
+    hero_cta: '✨ Meine Geschichte erstellen',
+    badge1: '👶 Mit dem Kindernamen', badge2: '⚡ In 30 Sekunden', badge3: '📄 PDF-Download',
+    gen_title: '✨ Geschichte erstellen', gen_sub: '3 Schritte · Magie garantiert',
+    l_prenom: '👶 Name des Kindes', l_prenom_ph: 'z.B. Emma, Lukas, Lea...',
+    l_age: '🎂 Alter', l_genre: '👫 Junge oder Mädchen?',
+    opt_garcon: 'Junge', opt_fille: 'Mädchen',
+    l_univers: '🌍 Universum der Geschichte',
+    l_valeur: '💡 Die Botschaft', l_longueur: '📏 Länge',
+    opt_courte: 'Kurz', opt_moyenne: 'Mittel', opt_longue: 'Lang',
+    ch_label: '8 Kapitel', ch_label2: '15 Kapitel', ch_label3: '25 Kapitel',
+    btn_next: 'Weiter →', btn_back: '← Zurück', btn_create: '✨ Geschichte erstellen!',
+    loading: '✨ Geschichte wird erstellt...<br/>Das kann 30 Sekunden dauern.',
+    btn_dl: '📄 PDF herunterladen', btn_new: '✨ Neue Geschichte',
+    chap_label: 'Kapitel', story_badge: 'Kapitel · Für',
+    moral_label: '💡', retry: 'Nochmal versuchen ✨',
+    how_title: 'Wie funktioniert es? 🪄', how_sub: 'Einfach wie ein Märchen',
+    pricing_title: 'Preise 💎', pricing_sub: 'Einfach und transparent',
+    footer: 'Mit ❤️ für Kinder und ihre Eltern gemacht',
+    prompt_lang: 'auf Deutsch'
+  },
+  it: {
+    nav_cta: 'Crea una storia',
+    hero_h1a: 'Storie ', hero_h1b: 'magiche', hero_h1c: ' solo per loro',
+    hero_p: "Inserisci il nome di tuo figlio, scegli un universo — l'IA crea una storia unica e personalizzata in pochi secondi.",
+    hero_cta: '✨ Crea la mia storia gratis',
+    badge1: '👶 Con il nome del bambino', badge2: '⚡ In 30 secondi', badge3: '📄 PDF scaricabile',
+    gen_title: '✨ Crea una storia', gen_sub: '3 passi · magia garantita',
+    l_prenom: '👶 Nome del bambino', l_prenom_ph: 'Es: Emma, Luca, Sofia...',
+    l_age: '🎂 Età', l_genre: '👫 Maschio o femmina?',
+    opt_garcon: 'Maschio', opt_fille: 'Femmina',
+    l_univers: '🌍 Universo della storia',
+    l_valeur: '💡 La lezione della storia', l_longueur: '📏 Lunghezza',
+    opt_courte: 'Breve', opt_moyenne: 'Media', opt_longue: 'Lunga',
+    ch_label: '8 capitoli', ch_label2: '15 capitoli', ch_label3: '25 capitoli',
+    btn_next: 'Avanti →', btn_back: '← Indietro', btn_create: '✨ Crea la storia!',
+    loading: '✨ Creazione in corso...<br/>Questo può richiedere 30 secondi.',
+    btn_dl: '📄 Scarica PDF', btn_new: '✨ Nuova storia',
+    chap_label: 'Capitolo', story_badge: 'capitoli · Per',
+    moral_label: '💡', retry: 'Riprova ✨',
+    how_title: 'Come funziona? 🪄', how_sub: 'Semplice come una favola',
+    pricing_title: 'Prezzi 💎', pricing_sub: 'Semplice e trasparente',
+    footer: 'Fatto con ❤️ per i bambini e i loro genitori',
+    prompt_lang: 'in italiano'
+  },
+  pt: {
+    nav_cta: 'Criar uma história',
+    hero_h1a: 'Histórias ', hero_h1b: 'mágicas', hero_h1c: ' só para eles',
+    hero_p: 'Digite o nome do seu filho, escolha um universo — a IA cria uma história única e personalizada em segundos.',
+    hero_cta: '✨ Criar minha história grátis',
+    badge1: '👶 Com o nome da criança', badge2: '⚡ Em 30 segundos', badge3: '📄 PDF para download',
+    gen_title: '✨ Criar uma história', gen_sub: '3 passos · magia garantida',
+    l_prenom: '👶 Nome da criança', l_prenom_ph: 'Ex: Emma, Lucas, Sofia...',
+    l_age: '🎂 Idade', l_genre: '👫 Menino ou menina?',
+    opt_garcon: 'Menino', opt_fille: 'Menina',
+    l_univers: '🌍 Universo da história',
+    l_valeur: '💡 A lição da história', l_longueur: '📏 Tamanho',
+    opt_courte: 'Curta', opt_moyenne: 'Média', opt_longue: 'Longa',
+    ch_label: '8 capítulos', ch_label2: '15 capítulos', ch_label3: '25 capítulos',
+    btn_next: 'Próximo →', btn_back: '← Voltar', btn_create: '✨ Criar a história!',
+    loading: '✨ Criando a história...<br/>Isso pode levar 30 segundos.',
+    btn_dl: '📄 Baixar PDF', btn_new: '✨ Nova história',
+    chap_label: 'Capítulo', story_badge: 'capítulos · Para',
+    moral_label: '💡', retry: 'Tentar novamente ✨',
+    how_title: 'Como funciona? 🪄', how_sub: 'Simples como um conto',
+    pricing_title: 'Preços 💎', pricing_sub: 'Simples e transparente',
+    footer: 'Feito com ❤️ para crianças e seus pais',
+    prompt_lang: 'em português'
+  }
+};
+
+// ── STATE ──────────────────────────────────────────────
 var S = { genre: '', univers: '', valeur: 'la gentillesse', longueur: 'moyenne' };
 var story = null;
 var storyPrenom = '';
+var currentLang = 'fr';
 
-// Nav scroll
+// ── LANGUAGE ───────────────────────────────────────────
+function toggleLangMenu() {
+  document.getElementById('lang-menu').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.lang-dropdown')) {
+    var m = document.getElementById('lang-menu');
+    if (m) m.classList.remove('open');
+  }
+});
+
+function setLang(code, flag, name) {
+  currentLang = code;
+  document.getElementById('lang-btn-display').textContent = flag + ' ' + name + ' ▾';
+  document.querySelectorAll('.lang-option').forEach(function(o) { o.classList.remove('selected'); });
+  event.target.classList.add('selected');
+  document.getElementById('lang-menu').classList.remove('open');
+  applyTranslations();
+}
+
+function t(key) { return (T[currentLang] && T[currentLang][key]) ? T[currentLang][key] : (T['fr'][key] || ''); }
+
+function applyTranslations() {
+  var lang = T[currentLang];
+  // Nav
+  document.getElementById('nav-cta-btn').textContent = t('nav_cta');
+  // Hero
+  var h1 = document.querySelector('.hero h1');
+  if (h1) h1.innerHTML = t('hero_h1a') + '<span class="grad">' + t('hero_h1b') + '</span>' + t('hero_h1c');
+  var hp = document.querySelector('.hero > p');
+  if (hp) hp.textContent = t('hero_p');
+  var hcta = document.querySelector('.hero-cta');
+  if (hcta) hcta.textContent = t('hero_cta');
+  var badges = document.querySelectorAll('.badge');
+  if (badges[0]) badges[0].innerHTML = t('badge1');
+  if (badges[1]) badges[1].innerHTML = t('badge2');
+  if (badges[2]) badges[2].innerHTML = t('badge3');
+  // Generator
+  var gh2 = document.querySelector('.gen-head h2');
+  if (gh2) gh2.textContent = t('gen_title');
+  var gp = document.querySelector('.gen-head p');
+  if (gp) gp.textContent = t('gen_sub');
+  // Labels
+  var labels = document.querySelectorAll('.flabel');
+  var lkeys = ['l_prenom','l_age','l_genre','l_univers','l_valeur','l_longueur'];
+  labels.forEach(function(el, i) { if (lkeys[i]) el.textContent = t(lkeys[i]); });
+  // Input placeholder
+  var inp = document.getElementById('inp-prenom');
+  if (inp) inp.placeholder = t('l_prenom_ph');
+  // Genre opts
+  document.getElementById('opt-garcon').querySelector('.ol').textContent = t('opt_garcon');
+  document.getElementById('opt-fille').querySelector('.ol').textContent = t('opt_fille');
+  // Longueur
+  var lopts = document.querySelectorAll('#longueur-grid .opt');
+  var lolabels = ['opt_courte','opt_moyenne','opt_longue'];
+  var chLabels = ['ch_label','ch_label2','ch_label3'];
+  lopts.forEach(function(o, i) {
+    var ol = o.querySelector('.ol');
+    if (ol) ol.innerHTML = t(lolabels[i]) + '<br/><small style="font-size:10px;color:#9C8AB4">' + t(chLabels[i]) + '</small>';
+  });
+  // Buttons
+  var btnS0 = document.getElementById('btn-s0');
+  if (btnS0) btnS0.textContent = t('btn_next');
+  var btnS1 = document.getElementById('btn-s1');
+  if (btnS1) btnS1.textContent = t('btn_next');
+  // Footer
+  var footer = document.querySelector('footer p');
+  if (footer) footer.textContent = t('footer');
+}
+
+// ── SCROLL & NAV ───────────────────────────────────────
 window.onscroll = function() {
   document.getElementById('nav').className = window.scrollY > 40 ? 'scrolled' : '';
 };
 
-// Select option — works with both ID string and element reference
+// ── OPTION SELECTION ───────────────────────────────────
 function selectOpt(key, val, gridId, elOrId) {
   var grid = document.getElementById(gridId);
   grid.querySelectorAll('.opt').forEach(function(o) { o.classList.remove('on'); });
@@ -323,6 +568,7 @@ function checkS0() {
   document.getElementById('btn-s0').disabled = !ok;
 }
 
+// ── STEPS ──────────────────────────────────────────────
 function goStep(n) {
   for (var i = 0; i < 4; i++) {
     document.getElementById('s' + i).className = 'step' + (i === n ? ' show' : '');
@@ -332,6 +578,7 @@ function goStep(n) {
   if (n === 3) createStory();
 }
 
+// ── GENERATE ───────────────────────────────────────────
 function createStory() {
   var prenom = document.getElementById('inp-prenom').value.trim();
   var age = document.getElementById('inp-age').value;
@@ -341,16 +588,14 @@ function createStory() {
   var wordsPerChap = S.longueur === 'courte' ? 150 : (S.longueur === 'longue' ? 250 : 200);
 
   document.getElementById('result-zone').innerHTML =
-    '<div class="loader"><div class="spin"></div><div class="load-msg">✨ Création en cours...<br/>Cela peut prendre 30 secondes.</div></div>';
+    '<div class="loader"><div class="spin"></div><div class="load-msg">' + t('loading') + '</div></div>';
 
-  var prompt = 'Tu es un auteur de livres pour enfants. ' +
-    'Ecris une histoire pour ' + prenom + ' (' + S.genre + ', ' + age + ' ans). ' +
-    'Univers: ' + S.univers + '. Valeur transmise: ' + S.valeur + '. ' +
-    'Genere EXACTEMENT ' + chapCount + ' chapitres de ' + wordsPerChap + ' mots chacun minimum. ' +
-    prenom + ' est le heros principal. ' +
-    'Reponds UNIQUEMENT avec du JSON brut valide, sans markdown, sans backticks, sans texte avant ou apres. ' +
-    'Structure JSON exacte: ' +
-    '{"titre":"string","morale":"string","tags":["mot1","mot2","mot3"],"chapitres":[{"numero":1,"titre":"string","emoji":"string","texte":"string","image":"description visuelle courte"}]}';
+  var prompt = 'You are a children's book author. Write a story ' + t('prompt_lang') + ' for ' + prenom + ' (' + S.genre + ', ' + age + ' years old). ' +
+    'Universe: ' + S.univers + '. Value: ' + S.valeur + '. ' +
+    'Generate EXACTLY ' + chapCount + ' chapters of at least ' + wordsPerChap + ' words each. ' +
+    prenom + ' is the main hero. ' +
+    'Reply ONLY with valid raw JSON, no markdown, no backticks, no text before or after. ' +
+    'Exact JSON structure: {"titre":"string","morale":"string","tags":["w1","w2","w3"],"chapitres":[{"numero":1,"titre":"string","emoji":"string","texte":"string","image":"short visual description"}]}';
 
   fetch('/api/chat', {
     method: 'POST',
@@ -363,19 +608,16 @@ function createStory() {
   })
   .then(function(res) { return res.json(); })
   .then(function(data) {
-    if (data.error) throw new Error(data.error.message || 'Erreur API');
+    if (data.error) throw new Error(data.error.message || 'API Error');
     var raw = '';
-    if (data.content) {
-      data.content.forEach(function(b) { if (b.text) raw += b.text; });
-    }
+    if (data.content) data.content.forEach(function(b) { if (b.text) raw += b.text; });
     raw = raw.trim();
-    if (!raw) throw new Error('Réponse vide');
+    if (!raw) throw new Error('Empty response');
     var parsed;
-    try {
-      parsed = JSON.parse(raw);
-    } catch(e) {
+    try { parsed = JSON.parse(raw); }
+    catch(e) {
       var match = raw.match(/\{[\s\S]*\}/);
-      if (!match) throw new Error('JSON introuvable');
+      if (!match) throw new Error('JSON not found');
       parsed = JSON.parse(match[0]);
     }
     story = parsed;
@@ -384,38 +626,39 @@ function createStory() {
   .catch(function(err) {
     document.getElementById('result-zone').innerHTML =
       '<div class="errbox">😕 ' + err.message +
-      '<br/><button class="retry-btn" onclick="createStory()">Réessayer ✨</button></div>';
+      '<br/><button class="retry-btn" onclick="createStory()">' + t('retry') + '</button></div>';
   });
 }
 
+// ── RENDER ─────────────────────────────────────────────
 function showStory(s, prenom) {
-  var tags = (s.tags || []).map(function(t) { return '<span class="stag">' + t + '</span>'; }).join('');
+  var tags = (s.tags || []).map(function(tg) { return '<span class="stag">' + tg + '</span>'; }).join('');
   var chaps = s.chapitres || [];
   var html = '<div class="story-wrap">';
   html += '<div class="story-cover">';
-  html += '<div class="story-badge">' + chaps.length + ' chapitres · Pour ' + prenom + '</div>';
-  html += '<div class="story-title">📖 ' + (s.titre || 'Histoire de ' + prenom) + '</div>';
+  html += '<div class="story-badge">' + chaps.length + ' ' + t('story_badge') + ' ' + prenom + '</div>';
+  html += '<div class="story-title">📖 ' + (s.titre || prenom) + '</div>';
   html += '<div class="story-tags">' + tags + '</div>';
   html += '</div>';
   chaps.forEach(function(ch, i) {
-    html += '<div class="chap">';
-    html += '<div class="chap-img"><span class="chap-emoji">' + (ch.emoji || '✨') + '</span>';
+    html += '<div class="chap"><div class="chap-img"><span class="chap-emoji">' + (ch.emoji || '✨') + '</span>';
     if (ch.image) html += '<div class="chap-img-desc">' + ch.image + '</div>';
-    html += '</div>';
-    html += '<div class="chap-body">';
-    html += '<div class="chap-num">Chapitre ' + (i + 1) + '</div>';
+    html += '</div><div class="chap-body">';
+    html += '<div class="chap-num">' + t('chap_label') + ' ' + (i+1) + '</div>';
     html += '<div class="chap-title">' + (ch.titre || '') + '</div>';
-    html += '<div class="chap-text">' + (ch.texte || '').replace(/\n/g, '<br/>') + '</div>';
+    html += '<div class="chap-text">' + (ch.texte || '').replace(/
+/g, '<br/>') + '</div>';
     html += '</div></div>';
   });
-  if (s.morale) html += '<div class="moral">💡 ' + s.morale + '</div>';
+  if (s.morale) html += '<div class="moral">' + t('moral_label') + ' ' + s.morale + '</div>';
   html += '<div class="story-actions">';
-  html += '<button class="btn-dl" onclick="dlStory()">📄 Télécharger PDF</button>';
-  html += '<button class="btn-new" onclick="restart()">✨ Nouvelle histoire</button>';
+  html += '<button class="btn-dl" onclick="dlStory()">' + t('btn_dl') + '</button>';
+  html += '<button class="btn-new" onclick="restart()">' + t('btn_new') + '</button>';
   html += '</div></div>';
   document.getElementById('result-zone').innerHTML = html;
 }
 
+// ── RESTART ────────────────────────────────────────────
 function restart() {
   S = { genre: '', univers: '', valeur: 'la gentillesse', longueur: 'moyenne' };
   document.getElementById('inp-prenom').value = '';
@@ -426,16 +669,17 @@ function restart() {
   goStep(0);
 }
 
+// ── DOWNLOAD ───────────────────────────────────────────
 function dlStory() {
   if (!story) return;
-  var lines = ['STORIA ✨', '='.repeat(50), '', story.titre || '', 'Histoire pour ' + storyPrenom, '='.repeat(50), ''];
+  var lines = ['STORIA ✨', '='.repeat(50), '', story.titre || '', 'Storia per / Story for / Historia para: ' + storyPrenom, '='.repeat(50), ''];
   (story.chapitres || []).forEach(function(ch, i) {
-    lines.push('CHAPITRE ' + (i+1) + ' — ' + (ch.titre || ''));
+    lines.push(t('chap_label') + ' ' + (i+1) + ' — ' + (ch.titre || ''));
     lines.push('-'.repeat(40));
     if (ch.image) lines.push('[Image: ' + ch.image + ']', '');
     lines.push(ch.texte || '', '', '-'.repeat(40), '');
   });
-  if (story.morale) lines.push('', 'La morale: ' + story.morale);
+  if (story.morale) lines.push('', t('moral_label') + ' ' + story.morale);
   lines.push('', '='.repeat(50), 'Créé avec Storia — storia.vercel.app');
   var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
   var a = document.createElement('a');
