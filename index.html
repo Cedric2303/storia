@@ -380,7 +380,7 @@ footer p{font-size:12px;color:var(--muted);}
 <script>
 const st = { genre:'', univers:'', valeur:'', longueur:'moyenne' };
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', function() {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
 });
 
@@ -389,8 +389,8 @@ function scrollToGen() {
 }
 
 function pick(el, key) {
-  const wrap = el.closest('.grid2, .grid3');
-  if (wrap) wrap.querySelectorAll('.choice').forEach(c => c.classList.remove('sel'));
+  var wrap = el.closest('.grid2, .grid3');
+  if (wrap) wrap.querySelectorAll('.choice').forEach(function(c) { c.classList.remove('sel'); });
   el.classList.add('sel');
   st[key] = el.dataset.v;
   if (key === 'genre') chk0();
@@ -398,14 +398,14 @@ function pick(el, key) {
 }
 
 function chk0() {
-  const ok = document.getElementById('f-prenom').value.trim() && st.genre;
+  var ok = document.getElementById('f-prenom').value.trim() && st.genre;
   document.getElementById('n0').disabled = !ok;
 }
 
 function gostep(step) {
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
   document.getElementById('st' + step).classList.add('active');
-  ['sb0','sb1','sb2','sb3'].forEach((id,i) => {
+  ['sb0','sb1','sb2','sb3'].forEach(function(id, i) {
     document.getElementById(id).classList.toggle('on', i <= step);
   });
   document.getElementById('generator').scrollIntoView({behavior:'smooth', block:'start'});
@@ -413,35 +413,23 @@ function gostep(step) {
 }
 
 async function generate() {
-  const prenom = document.getElementById('f-prenom').value.trim();
-  const age = document.getElementById('f-age').value;
-  const valeur = st.valeur || 'la gentillesse';
+  var prenom = document.getElementById('f-prenom').value.trim();
+  var age = document.getElementById('f-age').value;
+  var valeur = st.valeur || 'la gentillesse';
 
-  const longueurMap = {
+  var longueurMap = {
     'courte': { chapitres: 8, mots: 150 },
     'moyenne': { chapitres: 15, mots: 200 },
     'longue': { chapitres: 25, mots: 250 }
   };
-  const cfg = longueurMap[st.longueur] || longueurMap['moyenne'];
+  var cfg = longueurMap[st.longueur] || longueurMap['moyenne'];
 
-  const prompt = 'Tu es un auteur de livres pour enfants. Ecris une histoire LONGUE et RICHE pour ' + prenom + ', ' + st.genre + ' de ' + age + ' ans. Univers: ' + st.univers + '. Valeur: ' + valeur + '. ' +
-    'IMPORTANT: Genere exactement ' + cfg.chapitres + ' chapitres. Chaque chapitre doit faire au moins ' + cfg.mots + ' mots. ' +
-    'Reponds UNIQUEMENT avec un JSON brut sans markdown. Format: ' +
-    '{"titre":"string","morale":"string","tags":["s","s","s"],"chapitres":[{"numero":1,"titre":"string","emoji":"string","texte":"string long de ' + cfg.mots + ' mots minimum","description_image":"courte description visuelle de la scene en 1 phrase"}]} ' +
-    'Le prenom ' + prenom + ' est le heros. Chaque chapitre a un emoji representatif et une description_image courte. JSON uniquement.';
+  var prompt = 'Tu es un auteur de livres pour enfants. Ecris une histoire LONGUE et RICHE pour ' + prenom + ', ' + st.genre + ' de ' + age + ' ans. Univers: ' + st.univers + '. Valeur: ' + valeur + '. IMPORTANT: Genere exactement ' + cfg.chapitres + ' chapitres. Chaque chapitre doit faire au moins ' + cfg.mots + ' mots. Reponds UNIQUEMENT avec un JSON brut sans markdown. Format: {"titre":"string","morale":"string","tags":["s","s","s"],"chapitres":[{"numero":1,"titre":"string","emoji":"string","texte":"string long","description_image":"courte description visuelle en 1 phrase"}]} Le prenom ' + prenom + ' est le heros. JSON uniquement, rien dautre.';
 
-  const loadingMsgs = ['✨ L'histoire prend vie...', '🎨 Les personnages apparaissent...', '🌟 La magie opère...', '📖 Les pages se remplissent...', '🦋 Presque prêt...'];
-  let msgIdx = 0;
-  const loadInterval = setInterval(() => {
-    msgIdx = (msgIdx + 1) % loadingMsgs.length;
-    const el = document.getElementById('spin-msg');
-    if (el) el.textContent = loadingMsgs[msgIdx];
-  }, 2000);
-
-  document.getElementById('result-zone').innerHTML = '<div class="spinner-wrap"><div class="spinner"></div><div class="spin-txt"><span>✨</span><span id="spin-msg">Création de l'histoire en cours...</span></div></div>';
+  document.getElementById('result-zone').innerHTML = '<div class="spinner-wrap"><div class="spinner"></div><div class="spin-txt"><span>✨</span>Creation de l'histoire en cours... Cela peut prendre 30 secondes.</div></div>';
 
   try {
-    const res = await fetch('/api/chat', {
+    var res = await fetch('/api/chat', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -450,36 +438,34 @@ async function generate() {
         messages: [{role: 'user', content: prompt}]
       })
     });
-    clearInterval(loadInterval);
-    const data = await res.json();
+    var data = await res.json();
     if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
-    const raw = (data.content?.map(b => b.text || '').join('') || '').trim();
-    if (!raw) throw new Error('Réponse vide');
-    let story;
+    var raw = (data.content && data.content.map(function(b) { return b.text || ''; }).join('') || '').trim();
+    if (!raw) throw new Error('Reponse vide');
+    var story;
     try { story = JSON.parse(raw); }
     catch(e1) {
-      const m = raw.match(/\{[\s\S]*\}/);
+      var m = raw.match(/\{[\s\S]*\}/);
       if (!m) throw new Error('Format inattendu: ' + raw.slice(0,100));
       story = JSON.parse(m[0]);
     }
     renderStory(story, prenom);
   } catch(e) {
-    clearInterval(loadInterval);
     document.getElementById('result-zone').innerHTML =
-      '<div class="errbox">😕 ' + e.message + '<br/><button class="btn-retry" onclick="generate()">Réessayer ✨</button></div>';
+      '<div class="errbox">😕 ' + e.message + '<br/><button class="btn-retry" onclick="generate()">Reessayer ✨</button></div>';
   }
 }
 
 function renderStory(s, prenom) {
   window._currentStory = s;
   window._currentPrenom = prenom;
-  const tags = (s.tags || []).map(t => '<span class="stag">' + t + '</span>').join('');
-  const chapitres = s.chapitres || [];
+  var tags = (s.tags || []).map(function(t) { return '<span class="stag">' + t + '</span>'; }).join('');
+  var chapitres = s.chapitres || [];
 
-  let chapHtml = '';
+  var chapHtml = '';
   chapitres.forEach(function(ch, i) {
-    const emoji = ch.emoji || '✨';
-    const imgDesc = ch.description_image || '';
+    var emoji = ch.emoji || '✨';
+    var imgDesc = ch.description_image || '';
     chapHtml += '<div class="chap-block">' +
       '<div class="chap-img-zone"><div class="chap-img-placeholder">' +
         '<span class="chap-emoji-big">' + emoji + '</span>' +
@@ -488,53 +474,55 @@ function renderStory(s, prenom) {
       '<div class="chap-content">' +
         '<div class="chap-num">Chapitre ' + (i+1) + '</div>' +
         '<div class="chap-title">' + emoji + ' ' + (ch.titre || '') + '</div>' +
-        '<div class="chap-text">' + (ch.texte || '').replace(/\n/g, '<br/>') + '</div>' +
+        '<div class="chap-text">' + (ch.texte || '').replace(/
+/g, '<br/>') + '</div>' +
       '</div></div>';
   });
 
-  const html = '<div class="story-result">' +
+  var html = '<div class="story-result">' +
     '<div class="story-header">' +
-      '<div class="story-cover-badge">' + chapitres.length + ' chapitres · Histoire personnalisée pour ' + prenom + '</div>' +
-      '<div class="story-title">📖 ' + (s.titre || "L'histoire de " + prenom) + '</div>' +
+      '<div class="story-cover-badge">' + chapitres.length + ' chapitres · Histoire pour ' + prenom + '</div>' +
+      '<div class="story-title">📖 ' + (s.titre || 'Histoire de ' + prenom) + '</div>' +
       '<div class="story-tags">' + tags + '</div>' +
     '</div>' +
     chapHtml +
     (s.morale ? '<div class="story-moral">💡 ' + s.morale + '</div>' : '') +
     '<div class="story-actions">' +
-      '<button class="btn-dl" onclick="downloadPDF()">📄 Télécharger le livre PDF</button>' +
+      '<button class="btn-dl" onclick="downloadPDF()">📄 Telecharger le livre PDF</button>' +
       '<button class="btn-new" onclick="gostep(0);resetState()">✨ Nouvelle histoire</button>' +
     '</div></div>';
   document.getElementById('result-zone').innerHTML = html;
 }
+
 function resetState() {
-  st.genre = ''; st.univers = ''; st.valeur = ''; st.longueur = 'moyenne (5 paragraphes)';
-  document.querySelectorAll('.choice').forEach(c => c.classList.remove('sel'));
+  st.genre = ''; st.univers = ''; st.valeur = ''; st.longueur = 'moyenne';
+  document.querySelectorAll('.choice').forEach(function(c) { c.classList.remove('sel'); });
   document.getElementById('f-prenom').value = '';
   document.getElementById('n0').disabled = true;
   document.getElementById('n1').disabled = true;
 }
 
 function downloadPDF() {
-  const s = window._currentStory;
-  const prenom = window._currentPrenom || '';
+  var s = window._currentStory;
+  var prenom = window._currentPrenom || '';
   if (!s) return;
-  const sep = '═'.repeat(50);
-  const line = '─'.repeat(50);
-  let txt = 'STORIA ✨\n' + sep + '\n\n';
-  txt += s.titre + '\n';
+  var sep = '══════════════════════════════════════════════════';
+  var line = '──────────────────────────────────────────────────';
+  var txt = 'STORIA ✨\n' + sep + '\n\n';
+  txt += (s.titre || '') + '\n';
   txt += 'Une histoire pour ' + prenom + '\n';
   txt += sep + '\n\n';
   (s.chapitres || []).forEach(function(ch, i) {
-    txt += 'CHAPITRE ' + (i+1) + ' — ' + ch.titre + '\n';
+    txt += 'CHAPITRE ' + (i+1) + ' — ' + (ch.titre || '') + '\n';
     txt += line + '\n';
     if (ch.description_image) txt += '[🎨 ' + ch.description_image + ']\n\n';
-    txt += ch.texte + '\n\n';
+    txt += (ch.texte || '') + '\n\n';
     txt += line + '\n\n';
   });
   if (s.morale) txt += '\n💡 La morale : ' + s.morale + '\n';
-  txt += '\n' + sep + '\nCréé avec Storia — histoires magiques pour enfants\nstoria.vercel.app';
-  const blob = new Blob([txt], {type: 'text/plain;charset=utf-8'});
-  const a = document.createElement('a');
+  txt += '\n' + sep + '\nCree avec Storia — histoires magiques pour enfants';
+  var blob = new Blob([txt], {type: 'text/plain;charset=utf-8'});
+  var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'storia-' + prenom.toLowerCase() + '.txt';
   a.click();
