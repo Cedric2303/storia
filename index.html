@@ -1112,7 +1112,8 @@ function createStory() {
     if (data.error) throw new Error(data.error.message || "API Error");
     var raw = ""; if (data.content) data.content.forEach(function(b) { if (b.text) raw += b.text; }); raw = raw.trim();
     if (!raw) throw new Error("Reponse vide");
-    var parsed; try { parsed = JSON.parse(raw); } catch(e) { var m = raw.match(/\{[\s\S]*\}/); if (!m) throw new Error("JSON introuvable"); parsed = JSON.parse(m[0]); }
+    raw = raw.replace(/^```json\s*/i,"").replace(/^```\s*/i,"").replace(/\s*```$/i,"").trim();
+    var parsed; try { parsed = JSON.parse(raw); } catch(e1) { var m = raw.match(/\{[\s\S]*\}/); if (!m) throw new Error("Format invalide, reessayez."); try { parsed = JSON.parse(m[0]); } catch(e2) { parsed = JSON.parse(m[0].replace(/[\x00-\x1F]/g," ")); } }
     currentStory = parsed; showStory(parsed, prenom);
   })
   .catch(function(err) {
@@ -1386,9 +1387,7 @@ async function reloadStory(id) {
 var _origShowStory = showStory;
 showStory = function(s, prenom) {
   _origShowStory(s, prenom);
-  console.log('[Storia] currentUser:', currentUser, 'session:', currentSession ? 'exists' : 'null');
   if (currentUser && currentSession) {
-    console.log('[Storia] Saving story...');
     fetch('/api/stories', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -1397,12 +1396,7 @@ showStory = function(s, prenom) {
         token: currentSession.access_token,
         story: Object.assign({}, s, { univers: S.univers, prenom: prenom, langue: currentLang, longueur: S.longueur })
       })
-    })
-    .then(function(r) { return r.json(); })
-    .then(function(d) { console.log('[Storia] Save result:', d); })
-    .catch(function(e) { console.log('[Storia] Save error:', e); });
-  } else {
-    console.log('[Storia] Not logged in, story not saved');
+    }).catch(function(){});
   }
 };
 
