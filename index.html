@@ -296,7 +296,7 @@ footer p{font-size:12px;color:#9C8AB4;}
       <div class="av-card-icon" style="background:#FFF0FA;">🎯</div>
       <div class="av-card-title" id="avc1-t">100% personnalisée</div>
       <div class="av-card-body" id="avc1-b">Chaque histoire est générée uniquement pour votre enfant. Son prénom apparaît comme le héros principal — pas un personnage générique qu'on retrouve dans tous les livres.</div>
-      <ul class="av-card-points"><li id="avc1-l1">Le prénom de l'enfant intégré dans toute l'histoire</li><li id="avc1-l2">Adapté à l'âge (2 à 12 ans)</li><li id="avc1-l3">Garçon ou fille, l'histoire s'adapte</li></ul>
+      <ul class="av-card-points"><li id="avc1-l1">Le prénom de l'enfant intégré dans toute l'histoire</li><li id="avc1-l2">Adapté à l'âge (6 mois à 12 ans)</li><li id="avc1-l3">Garçon ou fille, l'histoire s'adapte</li></ul>
     </div>
     <div class="av-card">
       <div class="av-card-icon" style="background:#F0FFF4;">✨</div>
@@ -379,7 +379,7 @@ footer p{font-size:12px;color:#9C8AB4;}
         </div>
         <div class="step show" id="s0">
           <div class="fgroup"><label class="flabel" id="lbl-prenom">👶 Prénom de l'enfant</label><input class="finput" type="text" id="inp-prenom" placeholder="Ex : Emma, Lucas, Léa..."/></div>
-          <div class="fgroup"><label class="flabel" id="lbl-age">🎂 Âge</label><div class="slider-row"><input type="range" min="2" max="12" value="5" id="inp-age"/><span class="sval" id="age-v">5 ans</span></div></div>
+          <div class="fgroup"><label class="flabel" id="lbl-age">🎂 Âge</label><div class="slider-row"><input type="range" min="0" max="12" value="5" id="inp-age"/><span class="sval" id="age-v">5 ans</span></div></div>
           <div class="fgroup">
             <label class="flabel" id="lbl-genre">👫 Garçon ou fille ?</label>
             <div class="g2" id="genre-grid">
@@ -485,7 +485,7 @@ var TR = {
     p3f1:"Histoires illimitées", p3f2:"Tous les PDF inclus", p3f3:"Plusieurs enfants", p3f4:"Sans engagement", p3btn:"S'abonner",
     pg_univ_h1:"🌍 Les univers magiques",pg_univ_sub:"9 mondes extraordinaires. Cliquez pour voir des extraits.",pg_av_h1:"✨ Pourquoi choisir Storia ?",pg_av_sub:"Un service pour les parents qui veulent offrir quelque chose de magique.",pg_av_cta_h2:"Prêt à créer la magie ?",pg_av_cta_p:"Rejoignez des milliers de parents.",pg_av_cta_btn:"✨ Créer mon histoire gratuite",univ_extract:"Extrait",univ_ready:"Prêt pour l'aventure ?",univ_ready_sub:"Créez une histoire personnalisée.",univ_back:"← Tous les univers",univ_create:"Créer une histoire",
 
-    avc1_t:"100% personnalisée",avc1_b:"Chaque histoire est générée uniquement pour votre enfant. Son prénom apparaît comme le héros principal.",avc1_l1:"Le prénom intégré dans toute l'histoire",avc1_l2:"Adapté à l'âge (2 à 12 ans)",avc1_l3:"Garçon ou fille, l'histoire s'adapte",
+    avc1_t:"100% personnalisée",avc1_b:"Chaque histoire est générée uniquement pour votre enfant. Son prénom apparaît comme le héros principal.",avc1_l1:"Le prénom intégré dans toute l'histoire",avc1_l2:"Adapté à l'âge (6 mois à 12 ans)",avc1_l3:"Garçon ou fille, l'histoire s'adapte",
     avc2_t:"Générée comme par magie",avc2_b:"Grâce à l'IA, chaque histoire est unique. Même univers deux fois = histoire complètement différente.",avc2_l1:"Jamais deux fois la même histoire",avc2_l2:"Des chapitres riches et détaillés",avc2_l3:"Un récit cohérent du début à la fin",
     avc3_t:"Des valeurs transmises",avc3_b:"Chaque histoire porte un message positif : courage, amitié, gentillesse ou persévérance.",avc3_l1:"4 valeurs au choix",avc3_l2:"Morale incluse à la fin",avc3_l3:"Adaptée à la compréhension de l'enfant",
     avc4_t:"PDF téléchargeable",avc4_b:"Téléchargez l'histoire pour la lire hors ligne, l'imprimer ou la conserver précieusement.",avc4_l1:"Téléchargement instantané",avc4_l2:"Lisible sur tous les appareils",avc4_l3:"Peut être imprimé et relié",
@@ -496,6 +496,7 @@ var TR = {
     avc9_t:"Le cadeau parfait",avc9_b:"Offrez une histoire personnalisée pour un anniversaire ou Noël. Un cadeau unique qu'aucun autre enfant ne possède.",avc9_l1:"Cadeau original et mémorable",avc9_l2:"Prêt en quelques secondes",avc9_l3:"Peut être imprimé et emballé",
 
     ex_fees:"Emma avança dans la forêt scintillante. Une fée se posa sur son épaule. Je t attendais, dit-elle. La licorne dorée a besoin de ton aide...",ex_espace:"La fusée traversa la ceinture d astéroïdes. Un alien vert apparut. Bienvenue dans la galaxie Zorbula ! Nous avons besoin d une astronaute courageuse...",ex_jungle:"Lucas avança entre les arbres quand un lion s assit devant lui. N aie pas peur, dit-il. Je suis gardien de la jungle. Tu peux nous aider...",ex_dragons:"Emma se retrouva face à un dragon vert qui pleurait. On me croit méchant, dit-il, mais je veux juste un ami. Aide-moi...",ex_pirates:"Ici X marque le trésor, murmura Lucas. Une bouteille à la mer apparut avec un message : Méfie-toi du Kraken, il n est pas si terrible...",ex_dinos:"Emma ouvrit la porte et se retrouva face à un diplodocus. L animal baissa la tête : Peux-tu m aider à retrouver mon bébé ?",ex_superheros:"Lucas découvrit qu il pouvait voler. Il aperçut un chat coincé en haut d un grand arbre. Mon premier sauvetage ! pensa-t-il.",ex_marin:"Emma plongea et découvrit qu elle pouvait respirer. Une sirène nagea vers elle. Bienvenue dans le royaume d Aquaria...",ex_foret:"Lucas suivit le gnome à chapeau rouge. Notre village est en danger ! Un sort a transformé nos arbres en bonbons. Aide-nous !",
+    months:"mois",
     ft:"Fait avec ❤️ pour les enfants et leurs parents", lang:"in French",
     drop_hist_title:"Choisissez un univers", drop_hist_footer:"Voir tous les univers →",
     drop_av_title:"Les avantages", drop_av_footer:"Voir tous les avantages →",
@@ -541,7 +542,7 @@ var TR = {
     p3f1:"Unlimited stories", p3f2:"All PDFs included", p3f3:"Multiple children", p3f4:"No commitment", p3btn:"Subscribe",
     pg_univ_h1:"🌍 The magic universes",pg_univ_sub:"9 extraordinary worlds. Click to see excerpts.",pg_av_h1:"✨ Why choose Storia?",pg_av_sub:"A service for parents who want to offer something magical.",pg_av_cta_h2:"Ready to create magic?",pg_av_cta_p:"Join thousands of parents.",pg_av_cta_btn:"✨ Create my free story",univ_extract:"Excerpt",univ_ready:"Ready for adventure?",univ_ready_sub:"Create a personalized story.",univ_back:"← All universes",univ_create:"Create a story",
 
-    avc1_t:"100% personalized",avc1_b:"Every story is generated exclusively for your child. Their name appears as the main hero.",avc1_l1:"Child's name throughout the story",avc1_l2:"Adapted to age (2 to 12)",avc1_l3:"Boy or girl, the story adapts",
+    avc1_t:"100% personalized",avc1_b:"Every story is generated exclusively for your child. Their name appears as the main hero.",avc1_l1:"Child's name throughout the story",avc1_l2:"Adapted to age (6 months to 12 years)",avc1_l3:"Boy or girl, the story adapts",
     avc2_t:"Generated like magic",avc2_b:"Thanks to AI, every story is unique. Same universe twice = completely different story.",avc2_l1:"Never the same story twice",avc2_l2:"Rich and detailed chapters",avc2_l3:"Coherent narrative from start to finish",
     avc3_t:"Values transmitted",avc3_b:"Each story carries a positive message: courage, friendship, kindness or perseverance.",avc3_l1:"4 values to choose from",avc3_l2:"Moral included at the end",avc3_l3:"Adapted to child's understanding",
     avc4_t:"Downloadable PDF",avc4_b:"Download the story to read offline, print or keep it preciously.",avc4_l1:"Instant download",avc4_l2:"Readable on all devices",avc4_l3:"Can be printed and bound",
@@ -552,6 +553,7 @@ var TR = {
     avc9_t:"The perfect gift",avc9_b:"Give a personalized story for a birthday or Christmas. A unique gift no other child has.",avc9_l1:"Original and memorable gift",avc9_l2:"Ready in seconds",avc9_l3:"Can be printed and wrapped",
 
     ex_fees:"Emma walked into the shimmering forest. A tiny fairy landed on her shoulder. I've been waiting for you, she said. The golden unicorn needs your help...",ex_espace:"The rocket crossed the asteroid belt. A green alien appeared on the screen. Welcome to galaxy Zorbula! We need a brave astronaut like you...",ex_jungle:"Lucas walked through the trees when a lion sat before him. Don't be afraid, it said. I am the guardian of the jungle. You can help us...",ex_dragons:"Emma found herself face to face with a green dragon who was crying. Everyone thinks I'm evil, it said, but I just want a friend. Help me...",ex_pirates:"X marks the treasure here, Lucas whispered. A bottle washed ashore with a message: Beware of the Kraken, but it's not as terrible as they say...",ex_dinos:"Emma opened the door and found herself face to face with a diplodocus. The animal lowered its head: Can you help me find my baby?",ex_superheros:"Lucas discovered he could fly. He spotted a cat stuck high in a tall tree. My first rescue! he thought, diving at full speed.",ex_marin:"Emma dived and discovered she could breathe underwater. A mermaid swam toward her. Welcome to the kingdom of Aquaria...",ex_foret:"Lucas followed the red-hatted gnome. Our village is in danger! A spell has turned all our trees into candy. Help us!",
+    months:"months",
     ft:"Made with ❤️ for children and their parents", lang:"in English",
     drop_hist_title:"Choose a universe", drop_hist_footer:"See all universes →",
     drop_av_title:"Why Storia", drop_av_footer:"See all advantages →",
@@ -608,6 +610,7 @@ var TR = {
     avc9_t:"El regalo perfecto",avc9_b:"Regala una historia personalizada para un cumpleaños o Navidad. Un regalo único.",avc9_l1:"Regalo original y memorable",avc9_l2:"Listo en segundos",avc9_l3:"Se puede imprimir y envolver",
 
     ex_fees:"Emma avanzó por el bosque brillante. Un hada se posó en su hombro. Te estaba esperando, dijo. El unicornio dorado necesita tu ayuda...",ex_espace:"El cohete cruzó el cinturón de asteroides. Un alien verde apareció. Bienvenido a la galaxia Zorbula! Necesitamos un astronauta valiente...",ex_jungle:"Lucas avanzó entre los árboles cuando un león se sentó frente a él. No tengas miedo, dijo. Soy el guardián de la jungla. Puedes ayudarnos...",ex_dragons:"Emma se encontró frente a frente con un dragón verde que lloraba. Todos creen que soy malo, dijo, pero solo quiero un amigo. Ayúdame...",ex_pirates:"Aquí X marca el tesoro, susurró Lucas. Una botella llegó con un mensaje: Cuidado con el Kraken, no es tan terrible como dicen...",ex_dinos:"Emma abrió la puerta y se encontró cara a cara con un diplodocus. El animal bajó la cabeza: ¿Puedes ayudarme a encontrar a mi bebé?",ex_superheros:"Lucas descubrió que podía volar. Vio un gato atrapado en lo alto de un árbol. ¡Mi primer rescate! pensó, lanzándose a toda velocidad.",ex_marin:"Emma se sumergió y descubrió que podía respirar. Una sirena nadó hacia ella. Bienvenida al reino de Aquaria...",ex_foret:"Lucas siguió al gnomo de sombrero rojo. ¡Nuestro pueblo está en peligro! Un hechizo ha convertido todos nuestros árboles en dulces. ¡Ayúdanos!",
+    months:"meses",
     ft:"Hecho con ❤️ para niños y sus padres", lang:"in Spanish",
     drop_hist_title:"Elige un universo", drop_hist_footer:"Ver todos los universos →",
     drop_av_title:"Por qué Storia", drop_av_footer:"Ver todas las ventajas →",
@@ -653,7 +656,7 @@ var TR = {
     p3f1:"Unbegrenzte Geschichten", p3f2:"Alle PDFs inklusive", p3f3:"Mehrere Kinder", p3f4:"Ohne Verpflichtung", p3btn:"Abonnieren",
     pg_univ_h1:"🌍 Die magischen Universen",pg_univ_sub:"9 außergewöhnliche Welten. Klicke für Auszüge.",pg_av_h1:"✨ Warum Storia wählen?",pg_av_sub:"Für Eltern, die ihren Kindern etwas Magisches schenken möchten.",pg_av_cta_h2:"Bereit für die Magie?",pg_av_cta_p:"Tausende Eltern schenken einzigartige Geschichten.",pg_av_cta_btn:"✨ Meine Geschichte erstellen",univ_extract:"Auszug",univ_ready:"Bereit für das Abenteuer?",univ_ready_sub:"Erstelle eine personalisierte Geschichte.",univ_back:"← Alle Universen",univ_create:"Geschichte erstellen",
 
-    avc1_t:"100% personalisiert",avc1_b:"Jede Geschichte wird exklusiv für dein Kind generiert. Sein Name erscheint als Hauptheld.",avc1_l1:"Name in der gesamten Geschichte",avc1_l2:"Angepasst an das Alter (2-12)",avc1_l3:"Junge oder Mädchen, die Geschichte passt sich an",
+    avc1_t:"100% personalisiert",avc1_b:"Jede Geschichte wird exklusiv für dein Kind generiert. Sein Name erscheint als Hauptheld.",avc1_l1:"Name in der gesamten Geschichte",avc1_l2:"Angepasst an das Alter (6 Monate bis 12 Jahre)",avc1_l3:"Junge oder Mädchen, die Geschichte passt sich an",
     avc2_t:"Wie durch Magie erstellt",avc2_b:"Dank KI ist jede Geschichte einzigartig. Gleiches Universum zweimal = völlig andere Geschichte.",avc2_l1:"Nie dieselbe Geschichte zweimal",avc2_l2:"Reiche und detaillierte Kapitel",avc2_l3:"Kohärente Erzählung von Anfang bis Ende",
     avc3_t:"Werte vermittelt",avc3_b:"Jede Geschichte trägt eine positive Botschaft: Mut, Freundschaft, Freundlichkeit oder Ausdauer.",avc3_l1:"4 Werte zur Auswahl",avc3_l2:"Moral am Ende enthalten",avc3_l3:"Angepasst ans Verständnis des Kindes",
     avc4_t:"PDF-Download",avc4_b:"Lade die Geschichte herunter, um sie offline zu lesen, zu drucken oder zu bewahren.",avc4_l1:"Sofortiger Download",avc4_l2:"Lesbar auf allen Geräten",avc4_l3:"Kann gedruckt und gebunden werden",
@@ -664,6 +667,7 @@ var TR = {
     avc9_t:"Das perfekte Geschenk",avc9_b:"Schenke eine personalisierte Geschichte zum Geburtstag oder zu Weihnachten.",avc9_l1:"Originelles und unvergessliches Geschenk",avc9_l2:"In Sekunden fertig",avc9_l3:"Kann gedruckt und verpackt werden",
 
     ex_fees:"Emma betrat den glitzernden Wald. Eine winzige Fee landete auf ihrer Schulter. Ich habe auf dich gewartet, sagte sie. Das goldene Einhorn braucht deine Hilfe...",ex_espace:"Die Rakete durchquerte den Asteroidengürtel. Ein grüner Alien erschien. Willkommen in der Galaxie Zorbula! Wir brauchen einen mutigen Astronauten...",ex_jungle:"Lucas ging durch die Bäume, als ein Löwe vor ihm saß. Hab keine Angst, sagte er. Ich bin der Hüter des Dschungels. Du kannst uns helfen...",ex_dragons:"Emma stand einem grünen Drachen gegenüber, der weinte. Alle denken, ich bin böse, sagte er, aber ich will nur einen Freund. Hilf mir...",ex_pirates:"Hier markiert X den Schatz, flüsterte Lucas. Eine Flasche trieb an Land mit einer Nachricht: Hüte dich vor dem Kraken, er ist nicht so schrecklich...",ex_dinos:"Emma öffnete die Tür und stand einem Diplodocus gegenüber. Das Tier senkte den Kopf: Kannst du mir helfen, mein Baby zu finden?",ex_superheros:"Lucas entdeckte, dass er fliegen konnte. Er sah eine Katze, die hoch oben in einem Baum feststeckte. Meine erste Rettung! dachte er.",ex_marin:"Emma tauchte und entdeckte, dass sie unter Wasser atmen konnte. Eine Meerjungfrau schwamm auf sie zu. Willkommen im Königreich Aquaria...",ex_foret:"Lucas folgte dem Gnom mit dem roten Hut. Unser Dorf ist in Gefahr! Ein Zauber hat alle unsere Bäume in Süßigkeiten verwandelt. Hilf uns!",
+    months:"Monate",
     ft:"Mit ❤️ für Kinder und ihre Eltern gemacht", lang:"in German",
     drop_hist_title:"Wähle ein Universum", drop_hist_footer:"Alle Universen →",
     drop_av_title:"Warum Storia", drop_av_footer:"Alle Vorteile →",
@@ -709,7 +713,7 @@ var TR = {
     p3f1:"Storie illimitate", p3f2:"Tutti i PDF inclusi", p3f3:"Più bambini", p3f4:"Senza impegno", p3btn:"Abbonati",
     pg_univ_h1:"🌍 Gli universi magici",pg_univ_sub:"9 mondi straordinari. Clicca per vedere degli estratti.",pg_av_h1:"✨ Perché scegliere Storia?",pg_av_sub:"Un servizio per i genitori che vogliono offrire qualcosa di magico.",pg_av_cta_h2:"Pronto a creare la magia?",pg_av_cta_p:"Unisciti a migliaia di genitori.",pg_av_cta_btn:"✨ Crea la mia storia gratis",univ_extract:"Estratto",univ_ready:"Pronto per l'avventura?",univ_ready_sub:"Crea una storia personalizzata.",univ_back:"← Tutti gli universi",univ_create:"Crea una storia",
 
-    avc1_t:"100% personalizzata",avc1_b:"Ogni storia è generata esclusivamente per tuo figlio. Il suo nome appare come l'eroe principale.",avc1_l1:"Nome integrato in tutta la storia",avc1_l2:"Adattata all'età (2-12 anni)",avc1_l3:"Maschio o femmina, la storia si adatta",
+    avc1_t:"100% personalizzata",avc1_b:"Ogni storia è generata esclusivamente per tuo figlio. Il suo nome appare come l'eroe principale.",avc1_l1:"Nome integrato in tutta la storia",avc1_l2:"Adattata all'età (6 mesi - 12 anni)",avc1_l3:"Maschio o femmina, la storia si adatta",
     avc2_t:"Generata come per magia",avc2_b:"Grazie all'IA, ogni storia è unica. Stesso universo due volte = storia completamente diversa.",avc2_l1:"Mai la stessa storia due volte",avc2_l2:"Capitoli ricchi e dettagliati",avc2_l3:"Narrativa coerente dall'inizio alla fine",
     avc3_t:"Valori trasmessi",avc3_b:"Ogni storia porta un messaggio positivo: coraggio, amicizia, gentilezza o perseveranza.",avc3_l1:"4 valori da scegliere",avc3_l2:"Morale inclusa alla fine",avc3_l3:"Adattata alla comprensione del bambino",
     avc4_t:"PDF scaricabile",avc4_b:"Scarica la storia per leggerla offline, stamparla o conservarla preziosamente.",avc4_l1:"Download istantaneo",avc4_l2:"Leggibile su tutti i dispositivi",avc4_l3:"Può essere stampata e rilegata",
@@ -720,6 +724,7 @@ var TR = {
     avc9_t:"Il regalo perfetto",avc9_b:"Regala una storia personalizzata per un compleanno o Natale. Un regalo unico.",avc9_l1:"Regalo originale e memorabile",avc9_l2:"Pronto in pochi secondi",avc9_l3:"Può essere stampata e incartata",
 
     ex_fees:"Emma avanzò nella foresta scintillante. Una fata si posò sulla sua spalla. Ti aspettavo, disse. Il liocorno dorato ha bisogno del tuo aiuto...",ex_espace:"Il razzo attraversò la cintura asteroidale. Un alieno verde apparve. Benvenuto nella galassia Zorbula! Abbiamo bisogno di un astronauta coraggioso...",ex_jungle:"Lucas avanzò tra gli alberi quando un leone si sedette davanti a lui. Non aver paura, disse. Sono il guardiano della giungla. Puoi aiutarci...",ex_dragons:"Emma si ritrovò faccia a faccia con un drago verde che piangeva. Tutti pensano che io sia cattivo, disse, ma voglio solo un amico. Aiutami...",ex_pirates:"Qui X segna il tesoro, sussurrò Lucas. Una bottiglia arrivò con un messaggio: Attento al Kraken, non è così terribile come dicono...",ex_dinos:"Emma aprì la porta e si trovò faccia a faccia con un diplodoco. L'animale abbassò la testa: Puoi aiutarmi a trovare il mio cucciolo?",ex_superheros:"Lucas scoprì che poteva volare. Vide un gatto bloccato in cima a un albero alto. Il mio primo salvataggio! pensò, tuffandosi a tutta velocità.",ex_marin:"Emma si tuffò e scoprì che poteva respirare sott'acqua. Una sirena nuotò verso di lei. Benvenuta nel regno di Aquaria...",ex_foret:"Lucas seguì lo gnomo con il cappello rosso. Il nostro villaggio è in pericolo! Un incantesimo ha trasformato tutti i nostri alberi in dolci. Aiutaci!",
+    months:"mesi",
     ft:"Fatto con ❤️ per i bambini e i loro genitori", lang:"in Italian",
     drop_hist_title:"Scegli un universo", drop_hist_footer:"Vedi tutti gli universi →",
     drop_av_title:"Perché Storia", drop_av_footer:"Vedi tutti i vantaggi →",
@@ -765,7 +770,7 @@ var TR = {
     p3f1:"Histórias ilimitadas", p3f2:"Todos os PDFs incluídos", p3f3:"Vários filhos", p3f4:"Sem compromisso", p3btn:"Assinar",
     pg_univ_h1:"🌍 Os universos mágicos",pg_univ_sub:"9 mundos extraordinários. Clique para ver trechos.",pg_av_h1:"✨ Por que escolher Storia?",pg_av_sub:"Um serviço para pais que querem oferecer algo mágico.",pg_av_cta_h2:"Pronto para criar magia?",pg_av_cta_p:"Junte-se a milhares de pais.",pg_av_cta_btn:"✨ Criar minha história grátis",univ_extract:"Trecho",univ_ready:"Pronto para a aventura?",univ_ready_sub:"Crie uma história personalizada.",univ_back:"← Todos os universos",univ_create:"Criar uma história",
 
-    avc1_t:"100% personalizada",avc1_b:"Cada história é gerada exclusivamente para a sua criança. O nome dela aparece como o herói principal.",avc1_l1:"Nome integrado em toda a história",avc1_l2:"Adaptada à idade (2 a 12 anos)",avc1_l3:"Menino ou menina, a história se adapta",
+    avc1_t:"100% personalizada",avc1_b:"Cada história é gerada exclusivamente para a sua criança. O nome dela aparece como o herói principal.",avc1_l1:"Nome integrado em toda a história",avc1_l2:"Adaptada à idade (6 meses a 12 anos)",avc1_l3:"Menino ou menina, a história se adapta",
     avc2_t:"Gerada como por magia",avc2_b:"Graças à IA, cada história é única. Mesmo universo duas vezes = história completamente diferente.",avc2_l1:"Nunca a mesma história duas vezes",avc2_l2:"Capítulos ricos e detalhados",avc2_l3:"Narrativa coerente do início ao fim",
     avc3_t:"Valores transmitidos",avc3_b:"Cada história traz uma mensagem positiva: coragem, amizade, gentileza ou perseverança.",avc3_l1:"4 valores para escolher",avc3_l2:"Moral incluída no final",avc3_l3:"Adaptada à compreensão da criança",
     avc4_t:"PDF para download",avc4_b:"Baixe a história para ler offline, imprimir ou guardar com carinho.",avc4_l1:"Download instantâneo",avc4_l2:"Legível em todos os dispositivos",avc4_l3:"Pode ser impresso e encadernado",
@@ -776,6 +781,7 @@ var TR = {
     avc9_t:"O presente perfeito",avc9_b:"Ofereça uma história personalizada para um aniversário ou Natal. Um presente único.",avc9_l1:"Presente original e memorável",avc9_l2:"Pronto em segundos",avc9_l3:"Pode ser impresso e embalado",
 
     ex_fees:"Emma avançou pela floresta cintilante. Uma fada pousou em seu ombro. Estava te esperando, ela disse. O unicórnio dourado precisa de você...",ex_espace:"O foguete cruzou o cinturão de asteroides. Um alien verde apareceu. Bem-vindo à galáxia Zorbula! Precisamos de um astronauta corajoso...",ex_jungle:"Lucas avançou entre as árvores quando um leão se sentou à sua frente. Não tenha medo, disse. Sou o guardião da selva. Você pode nos ajudar...",ex_dragons:"Emma se encontrou cara a cara com um dragão verde que chorava. Todos pensam que sou mau, disse, mas só quero um amigo. Me ajude...",ex_pirates:"Aqui X marca o tesouro, sussurrou Lucas. Uma garrafa chegou com uma mensagem: Cuidado com o Kraken, ele não é tão terrível quanto dizem...",ex_dinos:"Emma abriu a porta e se encontrou com um diplodoco. O animal abaixou a cabeça: Você pode me ajudar a encontrar meu bebê?",ex_superheros:"Lucas descobriu que podia voar. Ele viu um gato preso no topo de uma árvore alta. Meu primeiro resgate! pensou, mergulhando em velocidade total.",ex_marin:"Emma mergulhou e descobriu que podia respirar debaixo d'água. Uma sereia nadou em direção a ela. Bem-vinda ao reino de Aquaria...",ex_foret:"Lucas seguiu o gnomo de chapéu vermelho. Nossa aldeia está em perigo! Um feitiço transformou todas as nossas árvores em doces. Ajude-nos!",
+    months:"meses",
     ft:"Feito com ❤️ para crianças e seus pais", lang:"in Portuguese",
     drop_hist_title:"Escolha um universo", drop_hist_footer:"Ver todos os universos →",
     drop_av_title:"Por que Storia", drop_av_footer:"Ver todas as vantagens →",
@@ -801,6 +807,7 @@ var TR = {
 function setLang(c) {
   var t = TR[c]; if (!t) return;
   currentLang = c;
+  window._currentTR = t;
   // Flags
   document.querySelectorAll(".flag-btn").forEach(function(b) { b.classList.remove("on"); });
   var fb = document.getElementById("fb-" + c); if (fb) fb.classList.add("on");
@@ -833,7 +840,7 @@ function setLang(c) {
   // Placeholder & age
   var inp = document.getElementById("inp-prenom"); if (inp) inp.placeholder = t.iph;
   var av = document.getElementById("age-v"); var ag = document.getElementById("inp-age");
-  if (av && ag) av.textContent = ag.value + " " + t.au;
+  if (av && ag) { var v = parseInt(ag.value); av.textContent = v === 0 ? "6 " + (t.months || "mois") : v + " " + t.au; }
   // Pricing
   u("price-h1", t.price_h1); u("price-sub", t.price_sub);
   u("p1-name", t.p1n); u("p1-per", t.p1per); u("p1-desc", t.p1desc);
@@ -980,7 +987,9 @@ window.addEventListener("DOMContentLoaded", function() {
     if (btn) selectUniverseAndCreate(btn.getAttribute("data-univ"));
   });
   document.getElementById("inp-age").addEventListener("input", function() {
-    document.getElementById("age-v").textContent = this.value + " ans";
+    var v = parseInt(this.value);
+    var t = window._currentTR || TR["fr"];
+    document.getElementById("age-v").textContent = v === 0 ? "6 " + (t.months || "mois") : v + " " + (t.au || "ans");
   });
   document.getElementById("inp-prenom").addEventListener("input", checkS0);
   document.getElementById("opt-garcon").addEventListener("click", function() { selectInGrid("genre-grid", this); S.genre = "garcon"; checkS0(); });
@@ -1017,7 +1026,8 @@ function goStep(n) {
 }
 function createStory() {
   var prenom = document.getElementById("inp-prenom").value.trim();
-  var age = document.getElementById("inp-age").value;
+  var ageVal = parseInt(document.getElementById("inp-age").value);
+  var age = ageVal === 0 ? "6 months" : ageVal + " years";
   currentPrenom = prenom;
   var chapCount = S.longueur === "courte" ? 8 : (S.longueur === "longue" ? 25 : 15);
   var wpc = S.longueur === "courte" ? 150 : (S.longueur === "longue" ? 250 : 200);
