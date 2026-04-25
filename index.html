@@ -182,6 +182,66 @@ footer{padding:2rem;text-align:center;border-top:1px solid #F0E8FF;}
 .foot-logo{font-family:'Baloo 2',cursive;font-size:18px;font-weight:800;background:linear-gradient(135deg,#FF6B9D,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.4rem;}
 footer p{font-size:12px;color:#9C8AB4;}
 @media(max-width:768px){.nav-center{display:none;}.universes-grid,.av-grid{grid-template-columns:1fr;}.g3{grid-template-columns:1fr 1fr;}}
+
+/* ── AUTH ── */
+.auth-modal{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;padding:1rem;}
+.auth-modal.open{display:flex;}
+.auth-box{background:white;border-radius:24px;padding:2.5rem;width:100%;max-width:420px;box-shadow:0 24px 60px rgba(168,85,247,0.2);}
+.auth-logo{font-family:'Baloo 2',cursive;font-size:20px;font-weight:800;background:linear-gradient(135deg,#FF6B9D,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;margin-bottom:0.25rem;}
+.auth-title{font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;text-align:center;margin-bottom:0.4rem;color:#2D1B4E;}
+.auth-sub{font-size:13px;color:#9C8AB4;text-align:center;margin-bottom:1.75rem;}
+.auth-tabs{display:flex;background:#FAF5FF;border-radius:12px;padding:4px;margin-bottom:1.5rem;gap:4px;}
+.auth-tab{flex:1;padding:8px;border:none;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;background:transparent;color:#9C8AB4;transition:all 0.2s;}
+.auth-tab.on{background:white;color:#A855F7;box-shadow:0 2px 8px rgba(168,85,247,0.12);}
+.auth-field{margin-bottom:1rem;}
+.auth-field label{font-size:12px;font-weight:700;color:#2D1B4E;display:block;margin-bottom:5px;}
+.auth-field input{width:100%;background:#FAF5FF;border:2px solid #E9D5FF;border-radius:10px;color:#2D1B4E;font-size:14px;padding:11px 14px;font-family:'Nunito',sans-serif;outline:none;transition:border-color 0.2s;}
+.auth-field input:focus{border-color:#A855F7;}
+.auth-btn{width:100%;padding:13px;border:none;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;margin-top:0.5rem;transition:opacity 0.2s;}
+.auth-btn:hover{opacity:0.9;}
+.auth-btn:disabled{opacity:0.5;cursor:not-allowed;}
+.auth-divider{display:flex;align-items:center;gap:12px;margin:1.25rem 0;color:#9C8AB4;font-size:12px;}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:#E9D5FF;}
+.auth-google{width:100%;padding:12px;border:2px solid #E9D5FF;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;background:white;color:#2D1B4E;display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.2s;}
+.auth-google:hover{border-color:#A855F7;background:#FAF5FF;}
+.auth-google-icon{width:18px;height:18px;}
+.auth-error{background:#FFF0F0;border:1.5px solid #FFD5D5;border-radius:10px;padding:10px 14px;font-size:12px;color:#DC2626;margin-bottom:1rem;display:none;}
+.auth-error.show{display:block;}
+.auth-close{position:absolute;top:1rem;right:1rem;background:transparent;border:none;font-size:20px;cursor:pointer;color:#9C8AB4;line-height:1;}
+
+/* User menu */
+.user-btn{background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;border:none;border-radius:50px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px;}
+.user-menu{position:absolute;top:calc(100% + 8px);right:0;background:white;border-radius:16px;box-shadow:0 12px 40px rgba(168,85,247,0.15);padding:0.75rem;min-width:200px;border:1px solid #F0E8FF;z-index:300;}
+.user-menu-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:13px;font-weight:600;color:#2D1B4E;cursor:pointer;transition:background 0.15s;}
+.user-menu-item:hover{background:#FAF5FF;}
+.user-menu-item.danger{color:#DC2626;}
+.user-menu-item.danger:hover{background:#FFF0F0;}
+.user-menu-sep{height:1px;background:#F0E8FF;margin:6px 0;}
+
+/* Dashboard page */
+.dashboard-header{background:linear-gradient(135deg,#FF6B9D,#A855F7);padding:4rem 2rem 3rem;text-align:center;}
+.dashboard-header h1{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:white;margin-bottom:0.4rem;}
+.dashboard-header p{font-size:14px;color:rgba(255,255,255,0.8);}
+.dashboard-body{max-width:860px;margin:0 auto;padding:2.5rem 2rem;}
+.dash-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:2.5rem;}
+.dash-stat{background:white;border-radius:16px;padding:1.25rem;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.05);border:1.5px solid #F0E8FF;}
+.dash-stat-n{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:#A855F7;}
+.dash-stat-l{font-size:12px;color:#9C8AB4;margin-top:2px;}
+.dash-section-title{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:800;color:#2D1B4E;margin-bottom:1rem;}
+.story-card-dash{background:white;border-radius:16px;padding:1.25rem;border:1.5px solid #F0E8FF;display:flex;align-items:center;gap:1rem;margin-bottom:10px;transition:all 0.2s;cursor:pointer;}
+.story-card-dash:hover{border-color:#A855F7;box-shadow:0 4px 16px rgba(168,85,247,0.1);}
+.story-card-emoji{font-size:32px;flex-shrink:0;}
+.story-card-info{flex:1;}
+.story-card-title{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:#2D1B4E;margin-bottom:2px;}
+.story-card-meta{font-size:11px;color:#9C8AB4;}
+.story-card-actions{display:flex;gap:6px;}
+.story-card-btn{background:#FAF5FF;border:1.5px solid #E9D5FF;border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;color:#A855F7;transition:all 0.15s;}
+.story-card-btn:hover{background:#F3E8FF;border-color:#A855F7;}
+.story-card-btn.del{color:#DC2626;border-color:#FFD5D5;}
+.story-card-btn.del:hover{background:#FFF0F0;}
+.dash-empty{text-align:center;padding:3rem;color:#9C8AB4;font-size:14px;}
+.dash-empty-icon{font-size:48px;margin-bottom:1rem;display:block;}
+
 </style>
 </head>
 <body>
@@ -238,6 +298,19 @@ footer p{font-size:12px;color:#9C8AB4;}
     <button class="flag-btn" id="fb-it" onclick="setLang('it')">IT</button>
     <button class="flag-btn" id="fb-pt" onclick="setLang('pt')">PT</button>
     <button class="nav-cta" id="nav-cta" onclick="showPage('generator')">✨ Créer une histoire</button>
+    <div style="position:relative;" id="user-area">
+      <button class="user-btn" id="user-btn" onclick="toggleUserMenu()" style="display:none;">
+        <span id="user-avatar">👤</span>
+        <span id="user-name" style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+      </button>
+      <button class="nav-cta" id="login-btn" onclick="openAuth('signin')" style="background:white;color:#A855F7;border:2px solid #A855F7;">Connexion</button>
+      <div class="user-menu" id="user-menu" style="display:none;">
+        <div class="user-menu-item" onclick="showPage('dashboard');loadDashboard();closeUserMenu()">📚 Mes histoires</div>
+        <div class="user-menu-item" onclick="showPage('pricing');closeUserMenu()">💎 Mon abonnement</div>
+        <div class="user-menu-sep"></div>
+        <div class="user-menu-item danger" onclick="signOut()">🚪 Se déconnecter</div>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -1078,4 +1151,249 @@ function dlStory() {
   var blob = new Blob([lines.join("\n")], { type:"text/plain;charset=utf-8" });
   var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "storia-" + currentPrenom.toLowerCase() + ".txt"; a.click();
 }
+
+// ── AUTH STATE ──
+var currentUser = null;
+var currentSession = null;
+
+function openAuth(tab) {
+  document.getElementById('authModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  switchTab(tab || 'signin');
+  document.getElementById('auth-error').classList.remove('show');
+}
+function closeAuth() {
+  document.getElementById('authModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('authModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAuth();
+});
+
+function switchTab(tab) {
+  document.getElementById('tab-signin').classList.toggle('on', tab === 'signin');
+  document.getElementById('tab-signup').classList.toggle('on', tab === 'signup');
+  document.getElementById('auth-submit').textContent = tab === 'signin' ? 'Se connecter' : 'Créer mon compte';
+  document.getElementById('auth-submit').setAttribute('data-tab', tab);
+}
+
+async function submitAuth() {
+  var tab = document.getElementById('auth-submit').getAttribute('data-tab') || 'signin';
+  var email = document.getElementById('auth-email').value.trim();
+  var password = document.getElementById('auth-password').value;
+  var errEl = document.getElementById('auth-error');
+  errEl.classList.remove('show');
+
+  if (!email || !password) {
+    errEl.textContent = 'Veuillez remplir tous les champs.';
+    errEl.classList.add('show');
+    return;
+  }
+
+  var btn = document.getElementById('auth-submit');
+  btn.disabled = true;
+  btn.textContent = 'Chargement...';
+
+  try {
+    var res = await fetch('/api/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: tab === 'signin' ? 'signin' : 'signup', email: email, password: password })
+    });
+    var data = await res.json();
+    if (data.error) throw new Error(data.error);
+    setUser(data.user, data.session);
+    closeAuth();
+    if (tab === 'signup') {
+      alert('Compte créé ! Vérifiez votre email pour confirmer votre inscription.');
+    }
+  } catch(e) {
+    errEl.textContent = e.message;
+    errEl.classList.add('show');
+    btn.disabled = false;
+    btn.textContent = tab === 'signin' ? 'Se connecter' : 'Créer mon compte';
+  }
+}
+
+async function signInGoogle() {
+  try {
+    var res = await fetch('/api/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'google' })
+    });
+    var data = await res.json();
+    if (data.error) throw new Error(data.error);
+    window.location.href = data.url;
+  } catch(e) {
+    var errEl = document.getElementById('auth-error');
+    errEl.textContent = e.message;
+    errEl.classList.add('show');
+  }
+}
+
+function setUser(user, session) {
+  currentUser = user;
+  currentSession = session;
+  if (session) localStorage.setItem('storia_token', session.access_token);
+  if (user) localStorage.setItem('storia_user', JSON.stringify({ email: user.email, id: user.id }));
+  updateAuthUI();
+}
+
+function updateAuthUI() {
+  var loginBtn = document.getElementById('login-btn');
+  var userBtn = document.getElementById('user-btn');
+  var userName = document.getElementById('user-name');
+  if (currentUser) {
+    loginBtn.style.display = 'none';
+    userBtn.style.display = 'flex';
+    var email = currentUser.email || '';
+    userName.textContent = email.split('@')[0];
+  } else {
+    loginBtn.style.display = 'block';
+    userBtn.style.display = 'none';
+  }
+}
+
+function toggleUserMenu() {
+  var menu = document.getElementById('user-menu');
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+function closeUserMenu() {
+  document.getElementById('user-menu').style.display = 'none';
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('#user-area')) closeUserMenu();
+});
+
+async function signOut() {
+  localStorage.removeItem('storia_token');
+  localStorage.removeItem('storia_user');
+  currentUser = null;
+  currentSession = null;
+  updateAuthUI();
+  showPage('home');
+}
+
+// Auto-restore session from localStorage
+window.addEventListener('DOMContentLoaded', function() {
+  var token = localStorage.getItem('storia_token');
+  var userData = localStorage.getItem('storia_user');
+  if (token && userData) {
+    try {
+      currentUser = JSON.parse(userData);
+      currentSession = { access_token: token };
+      updateAuthUI();
+    } catch(e) {}
+  }
+  // Check URL for OAuth callback
+  var hash = window.location.hash;
+  if (hash.includes('access_token')) {
+    var params = new URLSearchParams(hash.substring(1));
+    var accessToken = params.get('access_token');
+    if (accessToken) {
+      fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'me', token: accessToken })
+      }).then(r => r.json()).then(data => {
+        if (data.user) setUser(data.user, { access_token: accessToken });
+        window.history.replaceState({}, '', window.location.pathname);
+      });
+    }
+  }
+});
+
+// ── DASHBOARD ──
+var univers_emoji = { fees:'🧚', espace:'🚀', jungle:'🦁', dragons:'🐉', pirates:'🏴‍☠️', dinos:'🦕', superheros:'🦸', marin:'🧜', foret:'🌲' };
+
+async function loadDashboard() {
+  if (!currentUser || !currentSession) { openAuth('signin'); return; }
+  document.getElementById('dash-welcome').textContent = 'Bonjour ' + (currentUser.email || '').split('@')[0] + ' ! 👋';
+
+  var listEl = document.getElementById('dash-stories-list');
+  listEl.innerHTML = '<div class="dash-empty"><span class="dash-empty-icon">⏳</span>Chargement...</div>';
+
+  try {
+    var res = await fetch('/api/stories', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'list', token: currentSession.access_token })
+    });
+    var data = await res.json();
+    var stories = data.stories || [];
+    document.getElementById('dash-count').textContent = stories.length;
+    document.getElementById('dash-remaining').textContent = Math.max(0, 1 - stories.length);
+
+    if (stories.length === 0) {
+      listEl.innerHTML = '<div class="dash-empty"><span class="dash-empty-icon">📖</span>Vous n\'avez pas encore d\'histoires.<br/>Créez votre première histoire !</div>';
+      return;
+    }
+
+    var html = '';
+    stories.forEach(function(s) {
+      var emoji = univers_emoji[s.univers] || '📖';
+      var date = new Date(s.created_at).toLocaleDateString('fr-FR');
+      html += '<div class="story-card-dash">' +
+        '<div class="story-card-emoji">' + emoji + '</div>' +
+        '<div class="story-card-info">' +
+          '<div class="story-card-title">' + (s.titre || 'Histoire de ' + s.prenom) + '</div>' +
+          '<div class="story-card-meta">' + s.prenom + ' · ' + s.longueur + ' · ' + date + '</div>' +
+        '</div>' +
+        '<div class="story-card-actions">' +
+          '<button class="story-card-btn" onclick="reloadStory(\'' + s.id + '\')">📖 Lire</button>' +
+          '<button class="story-card-btn del" onclick="deleteStory(\'' + s.id + '\')">🗑️</button>' +
+        '</div></div>';
+    });
+    listEl.innerHTML = html;
+  } catch(e) {
+    listEl.innerHTML = '<div class="dash-empty">Erreur de chargement.</div>';
+  }
+}
+
+async function deleteStory(id) {
+  if (!confirm('Supprimer cette histoire ?')) return;
+  await fetch('/api/stories', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'delete', token: currentSession.access_token, story: { id: id } })
+  });
+  loadDashboard();
+}
+
+async function reloadStory(id) {
+  var res = await fetch('/api/stories', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'get', token: currentSession.access_token, story: { id: id } })
+  });
+  var data = await res.json();
+  if (data.story && data.story.data) {
+    currentStory = data.story.data;
+    currentPrenom = data.story.prenom;
+    showPage('generator');
+    document.getElementById('s3').className = 'step show';
+    document.querySelectorAll('.step:not(#s3)').forEach(function(s){ s.className = 'step'; });
+    document.getElementById('result-zone').innerHTML = '<div class="loader"><div class="spin"></div><div class="load-msg">Chargement...</div></div>';
+    setTimeout(function(){ showStory(data.story.data, data.story.prenom); }, 300);
+  }
+}
+
+// Save story after generation
+var _origShowStory = showStory;
+showStory = function(s, prenom) {
+  _origShowStory(s, prenom);
+  if (currentUser && currentSession) {
+    fetch('/api/stories', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'save',
+        token: currentSession.access_token,
+        story: Object.assign({}, s, { univers: S.univers, prenom: prenom, langue: currentLang, longueur: S.longueur })
+      })
+    }).catch(function(){});
+  }
+};
+
 </script>
