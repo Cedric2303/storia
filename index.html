@@ -10,7 +10,7 @@
 body{background:#FFF8F0;color:#2D1B4E;font-family:'Nunito',sans-serif;overflow-x:hidden;}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}.nav-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:4px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}.nav-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:4px;z-index:1;}
 nav.scrolled{background:rgba(255,248,240,0.97);box-shadow:0 2px 20px rgba(168,85,247,0.1);}
 .logo{font-family:'Baloo 2',cursive;font-size:24px;font-weight:800;background:linear-gradient(135deg,#FF6B9D,#A855F7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;cursor:pointer;white-space:nowrap;}
 
@@ -298,7 +298,7 @@ footer p{font-size:12px;color:#9C8AB4;}
     <button class="flag-btn" id="fb-it" onclick="setLang('it')">IT</button>
     <button class="flag-btn" id="fb-pt" onclick="setLang('pt')">PT</button>
     <button class="nav-cta" id="nav-cta" onclick="showPage('generator')">✨ Créer une histoire</button>
-    <div style="position:relative;" id="user-area">
+    <div style="position:relative;z-index:300;" id="user-area">
       <button class="user-btn" id="user-btn" onclick="toggleUserMenu()" style="display:none;">
         <span id="user-avatar">👤</span>
         <span id="user-name" style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
