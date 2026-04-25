@@ -242,6 +242,33 @@ footer p{font-size:12px;color:#9C8AB4;}
 .dash-empty{text-align:center;padding:3rem;color:#9C8AB4;font-size:14px;}
 .dash-empty-icon{font-size:48px;margin-bottom:1rem;display:block;}
 
+
+/* ── LEGAL PAGES ── */
+.legal-page{padding:5rem 2rem 3rem;}
+.legal-inner{max-width:800px;margin:0 auto;}
+.legal-title{font-family:'Baloo 2',cursive;font-size:2.5rem;font-weight:800;color:#2D1B4E;margin-bottom:0.5rem;}
+.legal-updated{font-size:13px;color:#9C8AB4;margin-bottom:2.5rem;}
+.legal-section{margin-bottom:2rem;}
+.legal-section h2{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;color:#2D1B4E;margin-bottom:0.75rem;padding-bottom:0.5rem;border-bottom:2px solid #F0E8FF;}
+.legal-section p{font-size:14px;color:#5D4A7E;line-height:1.8;margin-bottom:0.75rem;}
+.legal-section ul{font-size:14px;color:#5D4A7E;line-height:1.8;margin-left:1.5rem;margin-bottom:0.75rem;}
+.legal-section a{color:#A855F7;text-decoration:underline;}
+
+/* ── FOOTER ENHANCED ── */
+.footer-main{background:#2D1B4E;padding:3rem 2rem 1.5rem;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;max-width:1000px;margin:0 auto 2rem;}
+.footer-brand .foot-logo-white{font-family:'Baloo 2',cursive;font-size:22px;font-weight:800;color:white;margin-bottom:0.5rem;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;}
+.footer-col h4{font-size:11px;font-weight:800;color:rgba(255,255,255,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:0.5rem;transition:color 0.2s;cursor:pointer;}
+.footer-col a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;flex-wrap:wrap;gap:0.5rem;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35);}
+.footer-legal-links{display:flex;gap:1.5rem;}
+.footer-legal-links a{font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;cursor:pointer;}
+.footer-legal-links a:hover{color:rgba(255,255,255,0.6);}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;}.footer-bottom{flex-direction:column;text-align:center;}.footer-legal-links{flex-wrap:wrap;justify-content:center;}}
+
 </style>
 </head>
 <body>
@@ -337,7 +364,7 @@ footer p{font-size:12px;color:#9C8AB4;}
       <div class="how-card"><div class="how-n n4">4</div><h3 id="hw4">Télécharge & lis</h3><p id="hw4p">PDF prêt à lire au moment du coucher.</p></div>
     </div>
   </div>
-  <footer><div class="foot-logo">Storia ✨</div><p>Fait avec ❤️ pour les enfants et leurs parents</p></footer>
+  
 </div>
 
 <!-- ══════════ PAGE: UNIVERSES ══════════ -->
@@ -349,13 +376,13 @@ footer p{font-size:12px;color:#9C8AB4;}
   <div class="universes-grid" id="universes-grid">
     <!-- filled by JS -->
   </div>
-  <footer><div class="foot-logo">Storia ✨</div><p>Fait avec ❤️ pour les enfants et leurs parents</p></footer>
+  
 </div>
 
 <!-- ══════════ PAGE: UNIVERSE DETAIL ══════════ -->
 <div class="page" id="page-universe-detail">
   <div id="universe-detail-content"></div>
-  <footer><div class="foot-logo">Storia ✨</div><p>Fait avec ❤️ pour les enfants et leurs parents</p></footer>
+  
 </div>
 
 <!-- ══════════ PAGE: AVANTAGES ══════════ -->
@@ -425,7 +452,7 @@ footer p{font-size:12px;color:#9C8AB4;}
     <p id="av-cta-p">Rejoignez des milliers de parents qui offrent des histoires uniques à leurs enfants.</p>
     <button class="av-cta-btn" id="av-cta-btn" onclick="showPage('generator')">✨ Créer mon histoire gratuite</button>
   </div>
-  <footer><div class="foot-logo">Storia ✨</div><p>Fait avec ❤️ pour les enfants et leurs parents</p></footer>
+  
 </div>
 
 <!-- ══════════ PAGE: PRICING ══════════ -->
@@ -438,7 +465,7 @@ footer p{font-size:12px;color:#9C8AB4;}
       <div class="pcard"><div class="pcard-icon">🌟</div><div class="pcard-name" id="p3-name">Abonnement</div><div class="pcard-price">7,99€ <small id="p3-per">/ mois</small></div><div class="pcard-desc" id="p3-desc">Pour une nouvelle histoire chaque soir.</div><ul><li id="p3f1">Histoires illimitées</li><li id="p3f2">Tous les PDF inclus</li><li id="p3f3">Plusieurs enfants</li><li id="p3f4">Sans engagement</li></ul><button class="pbtn outline" id="p3-btn" onclick="showPage('generator')">S'abonner</button></div>
     </div>
   </div>
-  <footer><div class="foot-logo">Storia ✨</div><p>Fait avec ❤️ pour les enfants et leurs parents</p></footer>
+  
 </div>
 
 <!-- ══════════ PAGE: GENERATOR ══════════ -->
@@ -505,7 +532,7 @@ footer p{font-size:12px;color:#9C8AB4;}
       </div>
     </div>
   </div>
-  <footer><div class="foot-logo">Storia ✨</div><p>Fait avec ❤️ pour les enfants et leurs parents</p></footer>
+  
 </div>
 
 <script>
@@ -1111,6 +1138,7 @@ function createStory() {
   .then(function(data) {
     if (data.error) throw new Error(data.error.message || "API Error");
     var raw = ""; if (data.content) data.content.forEach(function(b) { if (b.text) raw += b.text; }); raw = raw.trim();
+    console.log("[RAW]", raw.length, raw.substring(0,200), "...", raw.substring(raw.length-200));
     if (!raw) throw new Error("Reponse vide");
     raw = raw.replace(/^```json\s*/i,"").replace(/^```\s*/i,"").replace(/\s*```$/i,"").trim();
     var parsed; try { parsed = JSON.parse(raw); } catch(e1) { var m = raw.match(/\{[\s\S]*\}/); if (!m) throw new Error("Format invalide, reessayez."); try { parsed = JSON.parse(m[0]); } catch(e2) { parsed = JSON.parse(m[0].replace(/[\x00-\x1F]/g," ")); } }
@@ -1452,5 +1480,207 @@ showStory = function(s, prenom) {
       <button class="hero-cta" onclick="showPage('generator')">✨ Créer une nouvelle histoire</button>
     </div>
   </div>
-  <footer><div class="foot-logo">Storia ✨</div><p>Fait avec ❤️ pour les enfants et leurs parents</p></footer>
+  
 </div>
+<!-- PAGE: MENTIONS LÉGALES -->
+<div class="page" id="page-mentions">
+  <div class="legal-page">
+    <div class="legal-inner">
+      <div class="legal-title">📋 Mentions légales</div>
+      <div class="legal-updated">Dernière mise à jour : avril 2025</div>
+      <div class="legal-section">
+        <h2>Éditeur du site</h2>
+        <p>Le site Storia est édité par un entrepreneur individuel domicilié au Luxembourg.</p>
+        <p>Email : <a href="mailto:contact@storia-phi.vercel.app">contact@storia-phi.vercel.app</a></p>
+      </div>
+      <div class="legal-section">
+        <h2>Hébergement</h2>
+        <p>Le site est hébergé par <strong>Vercel Inc.</strong>, 340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis.</p>
+        <p>Le service d'intelligence artificielle est fourni par <strong>Anthropic, PBC</strong>, San Francisco, Californie, États-Unis.</p>
+      </div>
+      <div class="legal-section">
+        <h2>Propriété intellectuelle</h2>
+        <p>L'ensemble du contenu du site Storia (design, textes, logos, interface) est protégé par le droit d'auteur. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+        <p>Les histoires générées par l'IA sont créées à la demande de l'utilisateur et lui appartiennent pour un usage personnel.</p>
+      </div>
+      <div class="legal-section">
+        <h2>Responsabilité</h2>
+        <p>Les histoires sont générées par une intelligence artificielle. Storia ne peut être tenu responsable du contenu généré, bien que des filtres soient en place pour garantir un contenu adapté aux enfants.</p>
+        <p>Storia ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation du service.</p>
+      </div>
+    </div>
+  </div>
+  <div id="footer-mentions"></div>
+</div>
+
+<!-- PAGE: POLITIQUE DE CONFIDENTIALITÉ -->
+<div class="page" id="page-confidentialite">
+  <div class="legal-page">
+    <div class="legal-inner">
+      <div class="legal-title">🔒 Politique de confidentialité</div>
+      <div class="legal-updated">Dernière mise à jour : avril 2025</div>
+      <div class="legal-section">
+        <h2>Données collectées</h2>
+        <p>Storia collecte uniquement les données nécessaires au fonctionnement du service :</p>
+        <ul>
+          <li>Adresse email (lors de l'inscription)</li>
+          <li>Histoires générées (sauvegardées dans votre compte)</li>
+          <li>Préférences de langue</li>
+        </ul>
+      </div>
+      <div class="legal-section">
+        <h2>Utilisation des données</h2>
+        <p>Vos données sont utilisées exclusivement pour :</p>
+        <ul>
+          <li>Gérer votre compte et votre authentification</li>
+          <li>Sauvegarder et afficher vos histoires</li>
+          <li>Améliorer le service</li>
+        </ul>
+        <p>Nous ne vendons jamais vos données à des tiers.</p>
+      </div>
+      <div class="legal-section">
+        <h2>Stockage et sécurité</h2>
+        <p>Vos données sont stockées de manière sécurisée sur <strong>Supabase</strong> (infrastructure PostgreSQL chiffrée). Les mots de passe sont hashés et jamais stockés en clair.</p>
+      </div>
+      <div class="legal-section">
+        <h2>Vos droits (RGPD)</h2>
+        <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+        <ul>
+          <li><strong>Droit d'accès</strong> : consulter vos données personnelles</li>
+          <li><strong>Droit de rectification</strong> : corriger vos données</li>
+          <li><strong>Droit à l'effacement</strong> : supprimer votre compte et toutes vos données</li>
+          <li><strong>Droit à la portabilité</strong> : exporter vos données</li>
+        </ul>
+        <p>Pour exercer ces droits, contactez-nous à <a href="mailto:contact@storia-phi.vercel.app">contact@storia-phi.vercel.app</a></p>
+      </div>
+      <div class="legal-section">
+        <h2>Cookies</h2>
+        <p>Storia utilise uniquement des cookies techniques indispensables au fonctionnement du service (session d'authentification). Aucun cookie publicitaire n'est utilisé.</p>
+      </div>
+    </div>
+  </div>
+  <div id="footer-confidentialite"></div>
+</div>
+
+<!-- PAGE: CONDITIONS D'UTILISATION -->
+<div class="page" id="page-cgu">
+  <div class="legal-page">
+    <div class="legal-inner">
+      <div class="legal-title">📜 Conditions générales d'utilisation</div>
+      <div class="legal-updated">Dernière mise à jour : avril 2025</div>
+      <div class="legal-section">
+        <h2>1. Acceptation des conditions</h2>
+        <p>En utilisant Storia, vous acceptez les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser le service.</p>
+      </div>
+      <div class="legal-section">
+        <h2>2. Description du service</h2>
+        <p>Storia est un service de génération d'histoires personnalisées pour enfants utilisant l'intelligence artificielle. Le service est accessible via le site web storia-phi.vercel.app.</p>
+      </div>
+      <div class="legal-section">
+        <h2>3. Compte utilisateur</h2>
+        <p>Pour accéder aux fonctionnalités complètes, vous devez créer un compte. Vous êtes responsable de la confidentialité de vos identifiants de connexion.</p>
+        <p>Vous vous engagez à fournir des informations exactes lors de l'inscription et à ne pas créer de compte pour une autre personne sans son autorisation.</p>
+      </div>
+      <div class="legal-section">
+        <h2>4. Utilisation acceptable</h2>
+        <p>Il est interdit d'utiliser Storia pour :</p>
+        <ul>
+          <li>Générer du contenu inapproprié, violent ou offensant</li>
+          <li>Contourner les limitations du service</li>
+          <li>Revendre ou redistribuer le service</li>
+          <li>Utiliser le service à des fins commerciales sans autorisation</li>
+        </ul>
+      </div>
+      <div class="legal-section">
+        <h2>5. Abonnements et paiements</h2>
+        <p>Le plan gratuit offre 1 histoire par mois. Les plans payants sont facturés selon la périodicité choisie. Les abonnements sont sans engagement et résiliables à tout moment.</p>
+        <p>Aucun remboursement n'est possible pour les périodes déjà consommées.</p>
+      </div>
+      <div class="legal-section">
+        <h2>6. Propriété des histoires</h2>
+        <p>Les histoires générées vous appartiennent pour un usage personnel. Storia se réserve le droit d'utiliser les données de génération (anonymisées) pour améliorer le service.</p>
+      </div>
+      <div class="legal-section">
+        <h2>7. Modification des conditions</h2>
+        <p>Storia se réserve le droit de modifier ces conditions à tout moment. Les utilisateurs seront notifiés par email en cas de modification substantielle.</p>
+      </div>
+      <div class="legal-section">
+        <h2>8. Droit applicable</h2>
+        <p>Les présentes conditions sont soumises au droit luxembourgeois. Tout litige sera soumis aux tribunaux compétents du Luxembourg.</p>
+      </div>
+    </div>
+  </div>
+  <div id="footer-cgu"></div>
+</div>
+
+<!-- PAGE: CONTACT -->
+<div class="page" id="page-contact">
+  <div class="legal-page">
+    <div class="legal-inner">
+      <div class="legal-title">✉️ Nous contacter</div>
+      <div class="legal-updated">Nous répondons sous 48h ouvrées</div>
+      <div class="legal-section">
+        <h2>Support technique</h2>
+        <p>Pour toute question technique ou problème avec le service :<br/>
+        <a href="mailto:support@storia-phi.vercel.app">support@storia-phi.vercel.app</a></p>
+      </div>
+      <div class="legal-section">
+        <h2>Questions sur votre compte</h2>
+        <p>Pour la gestion de votre compte, vos données personnelles ou votre abonnement :<br/>
+        <a href="mailto:contact@storia-phi.vercel.app">contact@storia-phi.vercel.app</a></p>
+      </div>
+      <div class="legal-section">
+        <h2>Signaler un contenu</h2>
+        <p>Si une histoire générée vous semble inappropriée :<br/>
+        <a href="mailto:moderation@storia-phi.vercel.app">moderation@storia-phi.vercel.app</a></p>
+      </div>
+      <div class="legal-section">
+        <h2>Partenariats</h2>
+        <p>Pour toute proposition de partenariat commercial :<br/>
+        <a href="mailto:partners@storia-phi.vercel.app">partners@storia-phi.vercel.app</a></p>
+      </div>
+    </div>
+  </div>
+  <div id="footer-contact"></div>
+</div>
+
+<!-- FOOTER GLOBAL -->
+<footer class="footer-main" id="footer-global">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="foot-logo-white">Storia ✨</div>
+      <p>Des histoires magiques et personnalisées pour les enfants du monde entier. Générées par l'IA, uniques à chaque fois.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explorer</h4>
+      <a onclick="showPage('universes')">Les univers</a>
+      <a onclick="showPage('avantages')">Pourquoi Storia</a>
+      <a onclick="showPage('pricing')">Tarifs</a>
+      <a onclick="showPage('generator')">Créer une histoire</a>
+    </div>
+    <div class="footer-col">
+      <h4>Compte</h4>
+      <a onclick="openAuth('signin')">Se connecter</a>
+      <a onclick="openAuth('signup')">S'inscrire</a>
+      <a onclick="showPage('dashboard');loadDashboard()">Mes histoires</a>
+    </div>
+    <div class="footer-col">
+      <h4>Aide</h4>
+      <a onclick="showPage('contact')">Contact</a>
+      <a onclick="showPage('cgu')">CGU</a>
+      <a onclick="showPage('confidentialite')">Confidentialité</a>
+      <a onclick="showPage('mentions')">Mentions légales</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Storia. Fait avec ❤️ au Luxembourg pour les enfants du monde entier.</p>
+    <div class="footer-legal-links">
+      <a onclick="showPage('cgu')">CGU</a>
+      <a onclick="showPage('confidentialite')">Confidentialité</a>
+      <a onclick="showPage('mentions')">Mentions légales</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
