@@ -309,6 +309,75 @@ footer p{font-size:12px;color:#9C8AB4;}
 .chat-send:hover{opacity:0.9;}
 .chat-send svg{width:16px;height:16px;fill:white;}
 
+
+/* ── BOOK COVERS ── */
+
+  html += "<div class='books-section-title'>📚 Exemples d'histoires</div>";
+  html += "<div class='books-section-sub'>Chaque histoire est unique, avec le prénom de votre enfant</div>";
+
+@media(max-width:500px){}
+
+
+
+
+
+
+
+/* ── BOOK COVERS ── */
+
+  html += "<div class='books-section-title'>📚 Exemples d'histoires</div>";
+  html += "<div class='books-section-sub'>Chaque histoire est unique, avec le prénom de votre enfant</div>";
+
+
+.book-cover:hover{transform:translateY(-6px) rotate(1deg);box-shadow:-4px 10px 2px rgba(0,0,0,0.1),4px 14px 22px rgba(0,0,0,0.25);}
+
+
+
+
+
+
+
+
+
+
+/* ── BOOK COVERS ── */
+.books-section{padding:2.5rem 1.5rem 3rem;background:#FAF5FF;border-top:2px solid #F0E8FF;text-align:center;}
+.books-section-title{font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:800;color:#2D1B4E;margin-bottom:0.25rem;}
+.books-section-sub{font-size:13px;color:#9C8AB4;margin-bottom:1.75rem;}
+.books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:460px;margin:0 auto;}
+.book-cover{border-radius:4px 10px 10px 4px;aspect-ratio:3/4;position:relative;cursor:pointer;box-shadow:-3px 4px 0 rgba(0,0,0,0.18),2px 4px 12px rgba(0,0,0,0.22);transition:transform 0.25s,box-shadow 0.25s;overflow:hidden;display:flex;flex-direction:column;}
+.book-cover:hover{transform:translateY(-7px) rotate(1.5deg);box-shadow:-3px 10px 0 rgba(0,0,0,0.12),4px 14px 24px rgba(0,0,0,0.28);}
+.book-spine{position:absolute;left:0;top:0;bottom:0;width:9px;border-radius:4px 0 0 4px;filter:brightness(0.65);}
+.book-inner{padding:8px 8px 8px 14px;flex:1;display:flex;flex-direction:column;justify-content:space-between;}
+.book-emoji-big{font-size:32px;text-align:center;margin:6px 0;line-height:1.1;}
+.book-deco{font-size:9px;color:rgba(255,255,255,0.4);text-align:center;letter-spacing:2px;}
+.book-title{font-family:'Baloo 2',cursive;font-size:11px;font-weight:800;line-height:1.2;color:white;text-shadow:0 1px 3px rgba(0,0,0,0.4);}
+.book-for{font-size:9px;color:rgba(255,255,255,0.7);margin-top:3px;font-weight:600;}
+.book-shine{position:absolute;top:0;right:0;width:25%;height:100%;background:linear-gradient(to right,transparent,rgba(255,255,255,0.08));pointer-events:none;}
+
+/* ── BOOK PREVIEW MODAL ── */
+.book-modal{display:none;position:fixed;inset:0;z-index:998;background:rgba(45,27,78,0.7);align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px);}
+.book-modal.open{display:flex;}
+.book-modal-box{background:white;border-radius:24px;width:100%;max-width:520px;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,0.3);}
+.book-modal-header{padding:1.5rem 1.5rem 1rem;display:flex;align-items:flex-start;gap:1rem;border-bottom:2px solid #F0E8FF;}
+.book-modal-cover{width:70px;height:95px;border-radius:3px 8px 8px 3px;flex-shrink:0;box-shadow:-2px 3px 0 rgba(0,0,0,0.2),1px 3px 8px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;font-size:28px;position:relative;overflow:hidden;}
+.book-modal-cover-spine{position:absolute;left:0;top:0;bottom:0;width:7px;filter:brightness(0.65);}
+.book-modal-info{flex:1;}
+.book-modal-universe{font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#9C8AB4;margin-bottom:4px;}
+.book-modal-title{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:800;color:#2D1B4E;margin-bottom:4px;line-height:1.2;}
+.book-modal-meta{font-size:12px;color:#9C8AB4;}
+.book-modal-close{background:transparent;border:none;font-size:22px;cursor:pointer;color:#9C8AB4;line-height:1;padding:0;flex-shrink:0;}
+.book-modal-close:hover{color:#2D1B4E;}
+.book-modal-body{padding:1.5rem;overflow-y:auto;flex:1;}
+.book-modal-chap{margin-bottom:1.5rem;}
+.book-modal-chap-title{font-family:'Baloo 2',cursive;font-size:14px;font-weight:800;color:#2D1B4E;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px;}
+.book-modal-chap-num{background:#F3E8FF;color:#A855F7;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;}
+.book-modal-chap-text{font-size:13px;color:#5D4A7E;line-height:1.8;}
+.book-modal-footer{padding:1rem 1.5rem;border-top:2px solid #F0E8FF;display:flex;gap:10px;background:#FAF5FF;}
+.book-modal-btn-create{flex:1;background:linear-gradient(135deg,#FF6B9D,#A855F7);color:white;border:none;border-radius:50px;padding:12px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+.book-modal-btn-create:hover{opacity:0.9;}
+.book-modal-badge{display:inline-block;background:#FFF0FA;color:#FF6B9D;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:1rem;border:1px solid #FFD5EB;}
+
 </style>
 </head>
 <body>
@@ -589,6 +658,157 @@ var UNIVERSES = {
   foret:     { emoji:"🌲", name:"Forêt magique",        tags:["Gnomes","Elfes","Champignons"],  desc:"Une forêt enchantée peuplée de gnomes bavards et d elfes musiciens.", example:"Lucas suivit le gnome à chapeau rouge. Notre village est en danger ! Un sort a transformé nos arbres en bonbons...", color:"#F0FFF4", v:"foret enchantee gnomes elfes" }
 };
 
+var BOOKS_DATA = {
+  fees: [
+    {bg:'linear-gradient(160deg,#7C3AED,#C084FC)',spine:'#5B21B6',emoji:'🧚',deco:'✦ ✧ ✦',title:'La Licorne\nde Léa',for:'Pour Léa, 5 ans'},
+    {bg:'linear-gradient(160deg,#9333EA,#EC4899)',spine:'#6B21A8',emoji:'🦄',deco:'· ✨ ·',title:'Le Bal\ndes Fées',for:'Pour Emma, 4 ans'},
+    {bg:'linear-gradient(160deg,#BE185D,#A855F7)',spine:'#9D174D',emoji:'🏰',deco:'♔ · ♔',title:'Le Château\nMagique',for:'Pour Clara, 6 ans'},
+    {bg:'linear-gradient(160deg,#7E22CE,#6366F1)',spine:'#581C87',emoji:'⭐',deco:'✧ · ✧',title:'LEtoile\nde Zoé',for:'Pour Zoé, 3 ans'},
+    {bg:'linear-gradient(160deg,#DB2777,#9333EA)',spine:'#BE185D',emoji:'🌈',deco:'~ ~ ~',title:'Arc-en-ciel\nde Nina',for:'Pour Nina, 5 ans'},
+    {bg:'linear-gradient(160deg,#6D28D9,#8B5CF6)',spine:'#4C1D95',emoji:'🔮',deco:'✦ ✦ ✦',title:'La Baguette\nde Lola',for:'Pour Lola, 7 ans'},
+  ],
+  espace: [
+    {bg:'linear-gradient(160deg,#1E3A8A,#3B82F6)',spine:'#1E3A8A',emoji:'🚀',deco:'★ · ★',title:'Emma et\nles Étoiles',for:'Pour Emma, 7 ans'},
+    {bg:'linear-gradient(160deg,#0F172A,#1D4ED8)',spine:'#0F172A',emoji:'🪐',deco:'· · · ·',title:'La Planète\nde Tom',for:'Pour Tom, 6 ans'},
+    {bg:'linear-gradient(160deg,#1D4ED8,#0EA5E9)',spine:'#1E3A8A',emoji:'👨‍🚀',deco:'★ ★ ★',title:'Astronaute\nHugo',for:'Pour Hugo, 8 ans'},
+    {bg:'linear-gradient(160deg,#0C4A6E,#0284C7)',spine:'#0C4A6E',emoji:'🌙',deco:'· ★ ·',title:'La Lune\nde Léo',for:'Pour Léo, 5 ans'},
+    {bg:'linear-gradient(160deg,#312E81,#4F46E5)',spine:'#1E1B4B',emoji:'🛸',deco:'✦ ✦ ✦',title:'Les Aliens\nde Max',for:'Pour Max, 9 ans'},
+    {bg:'linear-gradient(160deg,#1E40AF,#7C3AED)',spine:'#1E3A8A',emoji:'🌌',deco:'★ · ★',title:'La Galaxie\nde Mia',for:'Pour Mia, 7 ans'},
+  ],
+  jungle: [
+    {bg:'linear-gradient(160deg,#065F46,#059669)',spine:'#064E3B',emoji:'🦁',deco:'~ ~ ~',title:'Lucas et\nle Lion',for:'Pour Lucas, 4 ans'},
+    {bg:'linear-gradient(160deg,#14532D,#16A34A)',spine:'#14532D',emoji:'🐘',deco:'· · ·',title:'LEléphant\nde Jade',for:'Pour Jade, 5 ans'},
+    {bg:'linear-gradient(160deg,#15803D,#4ADE80)',spine:'#166534',emoji:'🦜',deco:'~ · ~',title:'Le Perroquet\nde Ana',for:'Pour Ana, 6 ans'},
+    {bg:'linear-gradient(160deg,#065F46,#0D9488)',spine:'#064E3B',emoji:'🐒',deco:'· · ·',title:'Le Singe\nde Paul',for:'Pour Paul, 4 ans'},
+    {bg:'linear-gradient(160deg,#3F6212,#65A30D)',spine:'#365314',emoji:'🌿',deco:'~ ~ ~',title:'La Forêt\nde Léa',for:'Pour Léa, 7 ans'},
+    {bg:'linear-gradient(160deg,#166534,#059669)',spine:'#14532D',emoji:'🦓',deco:'· · ·',title:'Le Zèbre\nde Elise',for:'Pour Élise, 5 ans'},
+  ],
+  dragons: [
+    {bg:'linear-gradient(160deg,#92400E,#D97706)',spine:'#78350F',emoji:'🐉',deco:'⚔ · ⚔',title:'Le Dragon\nde Sofia',for:'Pour Sofia, 6 ans'},
+    {bg:'linear-gradient(160deg,#7C2D12,#EA580C)',spine:'#7C2D12',emoji:'🏰',deco:'♔ · ♔',title:'Le Château\nde Jules',for:'Pour Jules, 8 ans'},
+    {bg:'linear-gradient(160deg,#78350F,#F59E0B)',spine:'#451A03',emoji:'🗡️',deco:'· ⚔ ·',title:'Le Chevalier\nNoah',for:'Pour Noah, 7 ans'},
+    {bg:'linear-gradient(160deg,#7F1D1D,#B91C1C)',spine:'#450A0A',emoji:'🔥',deco:'✦ · ✦',title:'Le Feu\nde Remy',for:'Pour Remy, 6 ans'},
+    {bg:'linear-gradient(160deg,#713F12,#CA8A04)',spine:'#713F12',emoji:'👑',deco:'♔ ♔ ♔',title:'La Reine\nAmélie',for:'Pour Amélie, 9 ans'},
+    {bg:'linear-gradient(160deg,#92400E,#DC2626)',spine:'#78350F',emoji:'🛡️',deco:'⚔ ⚔ ⚔',title:'LEcuyer\nLiam',for:'Pour Liam, 7 ans'},
+  ],
+  pirates: [
+    {bg:'linear-gradient(160deg,#1E3A8A,#0EA5E9)',spine:'#1E3A8A',emoji:'🏴‍☠️',deco:'⚓ · ⚓',title:'Noah et\nle Trésor',for:'Pour Noah, 8 ans'},
+    {bg:'linear-gradient(160deg,#0C4A6E,#0369A1)',spine:'#0C4A6E',emoji:'⚓',deco:'· · ·',title:'Le Bateau\nde Sam',for:'Pour Sam, 7 ans'},
+    {bg:'linear-gradient(160deg,#0F172A,#1D4ED8)',spine:'#0F172A',emoji:'🗺️',deco:'X · X',title:'La Carte\nde Pirate',for:'Pour Léo, 9 ans'},
+    {bg:'linear-gradient(160deg,#1E3A8A,#7C3AED)',spine:'#1E3A8A',emoji:'💎',deco:'⚓ ⚓ ⚓',title:'Les Rubis\nde Nina',for:'Pour Nina, 6 ans'},
+    {bg:'linear-gradient(160deg,#1C1917,#44403C)',spine:'#1C1917',emoji:'🦜',deco:'· · ·',title:'Le Perroquet\nPirate',for:'Pour Alex, 5 ans'},
+    {bg:'linear-gradient(160deg,#164E63,#0E7490)',spine:'#164E63',emoji:'🌊',deco:'~ ~ ~',title:'La Mer\nde Jade',for:'Pour Jade, 8 ans'},
+  ],
+  dinos: [
+    {bg:'linear-gradient(160deg,#7F1D1D,#DC2626)',spine:'#450A0A',emoji:'🦕',deco:'· · ·',title:'Jade et\nle Diplodocus',for:'Pour Jade, 5 ans'},
+    {bg:'linear-gradient(160deg,#14532D,#15803D)',spine:'#14532D',emoji:'🦖',deco:'✦ · ✦',title:'T-Rex et\nLucas',for:'Pour Lucas, 6 ans'},
+    {bg:'linear-gradient(160deg,#78350F,#D97706)',spine:'#78350F',emoji:'🌋',deco:'~ ~ ~',title:'Le Volcan\nde Tom',for:'Pour Tom, 7 ans'},
+    {bg:'linear-gradient(160deg,#065F46,#059669)',spine:'#064E3B',emoji:'🥚',deco:'· · ·',title:'Oeuf\nde Mia',for:'Pour Mia, 4 ans'},
+    {bg:'linear-gradient(160deg,#1E3A8A,#3B82F6)',spine:'#1E3A8A',emoji:'🦴',deco:'✦ ✦ ✦',title:'Le Fossile\nde Max',for:'Pour Max, 8 ans'},
+    {bg:'linear-gradient(160deg,#7C2D12,#EA580C)',spine:'#7C2D12',emoji:'🌿',deco:'~ · ~',title:'La Forêt\nPréhistorique',for:'Pour Eva, 5 ans'},
+  ],
+  superheros: [
+    {bg:'linear-gradient(160deg,#1E3A8A,#7C3AED)',spine:'#1E3A8A',emoji:'🦸',deco:'★ · ★',title:'Super\nLucas',for:'Pour Lucas, 7 ans'},
+    {bg:'linear-gradient(160deg,#7F1D1D,#DC2626)',spine:'#450A0A',emoji:'⚡',deco:'★ ★ ★',title:'LEclair\nde Maya',for:'Pour Maya, 6 ans'},
+    {bg:'linear-gradient(160deg,#065F46,#059669)',spine:'#064E3B',emoji:'🛡️',deco:'· ★ ·',title:'Le Bouclier\nde Léo',for:'Pour Léo, 8 ans'},
+    {bg:'linear-gradient(160deg,#6D28D9,#8B5CF6)',spine:'#4C1D95',emoji:'🦋',deco:'✦ · ✦',title:'Super\nEmma',for:'Pour Emma, 5 ans'},
+    {bg:'linear-gradient(160deg,#92400E,#D97706)',spine:'#78350F',emoji:'💪',deco:'★ · ★',title:'Le Plus\nFort : Noah',for:'Pour Noah, 9 ans'},
+    {bg:'linear-gradient(160deg,#0F172A,#1D4ED8)',spine:'#0F172A',emoji:'🌟',deco:'★ ★ ★',title:'LEtoile\nde Sofia',for:'Pour Sofia, 6 ans'},
+  ],
+  marin: [
+    {bg:'linear-gradient(160deg,#0C4A6E,#0EA5E9)',spine:'#0C4A6E',emoji:'🧜',deco:'~ ~ ~',title:'La Sirène\nde Léa',for:'Pour Léa, 6 ans'},
+    {bg:'linear-gradient(160deg,#164E63,#0891B2)',spine:'#164E63',emoji:'🐬',deco:'· ~ ·',title:'Le Dauphin\nde Emma',for:'Pour Emma, 5 ans'},
+    {bg:'linear-gradient(160deg,#0F172A,#0369A1)',spine:'#0F172A',emoji:'🐙',deco:'~ · ~',title:'La Pieuvre\nde Tom',for:'Pour Tom, 7 ans'},
+    {bg:'linear-gradient(160deg,#0C4A6E,#7C3AED)',spine:'#0C4A6E',emoji:'🦀',deco:'· · ·',title:'Le Crabe\nde Mia',for:'Pour Mia, 4 ans'},
+    {bg:'linear-gradient(160deg,#1E3A8A,#0EA5E9)',spine:'#1E3A8A',emoji:'🐠',deco:'~ ~ ~',title:'Les Poissons\nde Zoé',for:'Pour Zoé, 5 ans'},
+    {bg:'linear-gradient(160deg,#0C4A6E,#0284C7)',spine:'#0C4A6E',emoji:'🌊',deco:'~ · ~',title:'LOcéan\nde Jade',for:'Pour Jade, 6 ans'},
+  ],
+  foret: [
+    {bg:'linear-gradient(160deg,#14532D,#16A34A)',spine:'#14532D',emoji:'🌲',deco:'· · ·',title:'La Forêt\nde Léa',for:'Pour Léa, 6 ans'},
+    {bg:'linear-gradient(160deg,#3F6212,#65A30D)',spine:'#365314',emoji:'🍄',deco:'· ✦ ·',title:'Les Champi-\ngnons Magiques',for:'Pour Emma, 4 ans'},
+    {bg:'linear-gradient(160deg,#065F46,#059669)',spine:'#064E3B',emoji:'🧝',deco:'✦ · ✦',title:'LElfe\nde Lucas',for:'Pour Lucas, 7 ans'},
+    {bg:'linear-gradient(160deg,#14532D,#0D9488)',spine:'#14532D',emoji:'🦊',deco:'· · ·',title:'Le Renard\nde Mia',for:'Pour Mia, 5 ans'},
+    {bg:'linear-gradient(160deg,#7C2D12,#65A30D)',spine:'#7C2D12',emoji:'🧙',deco:'✦ ✦ ✦',title:'Le Gnome\nde Tom',for:'Pour Tom, 6 ans'},
+    {bg:'linear-gradient(160deg,#166534,#15803D)',spine:'#14532D',emoji:'🦉',deco:'· · ·',title:'Le Hibou\nde Clara',for:'Pour Clara, 8 ans'},
+  ],
+};
+
+var STORY_EXAMPLES = {
+  fees: [
+    {title:"La Licorne de Léa", hero:"Léa", age:"5 ans", chapters:[{num:1,emoji:"🌟",title:"La forêt scintillante",text:"Léa avança dans la forêt où chaque arbre brillait d'une lumière dorée. Une petite fée se posa sur son épaule. Je t'attendais, dit-elle d'une voix douce."},{num:2,emoji:"🦄",title:"La licorne blessée",text:"Au bord d'un lac de cristal, Léa découvrit une licorne aux yeux tristes. Sa corne magique était terne. Ma magie a disparu, murmura la belle créature. Léa dit : Je vais t'aider !"},{num:3,emoji:"✨",title:"Le sort de l'amitié",text:"Ensemble elles cueillirent les fleurs lumineuses du mont Enchanté. Quand Léa les déposa sur la corne de la licorne, une lumière magique explosa dans le ciel !"}]},
+    {title:"Le Bal des Fées", hero:"Emma", age:"4 ans", chapters:[{num:1,emoji:"💌",title:"L'invitation magique",text:"Emma trouva sous son oreiller une enveloppe dorée. Tu es invitée au Grand Bal des Fées. Une robe tissée avec des rayons de lune apparut sur son lit."},{num:2,emoji:"🏰",title:"Le château dans les nuages",text:"Un papillon géant emmena Emma jusqu'à un château perché dans les nuages roses. Des centaines de fées dansaient. La reine des fées accueillit Emma avec un grand sourire."},{num:3,emoji:"🎶",title:"La valse des étoiles",text:"Emma dansa jusqu'à l'aube avec les fées. Chaque pas laissait des traces d'étoiles sur le sol. Quand elle rentra chez elle, elle trouva une plume magique dans sa poche."}]},
+    {title:"Le Château Magique", hero:"Clara", age:"6 ans", chapters:[{num:1,emoji:"🏰",title:"La porte secrète",text:"Clara découvrit derrière la vieille bibliothèque une porte couverte de lierre brillant. Elle tourna la poignée dorée et se retrouva devant un château flottant dans les nuages."},{num:2,emoji:"👸",title:"La princesse endormie",text:"Au sommet de la plus haute tour dormait une princesse depuis cent ans. Seul le son d'une chanson vraie pouvait la réveiller. Clara prit une grande inspiration..."},{num:3,emoji:"🎵",title:"La chanson magique",text:"Clara chanta la chanson que sa maman lui avait apprise. Une lumière dorée envahit la chambre. La princesse ouvrit les yeux et sourit. Tu es venue ! Je savais que tu viendrais."}]},
+    {title:"L'Etoile de Zoé", hero:"Zoé", age:"3 ans", chapters:[{num:1,emoji:"⭐",title:"L'étoile tombée",text:"Cette nuit-là, Zoé vit une étoile tomber dans son jardin. Elle courut dehors et trouva une petite boule lumineuse qui clignotait doucement dans l'herbe."},{num:2,emoji:"🌙",title:"L'étoile perdue",text:"L'étoile pleurait de minuscules larmes de lumière. Elle ne savait plus comment remonter dans le ciel. Zoé la prit délicatement dans ses mains. Je vais t'aider à rentrer chez toi."},{num:3,emoji:"✨",title:"Le chemin des étoiles",text:"Zoé souffla doucement sur l'étoile, comme on souffle sur une bougie. L'étoile s'envola en tournoyant, laissant derrière elle un sillage d'or. Elle alla se reposer à sa place dans le ciel."}]},
+    {title:"Arc-en-ciel de Nina", hero:"Nina", age:"5 ans", chapters:[{num:1,emoji:"🌈",title:"La pluie de couleurs",text:"Après l'orage, Nina découvrit que les couleurs de l'arc-en-ciel étaient tombées par terre. Le rouge était dans les fleurs, le bleu dans la rivière. Mais il manquait le jaune !"},{num:2,emoji:"☀️",title:"La couleur perdue",text:"Nina chercha partout le jaune. Elle interrogea les tournesols, les citrons et les abeilles. Finalement c'est le soleil lui-même qui lui dit : Le jaune, c'est moi ! Et je suis fatigué."},{num:3,emoji:"🌟",title:"Le soleil ragaillardi",text:"Nina chanta une chanson au soleil pour l'encourager. Ragaillardi, le soleil brilla de plus belle, et l'arc-en-ciel fut enfin complet. Nina fut nommée gardienne des couleurs."}]},
+    {title:"La Baguette de Lola", hero:"Lola", age:"7 ans", chapters:[{num:1,emoji:"🔮",title:"La baguette magique",text:"Pour son anniversaire, Lola reçut une baguette magique dorée. La première fois qu'elle l'agita, toutes ses peluches se mirent à parler en même temps. C'était le chaos !"},{num:2,emoji:"🐻",title:"Les peluches en vie",text:"Son ours en peluche lui expliqua que la baguette avait des pouvoirs illimités mais qu'il fallait apprendre à la contrôler. Lola devrait suivre l'école des apprentis fées."},{num:3,emoji:"✨",title:"La premiere lecon",text:"La fée professeur lui apprit le sort fondamental : tourner trois fois la baguette en pensant fort à ce qu'on veut. Lola essaya et fit apparaître un gâteau au chocolat. Parfait pour commencer !"}]},
+  ],
+  espace: [
+    {title:"Emma et les Etoiles", hero:"Emma", age:"7 ans", chapters:[{num:1,emoji:"🚀",title:"Le décollage",text:"Emma attacha sa ceinture et compta : 3... 2... 1... Décollage ! Sa fusée argentée traversa les nuages. Depuis le hublot, la Terre ressemblait à une belle bille bleue."},{num:2,emoji:"🌌",title:"La galaxie Zorbula",text:"Un signal d'urgence retentit. Sur l'écran apparut un alien vert. Bienvenue Emma ! Notre étoile principale s'éteint et nous avons besoin de toi !"},{num:3,emoji:"⭐",title:"La mission impossible",text:"Emma pilota sa fusée jusqu'au coeur de l'étoile mourante. Elle plaça le cristal solaire et... FLASH ! L'étoile se ralluma plus brillante que jamais. Tous les aliens applaudirent !"}]},
+    {title:"La Planète de Tom", hero:"Tom", age:"6 ans", chapters:[{num:1,emoji:"🪐",title:"La découverte",text:"Tom regardait par son télescope quand il vit quelque chose d'incroyable : une planète inconnue avec des anneaux dorés et des continents en forme de coeur. Elle n'était sur aucune carte."},{num:2,emoji:"👽",title:"Les habitants",text:"En approchant, Tom découvrit que la planète était habitée par des créatures translucides qui se déplaçaient en flottant. Ils n'avaient pas de bouche mais communiquaient par lumière."},{num:3,emoji:"🌟",title:"Le premier contact",text:"Tom alluma sa lampe de poche et cligna des yeux en rythme. Les créatures reproduisirent le même signal ! C'était le début d'une amitié intergalactique extraordinaire."}]},
+    {title:"Astronaute Hugo", hero:"Hugo", age:"8 ans", chapters:[{num:1,emoji:"👨‍🚀",title:"L'entraînement",text:"Hugo passa six mois à s'entraîner pour devenir astronaute. Il apprit à flotter en apesanteur, à manger des repas en tube et à dormir attaché au mur. La vraie aventure commençait !"},{num:2,emoji:"🌍",title:"Vue de l'espace",text:"Quand Hugo vit la Terre depuis l'espace pour la première fois, il n'eut plus envie de parler. Notre planète était si belle, si fragile, si lumineuse. Il comprit pourquoi il fallait la protéger."},{num:3,emoji:"🛸",title:"La rencontre",text:"Alors qu'il réparait l'antenne de la station, Hugo aperçut un vaisseau inconnu s'approcher lentement. La radio grésilla et une voix douce dit : Bonjour, Hugo. Nous venons en paix."}]},
+    {title:"La Lune de Léo", hero:"Léo", age:"5 ans", chapters:[{num:1,emoji:"🌙",title:"La lune rétrécit",text:"Léo remarqua que la lune devenait de plus en plus petite chaque nuit. Bientôt, elle ne serait plus qu'un point. Il décida de prendre son scooter spatial et d'aller voir ce qui se passait."},{num:2,emoji:"🐭",title:"Les mangeurs de lune",text:"Sur la lune, Léo trouva des milliers de petites souris lunaires qui en grignotaient les bords ! Ce n'était pas méchant, elles avaient juste très faim depuis que leur champ de fromage stellaire s'était épuisé."},{num:3,emoji:"🧀",title:"La solution fromage",text:"Léo eu une idée géniale : il rentra sur Terre, récupéra tout le fromage de son réfrigérateur et l'emmena sur la lune. Les souris furent tellement contentes qu'elles remirent tous les morceaux en place !"}]},
+    {title:"Les Aliens de Max", hero:"Max", age:"9 ans", chapters:[{num:1,emoji:"🛸",title:"L'invasion pacifique",text:"Max fut le premier à voir les vaisseaux atterrir dans le parc. Ils étaient petits comme des ballons de football et les aliens à l'intérieur avaient la taille d'une gomme. Pas très effrayant."},{num:2,emoji:"🤝",title:"Premiers mots",text:"Les aliens sortaient leur minuscule traducteur universel. Nous cherchons quelqu'un capable de nous aider à retrouver notre chemin dans cette galaxie. Toi, Max, tu as la réputation d'un bon navigateur."},{num:3,emoji:"🗺️",title:"Le navigateur de l'espace",text:"Max prit sa plus belle carte du ciel et avec les aliens il traça la route vers leur planète. En remerciement, ils lui offrirent une mini-fusée télécommandée capable de voyager à la vitesse de la lumière."}]},
+    {title:"La Galaxie de Mia", hero:"Mia", age:"7 ans", chapters:[{num:1,emoji:"🌌",title:"Le portail",text:"Dans le grenier, Mia trouva un vieux télescope à la lentille brillante comme un miroir. En y regardant, elle fut aspirée à l'intérieur et se retrouva au centre d'une galaxie inconnue aux couleurs de l'arc-en-ciel."},{num:2,emoji:"🦋",title:"Les papillons cosmiques",text:"Des millions de papillons aux ailes translucides voletaient entre les étoiles. C'étaient eux qui pollinisaient les nébuleuses pour que de nouvelles étoiles puissent naître. Mia en avait le souffle coupé."},{num:3,emoji:"⭐",title:"La gardienne des étoiles",text:"La reine des papillons cosmiques se posa sur la main de Mia. Tu es maintenant la gardienne de cette galaxie. Chaque étoile que tu allumes dans ta vie ici-bas crée une nouvelle étoile là-haut."}]},
+  ],
+  jungle: [
+    {title:"Lucas et le Lion", hero:"Lucas", age:"4 ans", chapters:[{num:1,emoji:"🌿",title:"Dans la grande jungle",text:"Lucas avança entre les grands arbres, les yeux grands ouverts. Des singes faisaient des acrobaties au-dessus de lui et des perroquets colorés lui criaient des bonjours."},{num:2,emoji:"🦁",title:"Le roi de la jungle",text:"Un magnifique lion s'assit devant Lucas. N'aie pas peur, dit le lion. Je suis le gardien de la jungle. Un terrible problème nous menace et toi seul peux nous aider."},{num:3,emoji:"🌊",title:"La rivière en crue",text:"La rivière avait débordé et inondait le village des animaux. Lucas eu l'idée de construire un barrage avec les bambous. Tous les animaux travaillèrent ensemble sous sa direction."}]},
+    {title:"L'Elephant de Jade", hero:"Jade", age:"5 ans", chapters:[{num:1,emoji:"🐘",title:"La rencontre",text:"Jade entendit un son étrange dans les buissons. Un bébé éléphant s'était pris la trompe dans des lianes. Jade l'aida délicatement à se libérer. Le bébé la regarda avec ses grands yeux doux."},{num:2,emoji:"🌺",title:"La maman perdue",text:"Le bébé cherchait sa maman. Jade décida de l'aider à la retrouver. Ils parcoururent toute la jungle, suivant les traces de pas géants dans la boue rouge."},{num:3,emoji:"💕",title:"Les retrouvailles",text:"Ils entendirent un barrissement puissant. La maman éléphant courut vers son bébé et le caressa de sa trompe avec tendresse. Elle remercia Jade en lui posant doucement la trompe sur la tête."}]},
+    {title:"Le Perroquet de Ana", hero:"Ana", age:"6 ans", chapters:[{num:1,emoji:"🦜",title:"Le perroquet bavard",text:"Dans la jungle, Ana rencontra un perroquet aux mille couleurs qui parlait dans toutes les langues du monde. Il la salua en français, espagnol, swahili et même en langage des dauphins."},{num:2,emoji:"🔊",title:"Le secret",text:"Le perroquet lui confia un secret : il connaissait l'emplacement du légendaire arbre aux fruits d'or. Mais il ne pouvait le révéler qu'à quelqu'un de vraiment courageux. Ana prouva son courage."},{num:3,emoji:"🌟",title:"L'arbre aux fruits d'or",text:"L'arbre était immense, ses branches touchaient les nuages. Ses fruits dorés guérissaient toutes les maladies. Ana en cueillit quelques-uns pour les ramener au village des animaux malades."}]},
+    {title:"Le Singe de Paul", hero:"Paul", age:"4 ans", chapters:[{num:1,emoji:"🐒",title:"L'acrobate",text:"Paul vit un petit singe faire des acrobaties incroyables entre les lianes. Il faisait des saltos, se balançait à une main et sautait d'arbre en arbre comme s'il avait des ressorts aux pieds."},{num:2,emoji:"🎪",title:"Le grand spectacle",text:"Le singe invita Paul à rejoindre sa troupe d'acrobates. Avec l'aide des autres singes, Paul apprit à se balancer sur une liane. C'était un peu comme voler !"},{num:3,emoji:"🎉",title:"Le festival de la jungle",text:"Ce soir-là, tous les animaux se réunirent pour le grand festival annuel de la jungle. Paul et son ami singe donnèrent un spectacle sensationnel. Les éléphants applaudirent de leurs grandes oreilles."}]},
+    {title:"La Foret de Léa", hero:"Léa", age:"7 ans", chapters:[{num:1,emoji:"🌲",title:"Les arbres qui parlent",text:"Léa posa son oreille contre un vieil arbre et entendit quelque chose d'incroyable : les arbres se parlaient ! Ils échangeaient des nouvelles, racontaient des histoires et se passaient de l'eau."},{num:2,emoji:"🍃",title:"Le message urgent",text:"L'arbre dit à Léa : Un danger menace notre forêt. Des machines arrivent demain pour tout couper. Il faut trouver un moyen de les arrêter. Léa réfléchit intensément."},{num:3,emoji:"🌱",title:"La solution de Léa",text:"Léa organisa une grande fête dans la forêt et invita tout le village. Les gens virent combien la forêt était belle et vivante. Ils décidèrent à l'unanimité de la protéger pour toujours."}]},
+    {title:"Le Zebre d'Elise", hero:"Elise", age:"5 ans", chapters:[{num:1,emoji:"🦓",title:"Les rayures disparaissent",text:"Elise trouva un zèbre tout blanc, sans aucune rayure. Il pleurait car sans ses rayures il ne pouvait plus se cacher dans la savane et ses amis ne le reconnaissaient plus."},{num:2,emoji:"🖌️",title:"L'artiste de la jungle",text:"Une vieille tortue lui dit qu'une araignée magique vivant au sommet de la montagne verte pouvait repeindre ses rayures. Elise proposa d'y aller avec le zèbre pour lui montrer le chemin."},{num:3,emoji:"🎨",title:"Les nouvelles rayures",text:"L'araignée tisseuse prit son plus beau fil noir et dessina des rayures parfaites sur le zèbre. Mais cette fois, elle y ajouta une petite étoile secrète, juste pour lui. Un cadeau unique."}]},
+  ],
+  dragons: [
+    {title:"Le Dragon de Sofia", hero:"Sofia", age:"6 ans", chapters:[{num:1,emoji:"🐉",title:"La rencontre",text:"Sofia se retrouva face à un dragon aux écailles vertes qui brillaient comme des émeraudes. Mais au lieu de cracher du feu, le dragon pleurait de grosses larmes dorées."},{num:2,emoji:"💚",title:"Un ami incompris",text:"On me croit méchant, sanglota le dragon. Sofia tendit sa petite main et dit : Moi je ne m'enfuis pas. Je m'appelle Sofia."},{num:3,emoji:"✨",title:"La vérité",text:"Sofia monta sur le dos du dragon et ensemble ils survolèrent le village. Les habitants virent la fillette sourire et comprirent que le dragon était bon. La paix était revenue !"}]},
+    {title:"Le Château de Jules", hero:"Jules", age:"8 ans", chapters:[{num:1,emoji:"🏰",title:"La quête",text:"Le roi donna une mission à Jules : récupérer la couronne volée par le dragon du nord. Jules enfourcha son cheval blanc et prit la route de la montagne de feu."},{num:2,emoji:"🐉",title:"La surprise",text:"Jules s'attendait à un combat. Mais le dragon lui tendit la couronne dès qu'il arriva. Je l'ai trouvée dans la rivière, dit le dragon. Je voulais la rapporter mais j'avais peur qu'on me chasse."},{num:3,emoji:"👑",title:"Le héros et le dragon",text:"Jules ramena la couronne et raconta la vérité. Le roi invita le dragon à la cour. Depuis, Jules et le dragon étaient inséparables, gardiens du royaume ensemble."}]},
+    {title:"Le Chevalier Noah", hero:"Noah", age:"7 ans", chapters:[{num:1,emoji:"⚔️",title:"L'armure magique",text:"Le matin de ses 7 ans, Noah trouva dans le grenier une armure d'argent à sa taille. En la touchant, elle brilla et une voix dit : Tu es l'élu, Noah. Le royaume a besoin de toi."},{num:2,emoji:"🌋",title:"Le défi",text:"Un volcan menaçait d'éruption et risquait de détruire le village. Mais pour l'arrêter, il fallait aller placer la pierre de glace au coeur même du volcan. Une mission pour un chevalier courageux."},{num:3,emoji:"❄️",title:"Le héros du village",text:"Noah traversa les flammes grâce à son armure magique et plaça la pierre de glace. Le volcan se calma aussitôt. Quand il ressortit, tout le village l'accueillit en héros."}]},
+    {title:"La Reine Amélie", hero:"Amélie", age:"9 ans", chapters:[{num:1,emoji:"👑",title:"La couronnement surprise",text:"Amélie se réveilla avec une couronne sur la tête. Un parchemin royal annonçait qu'elle était la reine choisie par les dragons pour gouverner le Royaume des Nuages pendant une semaine."},{num:2,emoji:"🐉",title:"Le conseil des dragons",text:"Cinq dragons de différentes couleurs formaient son conseil. Le rouge gérait le feu, le bleu la pluie, le vert les forêts, le jaune le soleil et le violet la magie. Chacun avait son rôle."},{num:3,emoji:"⚡",title:"La tempête de magie",text:"Une tempête de magie sauvage menaçait le royaume. Amélie réunit ses cinq dragons et ensemble ils créèrent un bouclier de cinq couleurs. La tempête fut stoppée et le royaume fut sauvé."}]},
+    {title:"Ecuyer Liam", hero:"Liam", age:"7 ans", chapters:[{num:1,emoji:"🛡️",title:"L'apprentissage",text:"Liam était l'écuyer du chevalier le plus célèbre du royaume. Son travail : polir l'armure, soigner le cheval et apprendre les règles de la chevalerie. Pas très excitant... pour l'instant."},{num:2,emoji:"🐉",title:"Seul face au danger",text:"Quand le chevalier tomba malade, Liam dut partir seul affronter le dragon qui terrorisait les villages. Il avait peur mais il pensa à tous ceux qui avaient besoin de lui."},{num:3,emoji:"✨",title:"Le vrai chevalier",text:"Liam découvrit que le dragon avait une épine dans la patte. Il la retira délicatement. Le dragon, soulagé, devint son ami. Liam rentra au château sans même avoir eu besoin de se battre."}]},
+    {title:"Le Feu de Remy", hero:"Remy", age:"6 ans", chapters:[{num:1,emoji:"🔥",title:"Le bébé dragon",text:"Remy trouva un oeuf dans la forêt. Il le ramena chez lui et le garda au chaud près de la cheminée. Le lendemain matin, l'oeuf se brisa et un minuscule dragon rouge en sortit."},{num:2,emoji:"🐲",title:"Grandir ensemble",text:"Le dragon grandissait à toute vitesse. En une semaine il était déjà grand comme un chien. Il s'appelait Braise et il suivait Remy partout comme un chiot affectueux qui crachait de petites flammes."},{num:3,emoji:"🌟",title:"L'ami pour la vie",text:"Quand des voleurs attaquèrent la ferme de sa famille, Braise rugit si fort et cracha tellement de flammes que les voleurs s'enfuirent sans demander leur reste. Remy avait le meilleur ami du monde."}]},
+  ],
+  pirates: [
+    {title:"Noah et le Trésor", hero:"Noah", age:"8 ans", chapters:[{num:1,emoji:"🗺️",title:"La carte au trésor",text:"Noah trouva une vieille bouteille sur la plage. A l'intérieur, une carte avec un grand X rouge. Le trésor du Capitaine Barbe-Bleue. Son bateau l'attendait au port."},{num:2,emoji:"⛈️",title:"La tempête",text:"En pleine mer, une tempête surgit. Les vagues étaient hautes comme des maisons. Noah tint fermement la barre et cria à son équipage : Tenez bon !"},{num:3,emoji:"💎",title:"Le trésor",text:"Sur l'ile mystérieuse, Noah creusa à l'endroit du X. Le coffre était rempli non pas d'or mais de graines magiques qui pouvaient faire pousser n'importe quoi. Un trésor bien plus précieux !"}]},
+    {title:"Le Bateau de Sam", hero:"Sam", age:"7 ans", chapters:[{num:1,emoji:"⛵",title:"Le capitaine Sam",text:"Sam avait construit son bateau lui-même avec des planches de la grange. Il était petit mais solide. Quand il le mit à l'eau, une petite étoile de mer sauta à bord. Bonjour capitaine !"},{num:2,emoji:"🌊",title:"La mer des mystères",text:"L'étoile de mer guida Sam vers la mer des mystères où des dauphins dansaient autour de rochers lumineux. Au fond, on apercevait les lumières d'une cité oubliée."},{num:3,emoji:"🏙️",title:"La cité engloutie",text:"Sam plongea et découvrit une ville entière sous l'eau, habitée par des poissons qui vivaient dans les maisons, travaillaient dans les boutiques et se promenaient dans les rues. Une merveille !"}]},
+    {title:"La Carte de Pirate", hero:"Léo", age:"9 ans", chapters:[{num:1,emoji:"🧭",title:"La boussole magique",text:"La boussole de Léo n'indiquait pas le nord mais toujours l'aventure. Ce matin elle pointait vers la vieille tour abandonnée au bout du port. Léo la suivit sans hésiter."},{num:2,emoji:"👻",title:"Le fantôme du capitaine",text:"Dans la tour, Léo rencontra le fantôme d'un vieux capitaine pirate. Je cherche mon trésor depuis 200 ans, soupira le fantôme. Aide-moi à le trouver et je te libérerai de toutes les tempêtes."},{num:3,emoji:"⚓",title:"Le repos mérité",text:"Léo retrouva le trésor caché sous les fondations du phare. Dedans, pas d'or mais une lettre du capitaine à sa famille. Léo la remit aux descendants. Le fantôme put enfin se reposer en paix."}]},
+    {title:"Les Rubis de Nina", hero:"Nina", age:"6 ans", chapters:[{num:1,emoji:"💎",title:"La sirène au rubis",text:"Nina se baignait quand une sirène surgit des vagues. Elle portait un collier de rubis écarlates qui brillaient comme des soleils. Aide-moi à retrouver le dernier rubis perdu et je t'accorderai un voeu."},{num:2,emoji:"🦈",title:"Le gardien des abysses",text:"Le rubis perdu se trouvait dans la grotte du grand requin des abysses. Nina était courageuse mais la grotte était très sombre et très profonde. La sirène lui prêta ses écailles lumineuses."},{num:3,emoji:"🌟",title:"Le voeu",text:"Nina récupéra le rubis et le rendit à la sirène. Pour son voeu, elle demanda que les océans restent propres et beaux pour toujours. La sirène sourit : C'est le plus beau voeu qu'on m'ait jamais accordé."}]},
+    {title:"Le Perroquet Pirate", hero:"Alex", age:"5 ans", chapters:[{num:1,emoji:"🦜",title:"Le compagnon",text:"Un perroquet aux plumes d'or se posa sur l'épaule d'Alex. Il s'appelait Doublons et il connaissait par coeur les coordonnées de tous les trésors des sept mers. Partons à l'aventure !"},{num:2,emoji:"🗺️",title:"Les sept mers",text:"Doublons guida Alex à travers la mer des glaces, la mer de sable et la mer des nuages. Chaque mer était plus étrange et plus belle que la précédente. Alex n'avait jamais rien vu de tel."},{num:3,emoji:"🏆",title:"Le plus grand trésor",text:"Au bout du voyage, Alex réalisa que le véritable trésor n'était pas l'or ou les bijoux. C'était les aventures vécues et l'amitié avec Doublons. Ils décidèrent de continuer à naviguer ensemble pour toujours."}]},
+    {title:"La Mer de Jade", hero:"Jade", age:"8 ans", chapters:[{num:1,emoji:"🌊",title:"La tempête de jade",text:"Une nuit, la mer devint vert jade et des pierres précieuses émergèrent des vagues. Les marins avaient peur mais Jade sauta dans l'eau et plongea vers les lumières mystérieuses du fond."},{num:2,emoji:"🏛️",title:"Le palais des mers",text:"Au fond de la mer de jade se dressait un palais taillé dans une seule émeraude géante. Un roi-poisson l'accueillit. Tu es la seule humaine à ne pas avoir eu peur. Mérite-tu mon secret ?"},{num:3,emoji:"🌿",title:"Le secret de la mer",text:"Le roi lui confia que les pierres de jade purifiaient l'eau polluée. Jade remonta à la surface et expliqua tout aux marins. Ils décidèrent de protéger cette mer magique pour toujours."}]},
+  ],
+  dinos: [
+    {title:"Jade et le Diplodocus", hero:"Jade", age:"5 ans", chapters:[{num:1,emoji:"⚙️",title:"La machine à voyager",text:"Jade monta dans la machine dorée et appuya sur le grand bouton rouge. BANG ! Un éclair et voilà Jade 65 millions d'années en arrière, dans un monde de fougères géantes."},{num:2,emoji:"🦕",title:"L'ami géant",text:"Un diplodocus baissa son long cou et demanda doucement : Peux-tu m'aider à retrouver mon bébé ? Jade dit oui sans hésiter."},{num:3,emoji:"💕",title:"Les retrouvailles",text:"Après une longue recherche dans la forêt préhistorique, Jade trouva le bébé diplodocus caché sous une fougère géante. La famille fut enfin réunie et la maman remercia Jade avec un grand coup de queue joyeux."}]},
+    {title:"T-Rex et Lucas", hero:"Lucas", age:"6 ans", chapters:[{num:1,emoji:"🦖",title:"Le rugissement",text:"Lucas entendit un rugissement qui fit trembler le sol. Devant lui se dressait un T-Rex de dix mètres. Mais l'animal regardait Lucas d'un air... triste. Lucas ne s'enfuit pas."},{num:2,emoji:"🦷",title:"La dent cassée",text:"Le T-Rex ouvrit la bouche et Lucas vit le problème : une dent cassée qui lui faisait terriblement mal. C'est pour ça qu'il rugissait. Lucas chercha des herbes médicinales dans la forêt."},{num:3,emoji:"😊",title:"Le grand ami",text:"Lucas prépara un cataplasme d'herbes et le T-Rex laissa Lucas le lui appliquer sur la dent. La douleur s'arrêta aussitôt. Le T-Rex poussa un rugissement de joie et devint le gardien de Lucas pour toujours."}]},
+    {title:"Le Volcan de Tom", hero:"Tom", age:"7 ans", chapters:[{num:1,emoji:"🌋",title:"Le réveil du volcan",text:"Le volcan Ignis se réveillait après 10 000 ans de sommeil. Tous les dinosaures fuyaient. Tom arriva justement à cette époque avec sa machine à voyager dans le temps."},{num:2,emoji:"🦕",title:"Evacuer les dinos",text:"Tom organisa une grande parade de dinosaures pour les guider loin du volcan. Il monta sur le dos d'un tricératops et guida le troupeau vers la vallée verte et sûre."},{num:3,emoji:"🏔️",title:"Après le volcan",text:"Le volcan entra en éruption derrière eux dans un grand spectacle de feu et de lumière. Mais tous les dinosaures étaient en sécurité. Tom avait sauvé des centaines de créatures préhistoriques !"}]},
+    {title:"Oeuf de Mia", hero:"Mia", age:"4 ans", chapters:[{num:1,emoji:"🥚",title:"L'oeuf géant",text:"Mia trouva un oeuf aussi grand qu'elle dans le jardin. Il était chaud, moucheté de vert et de mauve. Elle le mit au soleil et attendit. Le lendemain, l'oeuf commença à bouger."},{num:2,emoji:"🦕",title:"Le bébé",text:"Un petit museau sortit de l'oeuf, puis deux grands yeux ronds. C'était un bébé diplodocus minuscule, pas plus grand qu'un chaton. Il regarda Mia et fit mmm mmm en remuant la queue."},{num:3,emoji:"🌱",title:"Grandir ensemble",text:"Mia apprit vite que les diplodocus grandissent très vite. En une semaine, son ami avait déjà la taille d'un poney. Heureusement, il mangeait seulement des feuilles et aimait qu'on lui gratte le cou."}]},
+    {title:"Le Fossile de Max", hero:"Max", age:"8 ans", chapters:[{num:1,emoji:"🦴",title:"La découverte",text:"Max creusait dans son jardin quand sa pelle heurta quelque chose de dur. Un fossile parfait d'un dinosaure inconnu. Le musée d'histoire naturelle envoya aussitôt une équipe de chercheurs."},{num:2,emoji:"🔬",title:"L'espèce inconnue",text:"Les scientifiques étaient stupéfaits : c'était une espèce jamais vue. Un petit dinosaure avec des plumes colorées et des griffes adaptées pour grimper aux arbres. On lui donna le nom de Maxosaurus en l'honneur de Max."},{num:3,emoji:"🌟",title:"Le jeune paléontologue",text:"Max fut invité au musée pour inaugurer l'exposition. Il porta un badge officiell de jeune paléontologue. Ce jour-là, Max décida ce qu'il voulait faire plus tard : chercher des fossiles pour toujours."}]},
+    {title:"La Foret Prehistorique", hero:"Eva", age:"5 ans", chapters:[{num:1,emoji:"🌿",title:"La foret géante",text:"Eva se retrouva dans une forêt où les fougères étaient plus grandes que des maisons et où les libellules avaient des ailes de 50 centimètres. Tout était immense dans ce monde préhistorique."},{num:2,emoji:"🦎",title:"La guide",text:"Une petite deinonychus à plumes colorées décida de guider Eva dans cette forêt déroutante. Elle s'appelait Plume et elle connaissait chaque arbre, chaque rivière, chaque cachette."},{num:3,emoji:"🌺",title:"Le jardin secret",text:"Plume emmena Eva jusqu'au jardin secret du centre de la forêt : un cercle de fleurs géantes de toutes les couleurs qui ne fleurissaient qu'une fois par million d'années. Eva était la première humaine à les voir."}]},
+  ],
+  superheros: [
+    {title:"Super Lucas", hero:"Lucas", age:"7 ans", chapters:[{num:1,emoji:"⚡",title:"La découverte",text:"Ce matin-là, Lucas découvrit qu'il pouvait voler. Il s'envola par la fenêtre et plana au-dessus de la ville. Les nuages lui chatouillaient le visage."},{num:2,emoji:"🦸",title:"Premier sauvetage",text:"Lucas aperçut un chat coincé en haut d'un vieux chêne. Mon premier sauvetage ! pensa-t-il en plongeant comme une flèche. Il attrapa le chat et se posa doucement."},{num:3,emoji:"🌟",title:"Le super-héros de la ville",text:"La nouvelle se répandit. Lucas apprit à contrôler ses pouvoirs. Il pouvait voler, soulever des voitures et voir à travers les murs. Mais son superpouvoir préféré était de voir les gens sourire."}]},
+    {title:"Eclair de Maya", hero:"Maya", age:"6 ans", chapters:[{num:1,emoji:"⚡",title:"La foudre",text:"Pendant l'orage, Maya fut touchée par un éclair en forme d'étoile. Elle attendit d'avoir peur, mais à la place, elle se sentit incroyablement légère. Elle bougea la main et... des étincelles jaillirent."},{num:2,emoji:"💡",title:"Les pouvoirs électriques",text:"Maya pouvait recharger n'importe quoi en le touchant, allumer les lampadaires d'un geste et, quand elle courrait, elle laissait une traînée d'éclairs. Elle décida d'utiliser ses pouvoirs pour aider."},{num:3,emoji:"🌩️",title:"La panne de courant",text:"Quand toute la ville fut plongée dans le noir, Maya fit le tour des hôpitaux et des maisons de retraite pour recharger les équipements importants. Elle resta éveillée toute la nuit. Héroïne de la ville !"}]},
+    {title:"Le Bouclier de Léo", hero:"Léo", age:"8 ans", chapters:[{num:1,emoji:"🛡️",title:"Le bouclier magique",text:"Léo trouva un bouclier brillant dans la remise. Quand il le souleva, il réalisa qu'il était parfaitement léger. Et qu'il était capable d'arrêter n'importe quoi : les balles d'eau, le feu, même les insultes."},{num:2,emoji:"💪",title:"L'entraînement",text:"Un vieux monsieur mystérieux lui apprit à manier le bouclier. Ce n'est pas une arme pour attaquer, dit-il. C'est un outil pour protéger. Le vrai héros est celui qui protège les autres."},{num:3,emoji:"🏆",title:"La défense de la ville",text:"Quand une tornade menaça la ville, Léo se plaça en première ligne avec son bouclier. Il dévia la tornade, sauvant des centaines de personnes. Le maire lui remit les clés de la ville."}]},
+    {title:"Super Emma", hero:"Emma", age:"5 ans", chapters:[{num:1,emoji:"🦋",title:"Les ailes",text:"Emma se réveilla avec deux grandes ailes de papillon dans le dos. Elles étaient magnifiques, bleues et dorées, et légères comme des pétales. Elle fit le tour de la maison en volant et atterrit dans la cuisine."},{num:2,emoji:"🌸",title:"Le pollen magique",text:"En volant au-dessus des fleurs, Emma réalisa que ses ailes répandaient un pollen magique qui rendait les gens heureux. Partout où elle passait, les gens souriaient, les disputes s'arrêtaient."},{num:3,emoji:"🌍",title:"La mission bonheur",text:"Emma décida de faire le tour de la ville chaque matin pour répandre son pollen de bonheur. Elle n'avait pas besoin de combattre des méchants. Sa mission à elle, c'était de rendre le monde plus joyeux."}]},
+    {title:"Le Plus Fort : Noah", hero:"Noah", age:"9 ans", chapters:[{num:1,emoji:"💪",title:"La force surhumaine",text:"Noah s'aperçut de ses pouvoirs quand il souleva accidentellement la voiture de son père pour attraper son ballon coincé dessous. Il regarda sa main, incrédule. La voiture pesait deux tonnes."},{num:2,emoji:"🏋️",title:"Apprendre la retenue",text:"Sa grand-mère lui dit : La vraie force n'est pas de soulever des voitures. C'est de savoir quand ne pas le faire. Noah apprit à contrôler sa force pour ne jamais blesser quelqu'un par accident."},{num:3,emoji:"🌟",title:"Fort et doux",text:"Noah devint le protecteur du quartier. Il remplaçait les poteaux électriques cassés, aidait les déménageurs et déblayait la neige en une seconde. Mais sa spécialité, c'était d'ouvrir les pots de confiture récalcitrants."}]},
+    {title:"Etoile de Sofia", hero:"Sofia", age:"6 ans", chapters:[{num:1,emoji:"🌟",title:"La pluie d'étoiles",text:"Une nuit de pluie d'étoiles, Sofia attrapa une étoile filante dans son filet à papillons. Au lieu de s'éteindre, l'étoile s'absorba dans sa paume et Sofia brilla de l'intérieur comme une veilleuse."},{num:2,emoji:"✨",title:"La lumière dans le noir",text:"Sofia pouvait éclairer les endroits sombres d'une simple pensée. Elle n'eut plus jamais peur du noir et accompagna les plus petits qui avaient peur pour rentrer chez eux dans le noir."},{num:3,emoji:"⭐",title:"La gardienne de la nuit",text:"Chaque soir, Sofia faisait le tour du quartier en brillant doucement. Les enfants la regardaient de leur fenêtre et s'endormaient rassurés. Son nom dans le quartier : l'étoile gardienne."}]},
+  ],
+  marin: [
+    {title:"La Sirene de Léa", hero:"Léa", age:"6 ans", chapters:[{num:1,emoji:"🌊",title:"La plongée magique",text:"Léa plongea dans la mer turquoise et découvrit qu'elle pouvait respirer sous l'eau. Les poissons colorés lui faisaient des clins d'oeil et une pieuvre lui agitait ses huit bras."},{num:2,emoji:"🧜",title:"Le royaume d'Aquaria",text:"Une sirène aux cheveux bleus nagea vers elle. Bienvenue dans le royaume d'Aquaria ! Notre cité de corail est en danger et tu peux nous aider."},{num:3,emoji:"🐠",title:"La victoire",text:"Léa et les sirènes repoussèrent ensemble la tempête de pollution qui menaçait les coraux. Les poissons formèrent un arc-en-ciel aquatique pour les remercier."}]},
+    {title:"Le Dauphin d'Emma", hero:"Emma", age:"5 ans", chapters:[{num:1,emoji:"🐬",title:"Le dauphin bleu",text:"Emma vit un dauphin d'un bleu impossible, presque violet, sauter hors des vagues et retomber en formant des ronds dans l'eau. Il la regarda dans les yeux et lui dit bonjour en son langage."},{num:2,emoji:"🌊",title:"La course",text:"Le dauphin proposa une course à Emma. Pour être juste, il lui donna une bulle d'air magique qui lui permettrait de nager aussi vite que lui. Ils plongèrent ensemble dans les profondeurs bleues."},{num:3,emoji:"🏆",title:"La meilleure nageuse",text:"Emma ne gagna pas la course, mais elle découvrit des merveilles sous-marines qu'aucun humain n'avait jamais vues. Le dauphin lui dit : La victoire, c'est pas d'arriver premier. C'est de voir ce que les autres ratent."}]},
+    {title:"La Pieuvre de Tom", hero:"Tom", age:"7 ans", chapters:[{num:1,emoji:"🐙",title:"La rencontre",text:"Tom plongeait quand une pieuvre géante aux bras lumineux l'entoura doucement. Au lieu d'avoir peur, Tom remarqua que chaque bras affichait une couleur différente, comme des messages."},{num:2,emoji:"🎨",title:"Le langage des couleurs",text:"Tom apprit que la pieuvre Iris communiquait par les couleurs. Rouge = danger, bleu = ami, vert = chemin, or = trésor. En quelques minutes, ils bavardaient comme de vieux amis."},{num:3,emoji:"🌟",title:"La mission d'Iris",text:"Iris guidait les bateaux perdus loin des rochers dans les nuits de tempête grâce à ses bras lumineux. Tom devint son assistant, apprenant à reproduire ses signaux avec une lampe étanche."}]},
+    {title:"Le Crabe de Mia", hero:"Mia", age:"4 ans", chapters:[{num:1,emoji:"🦀",title:"Le petit crabe",text:"Sur la plage, Mia trouva un minuscule crabe rouge qui agitait ses pinces en faisant un tout petit salut. Il s'appelait Coco et il cherchait une nouvelle maison car son coquillage était trop petit."},{num:2,emoji:"🏠",title:"La chasse au coquillage",text:"Mia et Coco cherchèrent sur toute la plage. Des coquillages trop petits, trop grands, trop pointus, trop fragiles. Mia connaissait exactement ce qu'il fallait à Coco : quelque chose de parfait."},{num:3,emoji:"🐚",title:"La maison parfaite",text:"Mia trouva enfin un magnifique coquillage en spirale rose, ni trop grand ni trop petit, juste parfait. Coco y entra, ressortit la tête et fit le plus grand sourire qu'un crabe ait jamais fait."}]},
+    {title:"Les Poissons de Zoé", hero:"Zoé", age:"5 ans", chapters:[{num:1,emoji:"🐠",title:"Le ballet",text:"Zoé regardait les poissons à travers la vitre de l'aquarium quand ils commencèrent à danser en formation, traçant des formes et des lettres dans l'eau. Ils épelèrent Z-O-E."},{num:2,emoji:"🎭",title:"Le grand spectacle",text:"Les poissons préparaient un grand spectacle pour la reine des mers qui passerait dans trois jours. Ils avaient besoin d'une chorégraphe et avaient choisi Zoé car ils l'avaient vue danser sur la plage."},{num:3,emoji:"👑",title:"La premiere",text:"La nuit du spectacle, la reine des mers émergea des vagues. Les poissons dansèrent magnifiquement sous la direction de Zoé. La reine fut si touchée qu'elle donna à Zoé le titre de Danseuse des Mers."}]},
+    {title:"L'Ocean de Jade", hero:"Jade", age:"6 ans", chapters:[{num:1,emoji:"🌊",title:"L'appel de l'ocean",text:"Chaque nuit, Jade entendait l'océan lui parler. D'abord elle crut rêver. Mais les mots étaient trop précis : Jade, nous avons besoin de toi. Les récifs meurent."},{num:2,emoji:"🪸",title:"Les coraux malades",text:"Jade plongea et vit : les coraux autrefois colorés étaient blancs et ternes. Les habitants des récifs erraient, perdus. Jade demanda : Comment vous aider ? L'océan répondit : Parle aux humains pour nous."}]},
+  ],
+  foret: [
+    {title:"La Foret de Léa", hero:"Léa", age:"6 ans", chapters:[{num:1,emoji:"🍄",title:"Le gnome au chapeau rouge",text:"Léa suivit le petit gnome entre les champignons géants qui servaient de maisons. Des elfes musiciens jouaient de la flûte sur les branches."},{num:2,emoji:"🌲",title:"Le sort du bonbon",text:"Notre village est en danger ! dit le gnome. Un sort a transformé tous nos arbres en bonbons. Nos maisons s'effondrent."},{num:3,emoji:"✨",title:"La magie de Léa",text:"Léa étendit les bras et dit les mots magiques. Une lumière verte envahit la forêt et tous les arbres retrouvèrent leur écorce. Les gnomes dansèrent de joie !"}]},
+    {title:"Les Champignons Magiques", hero:"Emma", age:"4 ans", chapters:[{num:1,emoji:"🍄",title:"Le champignon parlant",text:"Emma trouva un champignon rouge à pois blancs qui lui dit bonjour. Elle faillit tomber de surprise. Je suis le plus vieux habitant de la forêt, dit-il. J'ai des histoires à te raconter."},{num:2,emoji:"🌿",title:"L'histoire de la foret",text:"Le champignon lui raconta comment la forêt avait été plantée par une fée il y a mille ans pour que les animaux aient un refuge. Chaque arbre avait un nom et une personnalité."},{num:3,emoji:"🌱",title:"La nouvelle gardienne",text:"Emma écouta toutes les histoires et les mémorisa. Le champignon dit : Maintenant tu connais notre histoire. Tu pourras la raconter aux autres enfants pour qu'ils aiment et protègent les forêts."}]},
+    {title:"L'Elfe de Lucas", hero:"Lucas", age:"7 ans", chapters:[{num:1,emoji:"🧝",title:"L'elfe musicien",text:"Lucas entendit une musique merveilleuse venir du coeur de la forêt. En approchant, il vit un elfe jouer d'un instrument étrange fait de bois et de toiles d'araignée. La musique faisait pousser les fleurs."},{num:2,emoji:"🎵",title:"Apprendre la musique",text:"L'elfe lui proposa un échange : Lucas lui apprendrait une chanson du monde des humains, et lui lui apprendrait l'accord magique qui fait chanter les arbres. Ils passèrent des heures à s'enseigner mutuellement."},{num:3,emoji:"🌳",title:"Le concert des arbres",text:"Quand Lucas joua l'accord magique sur sa flûte, toute la forêt se mit à vibrer d'une mélodie profonde et douce. C'était le son de la forêt qui chantait. Lucas n'oublierait jamais ce moment."}]},
+    {title:"Le Renard de Mia", hero:"Mia", age:"5 ans", chapters:[{num:1,emoji:"🦊",title:"Le renard argenté",text:"Le renard aux poils argentés apparut au bord du sentier. Il était différent des autres renards : ses yeux étaient violets et sa queue laissait une trace lumineuse sur le sol."},{num:2,emoji:"🗝️",title:"La clé de la forêt",text:"Le renard gardait la clé de la forêt secrète, là où poussaient les plantes qui guérissaient toutes les maladies. Il ne la confiait qu'aux enfants au coeur pur. Il tendit la clé à Mia."},{num:3,emoji:"🌺",title:"La forêt secrète",text:"La forêt secrète était si belle que Mia ne put que sourire. Des fleurs de toutes les couleurs, des sources d'eau claire, des papillons géants. Elle cueillit quelques plantes pour le vieux monsieur malade du village."}]},
+    {title:"Le Gnome de Tom", hero:"Tom", age:"6 ans", chapters:[{num:1,emoji:"🧙",title:"Le vieux gnome sage",text:"Au creux d'un vieux chêne vivait un gnome sage aux longs sourcils blancs. Il n'avait pas d'ami depuis cent ans. Quand Tom passa, le gnome l'interpella : Petit humain, as-tu le temps pour une histoire ?"},{num:2,emoji:"📚",title:"Les mille histoires",text:"Le gnome avait vécu mille ans et avait des histoires pour chaque occasion. Il raconta à Tom comment les étoiles avaient été placées dans le ciel, pourquoi les grenouilles chantent sous la pluie, et où vont les feuilles mortes."},{num:3,emoji:"🤝",title:"L'ami centenaire",text:"Tom revint chaque jour écouter une nouvelle histoire. Le gnome retrouva sa joie de vivre. Et Tom apprit plus de choses avec ce vieux gnome qu'en une année d'école. Ils devinrent les meilleurs amis du monde."}]},
+    {title:"Le Hibou de Clara", hero:"Clara", age:"8 ans", chapters:[{num:1,emoji:"🦉",title:"Le hibou bibliothécaire",text:"Dans le coeur de la forêt se dressait un chêne immense dont les branches portaient des milliers de livres. Le hibou Sage était le gardien de cette bibliothèque forestière extraordinaire."},{num:2,emoji:"📖",title:"Le livre interdit",text:"Clara voulait lire le livre rouge posé sur la plus haute branche. Sage dit : Ce livre contient tous les secrets de la forêt. Es-tu prête à porter cette responsabilité ? Clara réfléchit longtemps, puis dit oui."},{num:3,emoji:"🌟",title:"La gardienne des secrets",text:"Le livre lui révéla le nom de chaque arbre, le chemin vers chaque source cachée et le chant qui apaisait les tempêtes. Clara devint l'apprentie de Sage, gardienne des secrets de la forêt."}]},
+  ],
+};
+
+
 // ── PAGE STATE ──
 var S = { genre:"", univers:"", valeur:"gentillesse", longueur:"moyenne" };
 var currentStory = null;
@@ -638,6 +858,7 @@ var TR = {
     ex_fees:"Emma avança dans la forêt scintillante. Une fée se posa sur son épaule. Je t attendais, dit-elle. La licorne dorée a besoin de ton aide...",ex_espace:"La fusée traversa la ceinture d astéroïdes. Un alien vert apparut. Bienvenue dans la galaxie Zorbula ! Nous avons besoin d une astronaute courageuse...",ex_jungle:"Lucas avança entre les arbres quand un lion s assit devant lui. N aie pas peur, dit-il. Je suis gardien de la jungle. Tu peux nous aider...",ex_dragons:"Emma se retrouva face à un dragon vert qui pleurait. On me croit méchant, dit-il, mais je veux juste un ami. Aide-moi...",ex_pirates:"Ici X marque le trésor, murmura Lucas. Une bouteille à la mer apparut avec un message : Méfie-toi du Kraken, il n est pas si terrible...",ex_dinos:"Emma ouvrit la porte et se retrouva face à un diplodocus. L animal baissa la tête : Peux-tu m aider à retrouver mon bébé ?",ex_superheros:"Lucas découvrit qu il pouvait voler. Il aperçut un chat coincé en haut d un grand arbre. Mon premier sauvetage ! pensa-t-il.",ex_marin:"Emma plongea et découvrit qu elle pouvait respirer. Une sirène nagea vers elle. Bienvenue dans le royaume d Aquaria...",ex_foret:"Lucas suivit le gnome à chapeau rouge. Notre village est en danger ! Un sort a transformé nos arbres en bonbons. Aide-nous !",
     months:"mois",
     chat_greeting:"Bonjour ! Je suis Stella, votre assistante magique 🌟 Comment puis-je vous aider ?",chat_status:"Assistante Storyia",chat_placeholder:"Posez votre question...",chat_s1:"🌍 Quel univers ?",chat_s2:"💎 Abonnement",chat_s3:"📚 Sauvegarder",chat_s4:"🌍 Langues",chat_sq1:"Quel univers choisir pour un enfant de 5 ans ?",chat_sq2:"Comment fonctionne l'abonnement ?",chat_sq3:"Comment sauvegarder mes histoires ?",chat_sq4:"Quelles langues sont disponibles ?",chat_error:"Oups ! Une erreur s'est produite. Réessayez !",
+    book_for_prefix:"Pour",book_extract:"📖 Extrait",book_create:"✨ Créer cette histoire pour mon enfant",book_lang_note:"",chap:"Chapitre",
     ft:"Fait avec ❤️ pour les enfants et leurs parents", lang:"in French",
     drop_hist_title:"Choisissez un univers", drop_hist_footer:"Voir tous les univers →",
     drop_av_title:"Les avantages", drop_av_footer:"Voir tous les avantages →",
@@ -696,6 +917,7 @@ var TR = {
     ex_fees:"Emma walked into the shimmering forest. A tiny fairy landed on her shoulder. I've been waiting for you, she said. The golden unicorn needs your help...",ex_espace:"The rocket crossed the asteroid belt. A green alien appeared on the screen. Welcome to galaxy Zorbula! We need a brave astronaut like you...",ex_jungle:"Lucas walked through the trees when a lion sat before him. Don't be afraid, it said. I am the guardian of the jungle. You can help us...",ex_dragons:"Emma found herself face to face with a green dragon who was crying. Everyone thinks I'm evil, it said, but I just want a friend. Help me...",ex_pirates:"X marks the treasure here, Lucas whispered. A bottle washed ashore with a message: Beware of the Kraken, but it's not as terrible as they say...",ex_dinos:"Emma opened the door and found herself face to face with a diplodocus. The animal lowered its head: Can you help me find my baby?",ex_superheros:"Lucas discovered he could fly. He spotted a cat stuck high in a tall tree. My first rescue! he thought, diving at full speed.",ex_marin:"Emma dived and discovered she could breathe underwater. A mermaid swam toward her. Welcome to the kingdom of Aquaria...",ex_foret:"Lucas followed the red-hatted gnome. Our village is in danger! A spell has turned all our trees into candy. Help us!",
     months:"months",
     chat_greeting:"Hello! I'm Stella, your magic assistant 🌟 How can I help you today?",chat_status:"Storyia Assistant",chat_placeholder:"Ask your question...",chat_s1:"🌍 Which universe?",chat_s2:"💎 Subscription",chat_s3:"📚 Save stories",chat_s4:"🌍 Languages",chat_sq1:"Which universe for a 5 year old?",chat_sq2:"How does the subscription work?",chat_sq3:"How to save my stories?",chat_sq4:"Which languages are available?",chat_error:"Oops! An error occurred. Please try again!",
+    book_for_prefix:"For",book_extract:"📖 Excerpt",book_create:"✨ Create this story for my child",book_lang_note:"The real story will be generated in English.",chap:"Chapter",
     ft:"Made with ❤️ for children and their parents", lang:"in English",
     drop_hist_title:"Choose a universe", drop_hist_footer:"See all universes →",
     drop_av_title:"Why Storia", drop_av_footer:"See all advantages →",
@@ -754,6 +976,7 @@ var TR = {
     ex_fees:"Emma avanzó por el bosque brillante. Un hada se posó en su hombro. Te estaba esperando, dijo. El unicornio dorado necesita tu ayuda...",ex_espace:"El cohete cruzó el cinturón de asteroides. Un alien verde apareció. Bienvenido a la galaxia Zorbula! Necesitamos un astronauta valiente...",ex_jungle:"Lucas avanzó entre los árboles cuando un león se sentó frente a él. No tengas miedo, dijo. Soy el guardián de la jungla. Puedes ayudarnos...",ex_dragons:"Emma se encontró frente a frente con un dragón verde que lloraba. Todos creen que soy malo, dijo, pero solo quiero un amigo. Ayúdame...",ex_pirates:"Aquí X marca el tesoro, susurró Lucas. Una botella llegó con un mensaje: Cuidado con el Kraken, no es tan terrible como dicen...",ex_dinos:"Emma abrió la puerta y se encontró cara a cara con un diplodocus. El animal bajó la cabeza: ¿Puedes ayudarme a encontrar a mi bebé?",ex_superheros:"Lucas descubrió que podía volar. Vio un gato atrapado en lo alto de un árbol. ¡Mi primer rescate! pensó, lanzándose a toda velocidad.",ex_marin:"Emma se sumergió y descubrió que podía respirar. Una sirena nadó hacia ella. Bienvenida al reino de Aquaria...",ex_foret:"Lucas siguió al gnomo de sombrero rojo. ¡Nuestro pueblo está en peligro! Un hechizo ha convertido todos nuestros árboles en dulces. ¡Ayúdanos!",
     months:"meses",
     chat_greeting:"¡Hola! Soy Stella, tu asistente mágica 🌟 ¿Cómo puedo ayudarte?",chat_status:"Asistente Storyia",chat_placeholder:"Haz tu pregunta...",chat_s1:"🌍 ¿Qué universo?",chat_s2:"💎 Suscripción",chat_s3:"📚 Guardar historias",chat_s4:"🌍 Idiomas",chat_sq1:"¿Qué universo para un niño de 5 años?",chat_sq2:"¿Cómo funciona la suscripción?",chat_sq3:"¿Cómo guardar mis historias?",chat_sq4:"¿Qué idiomas están disponibles?",chat_error:"¡Vaya! Ocurrió un error. ¡Inténtalo de nuevo!",
+    book_for_prefix:"Para",book_extract:"📖 Extracto",book_create:"✨ Crear esta historia para mi hijo",book_lang_note:"La historia real se generará en Español.",chap:"Capítulo",
     ft:"Hecho con ❤️ para niños y sus padres", lang:"in Spanish",
     drop_hist_title:"Elige un universo", drop_hist_footer:"Ver todos los universos →",
     drop_av_title:"Por qué Storia", drop_av_footer:"Ver todas las ventajas →",
@@ -812,6 +1035,7 @@ var TR = {
     ex_fees:"Emma betrat den glitzernden Wald. Eine winzige Fee landete auf ihrer Schulter. Ich habe auf dich gewartet, sagte sie. Das goldene Einhorn braucht deine Hilfe...",ex_espace:"Die Rakete durchquerte den Asteroidengürtel. Ein grüner Alien erschien. Willkommen in der Galaxie Zorbula! Wir brauchen einen mutigen Astronauten...",ex_jungle:"Lucas ging durch die Bäume, als ein Löwe vor ihm saß. Hab keine Angst, sagte er. Ich bin der Hüter des Dschungels. Du kannst uns helfen...",ex_dragons:"Emma stand einem grünen Drachen gegenüber, der weinte. Alle denken, ich bin böse, sagte er, aber ich will nur einen Freund. Hilf mir...",ex_pirates:"Hier markiert X den Schatz, flüsterte Lucas. Eine Flasche trieb an Land mit einer Nachricht: Hüte dich vor dem Kraken, er ist nicht so schrecklich...",ex_dinos:"Emma öffnete die Tür und stand einem Diplodocus gegenüber. Das Tier senkte den Kopf: Kannst du mir helfen, mein Baby zu finden?",ex_superheros:"Lucas entdeckte, dass er fliegen konnte. Er sah eine Katze, die hoch oben in einem Baum feststeckte. Meine erste Rettung! dachte er.",ex_marin:"Emma tauchte und entdeckte, dass sie unter Wasser atmen konnte. Eine Meerjungfrau schwamm auf sie zu. Willkommen im Königreich Aquaria...",ex_foret:"Lucas folgte dem Gnom mit dem roten Hut. Unser Dorf ist in Gefahr! Ein Zauber hat alle unsere Bäume in Süßigkeiten verwandelt. Hilf uns!",
     months:"Monate",
     chat_greeting:"Hallo! Ich bin Stella, deine magische Assistentin 🌟 Wie kann ich helfen?",chat_status:"Storyia Assistentin",chat_placeholder:"Stelle deine Frage...",chat_s1:"🌍 Welches Universum?",chat_s2:"💎 Abonnement",chat_s3:"📚 Geschichten speichern",chat_s4:"🌍 Sprachen",chat_sq1:"Welches Universum für ein 5-jähriges Kind?",chat_sq2:"Wie funktioniert das Abonnement?",chat_sq3:"Wie speichere ich meine Geschichten?",chat_sq4:"Welche Sprachen sind verfügbar?",chat_error:"Hoppla! Ein Fehler ist aufgetreten. Bitte versuche es erneut!",
+    book_for_prefix:"Für",book_extract:"📖 Auszug",book_create:"✨ Diese Geschichte für mein Kind erstellen",book_lang_note:"Die echte Geschichte wird auf Deutsch generiert.",chap:"Kapitel",
     ft:"Mit ❤️ für Kinder und ihre Eltern gemacht", lang:"in German",
     drop_hist_title:"Wähle ein Universum", drop_hist_footer:"Alle Universen →",
     drop_av_title:"Warum Storia", drop_av_footer:"Alle Vorteile →",
@@ -870,6 +1094,7 @@ var TR = {
     ex_fees:"Emma avanzò nella foresta scintillante. Una fata si posò sulla sua spalla. Ti aspettavo, disse. Il liocorno dorato ha bisogno del tuo aiuto...",ex_espace:"Il razzo attraversò la cintura asteroidale. Un alieno verde apparve. Benvenuto nella galassia Zorbula! Abbiamo bisogno di un astronauta coraggioso...",ex_jungle:"Lucas avanzò tra gli alberi quando un leone si sedette davanti a lui. Non aver paura, disse. Sono il guardiano della giungla. Puoi aiutarci...",ex_dragons:"Emma si ritrovò faccia a faccia con un drago verde che piangeva. Tutti pensano che io sia cattivo, disse, ma voglio solo un amico. Aiutami...",ex_pirates:"Qui X segna il tesoro, sussurrò Lucas. Una bottiglia arrivò con un messaggio: Attento al Kraken, non è così terribile come dicono...",ex_dinos:"Emma aprì la porta e si trovò faccia a faccia con un diplodoco. L'animale abbassò la testa: Puoi aiutarmi a trovare il mio cucciolo?",ex_superheros:"Lucas scoprì che poteva volare. Vide un gatto bloccato in cima a un albero alto. Il mio primo salvataggio! pensò, tuffandosi a tutta velocità.",ex_marin:"Emma si tuffò e scoprì che poteva respirare sott'acqua. Una sirena nuotò verso di lei. Benvenuta nel regno di Aquaria...",ex_foret:"Lucas seguì lo gnomo con il cappello rosso. Il nostro villaggio è in pericolo! Un incantesimo ha trasformato tutti i nostri alberi in dolci. Aiutaci!",
     months:"mesi",
     chat_greeting:"Ciao! Sono Stella, la tua assistente magica 🌟 Come posso aiutarti?",chat_status:"Assistente Storyia",chat_placeholder:"Fai la tua domanda...",chat_s1:"🌍 Quale universo?",chat_s2:"💎 Abbonamento",chat_s3:"📚 Salvare storie",chat_s4:"🌍 Lingue",chat_sq1:"Quale universo per un bambino di 5 anni?",chat_sq2:"Come funziona l'abbonamento?",chat_sq3:"Come salvare le mie storie?",chat_sq4:"Quali lingue sono disponibili?",chat_error:"Ops! Si è verificato un errore. Riprova!",
+    book_for_prefix:"Per",book_extract:"📖 Estratto",book_create:"✨ Crea questa storia per mio figlio",book_lang_note:"La vera storia verrà generata in Italiano.",chap:"Capitolo",
     ft:"Fatto con ❤️ per i bambini e i loro genitori", lang:"in Italian",
     drop_hist_title:"Scegli un universo", drop_hist_footer:"Vedi tutti gli universi →",
     drop_av_title:"Perché Storia", drop_av_footer:"Vedi tutti i vantaggi →",
@@ -928,6 +1153,7 @@ var TR = {
     ex_fees:"Emma avançou pela floresta cintilante. Uma fada pousou em seu ombro. Estava te esperando, ela disse. O unicórnio dourado precisa de você...",ex_espace:"O foguete cruzou o cinturão de asteroides. Um alien verde apareceu. Bem-vindo à galáxia Zorbula! Precisamos de um astronauta corajoso...",ex_jungle:"Lucas avançou entre as árvores quando um leão se sentou à sua frente. Não tenha medo, disse. Sou o guardião da selva. Você pode nos ajudar...",ex_dragons:"Emma se encontrou cara a cara com um dragão verde que chorava. Todos pensam que sou mau, disse, mas só quero um amigo. Me ajude...",ex_pirates:"Aqui X marca o tesouro, sussurrou Lucas. Uma garrafa chegou com uma mensagem: Cuidado com o Kraken, ele não é tão terrível quanto dizem...",ex_dinos:"Emma abriu a porta e se encontrou com um diplodoco. O animal abaixou a cabeça: Você pode me ajudar a encontrar meu bebê?",ex_superheros:"Lucas descobriu que podia voar. Ele viu um gato preso no topo de uma árvore alta. Meu primeiro resgate! pensou, mergulhando em velocidade total.",ex_marin:"Emma mergulhou e descobriu que podia respirar debaixo d'água. Uma sereia nadou em direção a ela. Bem-vinda ao reino de Aquaria...",ex_foret:"Lucas seguiu o gnomo de chapéu vermelho. Nossa aldeia está em perigo! Um feitiço transformou todas as nossas árvores em doces. Ajude-nos!",
     months:"meses",
     chat_greeting:"Olá! Sou Stella, sua assistente mágica 🌟 Como posso ajudar?",chat_status:"Assistente Storyia",chat_placeholder:"Faça sua pergunta...",chat_s1:"🌍 Qual universo?",chat_s2:"💎 Assinatura",chat_s3:"📚 Salvar histórias",chat_s4:"🌍 Idiomas",chat_sq1:"Qual universo para uma criança de 5 anos?",chat_sq2:"Como funciona a assinatura?",chat_sq3:"Como salvar minhas histórias?",chat_sq4:"Quais idiomas estão disponíveis?",chat_error:"Ops! Ocorreu um erro. Tente novamente!",
+    book_for_prefix:"Para",book_extract:"📖 Trecho",book_create:"✨ Criar esta história para meu filho",book_lang_note:"A história real será gerada em Português.",chap:"Capítulo",
     ft:"Feito com ❤️ para crianças e seus pais", lang:"in Portuguese",
     drop_hist_title:"Escolha um universo", drop_hist_footer:"Ver todos os universos →",
     drop_av_title:"Por que Storia", drop_av_footer:"Ver todas as vantagens →",
@@ -948,6 +1174,193 @@ var TR = {
   }
 };
 
+
+
+// ── BOOK COVERS ──
+var BOOK_DATA = {
+  fees: [
+    {title:"Emma et la Fée des Étoiles", hero:"Emma", age:"5 ans", lang:"Français", scene:"fairy_castle"},
+    {title:"Lucas et la Licorne d'Or", hero:"Lucas", age:"7 ans", lang:"English", scene:"unicorn"},
+    {title:"Léa et le Château Enchanté", hero:"Léa", age:"4 ans", lang:"Español", scene:"castle_night"},
+    {title:"Chloé et le Jardin Magique", hero:"Chloé", age:"6 ans", lang:"Français", scene:"magic_garden"},
+    {title:"Noah et la Baguette Enchantée", hero:"Noah", age:"8 ans", lang:"Deutsch", scene:"wand"},
+    {title:"Sofia, Princesse des Étoiles", hero:"Sofia", age:"3 ans", lang:"Italiano", scene:"princess"}
+  ],
+  espace: [
+    {title:"Tom et la Planète des Robots", hero:"Tom", age:"7 ans", lang:"Français", scene:"planet"},
+    {title:"Jade et les Aliens Verts", hero:"Jade", age:"6 ans", lang:"English", scene:"alien"},
+    {title:"Maxime, Astronaute Courageux", hero:"Maxime", age:"9 ans", lang:"Español", scene:"rocket"},
+    {title:"Clara et la Comète Bleue", hero:"Clara", age:"5 ans", lang:"Français", scene:"comet"},
+    {title:"Théo et la Station Spatiale", hero:"Théo", age:"8 ans", lang:"Deutsch", scene:"station"},
+    {title:"Inès et les Étoiles Filantes", hero:"Inès", age:"4 ans", lang:"Italiano", scene:"stars"}
+  ],
+  jungle: [
+    {title:"Raphaël et le Roi Lion", hero:"Raphaël", age:"6 ans", lang:"Français", scene:"lion"},
+    {title:"Manon et l'Éléphant Géant", hero:"Manon", age:"5 ans", lang:"English", scene:"elephant"},
+    {title:"Hugo et le Perroquet Magique", hero:"Hugo", age:"4 ans", lang:"Español", scene:"parrot"},
+    {title:"Camille et les Singes Farceurs", hero:"Camille", age:"7 ans", lang:"Français", scene:"monkey"},
+    {title:"Baptiste et le Crocodile", hero:"Baptiste", age:"8 ans", lang:"Deutsch", scene:"croco"},
+    {title:"Lucie et le Tigre Blanc", hero:"Lucie", age:"6 ans", lang:"Italiano", scene:"tiger"}
+  ],
+  dragons: [
+    {title:"Léo et le Dragon Vert", hero:"Léo", age:"7 ans", lang:"Français", scene:"dragon_green"},
+    {title:"Zoé et le Chevalier d'Or", hero:"Zoé", age:"5 ans", lang:"English", scene:"knight"},
+    {title:"Antoine et le Trésor du Dragon", hero:"Antoine", age:"9 ans", lang:"Español", scene:"treasure"},
+    {title:"Maëlle et le Dragon Bleu", hero:"Maëlle", age:"6 ans", lang:"Français", scene:"dragon_blue"},
+    {title:"Victor et la Quête du Royaume", hero:"Victor", age:"8 ans", lang:"Deutsch", scene:"kingdom"},
+    {title:"Pauline et le Dragon Doré", hero:"Pauline", age:"4 ans", lang:"Italiano", scene:"dragon_gold"}
+  ],
+  pirates: [
+    {title:"Pierre et le Trésor Perdu", hero:"Pierre", age:"7 ans", lang:"Français", scene:"treasure_map"},
+    {title:"Anaïs et le Navire Fantôme", hero:"Anaïs", age:"6 ans", lang:"English", scene:"ghost_ship"},
+    {title:"Mathieu et l'Île Mystérieuse", hero:"Mathieu", age:"8 ans", lang:"Español", scene:"island"},
+    {title:"Océane et le Kraken", hero:"Océane", age:"9 ans", lang:"Français", scene:"kraken"},
+    {title:"Louis et le Capitaine", hero:"Louis", age:"5 ans", lang:"Deutsch", scene:"captain"},
+    {title:"Juliette, Reine des Pirates", hero:"Juliette", age:"7 ans", lang:"Italiano", scene:"pirate_queen"}
+  ],
+  dinos: [
+    {title:"Paul et le T-Rex Gentil", hero:"Paul", age:"5 ans", lang:"Français", scene:"trex"},
+    {title:"Alice et le Diplodocus", hero:"Alice", age:"4 ans", lang:"English", scene:"diplodocus"},
+    {title:"Romain et la Vallée des Dinos", hero:"Romain", age:"7 ans", lang:"Español", scene:"valley"},
+    {title:"Julie et l'Œuf Mystérieux", hero:"Julie", age:"3 ans", lang:"Français", scene:"egg"},
+    {title:"Nicolas et le Ptérosaure", hero:"Nicolas", age:"6 ans", lang:"Deutsch", scene:"pterosaur"},
+    {title:"Céline et les Bébés Dinos", hero:"Céline", age:"5 ans", lang:"Italiano", scene:"baby_dinos"}
+  ],
+  superheros: [
+    {title:"Alex, le Super-Héros Volant", hero:"Alex", age:"7 ans", lang:"Français", scene:"flying"},
+    {title:"Marie et ses Super-Pouvoirs", hero:"Marie", age:"6 ans", lang:"English", scene:"powers"},
+    {title:"Kevin et la Cape Invisible", hero:"Kevin", age:"8 ans", lang:"Español", scene:"cape"},
+    {title:"Audrey Sauve la Ville", hero:"Audrey", age:"5 ans", lang:"Français", scene:"city"},
+    {title:"Damien et le Vilain Robot", hero:"Damien", age:"9 ans", lang:"Deutsch", scene:"robot_villain"},
+    {title:"Nora la Super-Héroïne", hero:"Nora", age:"4 ans", lang:"Italiano", scene:"heroine"}
+  ],
+  marin: [
+    {title:"Elisa et la Sirène Bleue", hero:"Elisa", age:"5 ans", lang:"Français", scene:"mermaid"},
+    {title:"Alexis et la Pieuvre Géante", hero:"Alexis", age:"7 ans", lang:"English", scene:"octopus"},
+    {title:"Nadia et les Dauphins", hero:"Nadia", age:"6 ans", lang:"Español", scene:"dolphins"},
+    {title:"Florian et le Royaume d'Aquaria", hero:"Florian", age:"8 ans", lang:"Français", scene:"aquaria"},
+    {title:"Stéphanie et le Cheval de Mer", hero:"Stéphanie", age:"4 ans", lang:"Deutsch", scene:"seahorse"},
+    {title:"Dylan et le Coffre Englouti", hero:"Dylan", age:"9 ans", lang:"Italiano", scene:"underwater"}
+  ],
+  foret: [
+    {title:"Ambre et le Gnome Espiègle", hero:"Ambre", age:"5 ans", lang:"Français", scene:"gnome"},
+    {title:"Corentin et les Elfes", hero:"Corentin", age:"7 ans", lang:"English", scene:"elves"},
+    {title:"Madeleine et la Maison Champignon", hero:"Madeleine", age:"4 ans", lang:"Español", scene:"mushroom"},
+    {title:"Sébastien et l'Arbre Magique", hero:"Sébastien", age:"8 ans", lang:"Français", scene:"magic_tree"},
+    {title:"Aurélie et le Renard d'Or", hero:"Aurélie", age:"6 ans", lang:"Deutsch", scene:"fox"},
+    {title:"Jonathan et la Forêt Enchantée", hero:"Jonathan", age:"9 ans", lang:"Italiano", scene:"enchanted"}
+  ]
+};
+
+var BOOK_PALETTES = {
+  fees:      [["#3B0764","#7C3AED","#C026D3"],["#0C4A6E","#0EA5E9","#7DD3FC"],["#7F1D1D","#DC2626","#FCA5A5"],["#064E3B","#059669","#6EE7B7"],["#1E1B4B","#4338CA","#818CF8"],["#78350F","#D97706","#FDE68A"]],
+  espace:    [["#0F172A","#1E3A5F","#0EA5E9"],["#0C0A1E","#4C1D95","#8B5CF6"],["#0F0F1A","#1D4ED8","#60A5FA"],["#0A0A1F","#7C3AED","#C4B5FD"],["#111827","#065F46","#34D399"],["#1A1A2E","#DC2626","#FCA5A5"]],
+  jungle:    [["#14532D","#15803D","#86EFAC"],["#713F12","#A16207","#FDE68A"],["#064E3B","#047857","#6EE7B7"],["#422006","#92400E","#FCD34D"],["#052E16","#166534","#4ADE80"],["#1C1917","#78350F","#FED7AA"]],
+  dragons:   [["#14532D","#16A34A","#86EFAC"],["#7C2D12","#C2410C","#FED7AA"],["#1E3A5F","#1D4ED8","#BFDBFE"],["#4A044E","#A21CAF","#F0ABFC"],["#78350F","#D97706","#FEF08A"],["#1E1B4B","#3730A3","#A5B4FC"]],
+  pirates:   [["#1C1917","#44403C","#D6D3D1"],["#0C4A6E","#075985","#7DD3FC"],["#2D1B4E","#6D28D9","#C4B5FD"],["#042F2E","#0F766E","#99F6E4"],["#1A1A1A","#DC2626","#FCA5A5"],["#172554","#1E40AF","#93C5FD"]],
+  dinos:     [["#052E16","#15803D","#86EFAC"],["#78350F","#A16207","#FDE68A"],["#1C1917","#57534E","#D6D3D1"],["#064E3B","#065F46","#6EE7B7"],["#0C4A6E","#0369A1","#7DD3FC"],["#422006","#92400E","#FDBA74"]],
+  superheros:[["#1E1B4B","#4338CA","#818CF8"],["#4A044E","#86198F","#E879F9"],["#7F1D1D","#B91C1C","#FCA5A5"],["#0C4A6E","#0369A1","#7DD3FC"],["#1A2E05","#365314","#86EFAC"],["#2D1B4E","#6D28D9","#C4B5FD"]],
+  marin:     [["#082F49","#0369A1","#7DD3FC"],["#042F2E","#0F766E","#5EEAD4"],["#0A0A2E","#1E3A8A","#93C5FD"],["#064E3B","#065F46","#6EE7B7"],["#0C4A6E","#1D4ED8","#A5B4FC"],["#042F2E","#134E4A","#99F6E4"]],
+  foret:     [["#052E16","#166534","#86EFAC"],["#422006","#92400E","#FCD34D"],["#14532D","#047857","#6EE7B7"],["#1A2E05","#365314","#A3E635"],["#78350F","#A16207","#FEF08A"],["#042F2E","#0F766E","#5EEAD4"]]
+};
+
+var BOOK_EMOJIS = {
+  fees:      ["🧚","🦄","🏰","🌸","🔮","👑"],
+  espace:    ["🚀","👾","🛸","☄️","🛰️","🌟"],
+  jungle:    ["🦁","🐘","🦜","🐒","🐊","🐯"],
+  dragons:   ["🐉","⚔️","💎","🐲","🏰","✨"],
+  pirates:   ["🗺️","👻","🏝️","🐙","🏴‍☠️","💰"],
+  dinos:     ["🦖","🦕","🌋","🥚","🦅","🦎"],
+  superheros:["🦸","⚡","🧤","🌆","🤖","💫"],
+  marin:     ["🧜","🐙","🐬","🌊","🦄","🐚"],
+  foret:     ["🧙","🧝","🍄","🌳","🦊","🌲"]
+};
+
+function makeSVGBook(title, hero, age, lang, colors, emoji, idx) {
+  var c0 = colors[0], c1 = colors[1], c2 = colors[2];
+  var gid = "bg"+idx, sid = "sh"+idx;
+  return '<svg viewBox="0 0 160 220" xmlns="http://www.w3.org/2000/svg">' +
+    '<defs>' +
+    '<linearGradient id="'+gid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+c0+'"/><stop offset="60%" stop-color="'+c1+'"/><stop offset="100%" stop-color="'+c2+'"/></linearGradient>' +
+    '<linearGradient id="'+sid+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="white"/><stop offset="100%" stop-color="white" stop-opacity="0"/></linearGradient>' +
+    '</defs>' +
+    '<rect width="160" height="220" fill="url(#'+gid+')"/>' +
+    '<rect x="0" y="0" width="14" height="220" fill="rgba(0,0,0,0.28)"/>' +
+    '<rect x="14" y="0" width="4" height="220" fill="rgba(255,255,255,0.07)"/>' +
+    // Decorative circles
+    '<circle cx="120" cy="55" r="40" fill="rgba(255,255,255,0.06)"/>' +
+    '<circle cx="30" cy="160" r="30" fill="rgba(255,255,255,0.04)"/>' +
+    // Main emoji illustration
+    '<text x="80" y="125" font-size="58" text-anchor="middle" dominant-baseline="middle" style="filter:drop-shadow(2px 4px 8px rgba(0,0,0,0.4))">'+emoji+'</text>' +
+    // Small deco emojis
+    '<text x="28" y="58" font-size="14" opacity="0.7">✦</text>' +
+    '<text x="130" y="75" font-size="10" opacity="0.6">✦</text>' +
+    '<text x="35" y="165" font-size="10" opacity="0.5">✦</text>' +
+    '<text x="125" y="155" font-size="14" opacity="0.6">✦</text>' +
+    // Shine
+    '<rect x="14" y="0" width="55" height="220" fill="url(#'+sid+')" opacity="0.06"/>' +
+    // Top label
+    '<rect x="0" y="0" width="160" height="14" fill="rgba(0,0,0,0.32)"/>' +
+    '<text x="80" y="10" font-size="6.5" fill="rgba(255,255,255,0.65)" text-anchor="middle" font-family="sans-serif" letter-spacing="1.2">STORYIA ÉDITIONS</text>' +
+    // Title band
+    '<rect x="0" y="166" width="160" height="54" fill="rgba(0,0,0,0.45)"/>' +
+    '<rect x="0" y="166" width="160" height="2" fill="rgba(255,255,255,0.15)"/>' +
+    renderBookTitle(title, hero) +
+    // Age + lang badge
+    '<rect x="18" y="192" width="54" height="11" rx="5" fill="rgba(255,255,255,0.15)"/>' +
+    '<text x="45" y="200" font-size="6.5" fill="rgba(255,255,255,0.85)" text-anchor="middle" font-family="sans-serif">'+hero+' · '+age+'</text>' +
+    // Lang badge
+    '<rect x="98" y="192" width="44" height="11" rx="5" fill="rgba(255,255,255,0.1)"/>' +
+    '<text x="120" y="200" font-size="6.5" fill="rgba(255,255,255,0.7)" text-anchor="middle" font-family="sans-serif">'+lang+'</text>' +
+    // Stars
+    '<text x="80" y="215" font-size="8" fill="#FDE68A" text-anchor="middle">★★★★★</text>' +
+    '</svg>';
+}
+
+function renderBookTitle(title, hero) {
+  // Split title into up to 2 lines
+  var words = title.split(' ');
+  var line1 = '', line2 = '';
+  var mid = Math.ceil(words.length / 2);
+  line1 = words.slice(0, mid).join(' ');
+  line2 = words.slice(mid).join(' ');
+  if (!line2) {
+    return '<text x="80" y="184" font-size="11" font-weight="bold" fill="white" text-anchor="middle" font-family="Georgia,serif">'+line1+'</text>';
+  }
+  return '<text x="80" y="179" font-size="10" font-weight="bold" fill="white" text-anchor="middle" font-family="Georgia,serif">'+line1+'</text>' +
+         '<text x="80" y="192" font-size="10" font-weight="bold" fill="rgba(255,255,255,0.85)" text-anchor="middle" font-family="Georgia,serif">'+line2+'</text>';
+}
+
+function renderBooksSection(key) {
+  var data = BOOKS_DATA[key];
+  if (!data) return '';
+  var t = TR[currentLang] || TR['fr'];
+  var html = '<div class="books-section">';
+  html += "<div class='books-section-title'>📚 Exemples d'histoires</div>";
+  html += "<div class='books-section-sub'>Chaque histoire est unique, avec le prénom de votre enfant</div>";
+  html += '<div class="books-grid">';
+  data.forEach(function(b, i) {
+    html += '<div class="book-cover" style="background:' + b.bg + ';cursor:pointer" onclick="openBookPreview(\'' + key + '\', ' + i + ')">';
+    html += '<div class="book-spine" style="background:' + b.spine + '"></div>';
+    html += '<div class="book-inner">';
+    html += '<div>';
+    html += '<div class="book-deco">' + b.deco + '</div>';
+    html += '<div class="book-emoji-big">' + b.emoji + '</div>';
+    html += '<div class="book-deco">' + b.deco + '</div>';
+    html += '</div>';
+    html += '<div>';
+    html += '<div class="book-title">' + b.title.replace('\n','<br>') + '</div>';
+    var t2 = TR[currentLang] || TR['fr'];
+    var forText = b.for.replace('Pour ', (t2.book_for_prefix||'Pour') + ' ').replace(' ans', ' ' + (t2.au||'ans'));
+    html += '<div class="book-for">' + forText + '</div>';
+    html += '</div>';
+    html += '</div>';
+    html += '<div class="book-shine"></div>';
+    html += '</div>';
+  });
+  html += '</div></div>';
+  return html;
+}
 
 // ── setLang ──
 function setLang(c) {
@@ -1021,6 +1434,14 @@ function setLang(c) {
   // Re-render pages that are currently shown
   if (document.getElementById("page-universes").classList.contains("show")) buildUniversesGrid();
   if (document.getElementById("page-universe-detail").classList.contains("show") && currentUniverse) showUniverse(currentUniverse);
+  // Also update open modal if any
+  var modal = document.getElementById('bookPreviewModal');
+  if (modal && modal.classList.contains('open')) {
+    var createBtn = document.getElementById('book-modal-create-btn');
+    if (createBtn) createBtn.textContent = (t.book_create || '✨ Créer mon histoire personnalisée');
+    var badge = modal.querySelector('.book-modal-badge');
+    if (badge) badge.textContent = t.book_extract || '📖 Extrait';
+  }
   // Footer
   document.querySelectorAll("footer p").forEach(function(e) { e.textContent = t.ft; });
 }
@@ -1076,8 +1497,16 @@ function showUniverse(key) {
   bodyDiv.appendChild(extractDiv);
   bodyDiv.appendChild(ctaDiv);
   bodyDiv.appendChild(backBtn);
+  // Assemble page: cover → books → cta
   el.innerHTML = "";
   el.appendChild(coverDiv);
+  // Books section
+  var booksHTML = renderBooksSection(key);
+  if (booksHTML) {
+    var booksDiv = document.createElement("div");
+    booksDiv.innerHTML = booksHTML;
+    el.appendChild(booksDiv.firstElementChild || booksDiv);
+  }
   el.appendChild(bodyDiv);
   showPage("universe-detail");
 }
@@ -1770,6 +2199,93 @@ showStory = function(s, prenom) {
 
 <script>
 
+
+// ── BOOK PREVIEW MODAL ──
+function openBookPreview(universeKey, bookIndex) {
+  var books = BOOKS_DATA[universeKey];
+  var b = books ? books[bookIndex] : null;
+  if (!b) return;
+  var t = TR[currentLang] || TR['fr'];
+  var modal = document.getElementById('bookPreviewModal');
+  var coverHtml = '<div class="book-modal-cover" style="background:' + b.bg + '"><div class="book-modal-cover-spine" style="background:' + b.spine + '"></div>' + b.emoji + '</div>';
+  var forText = b.for.replace('Pour ', (t.book_for_prefix||'Pour') + ' ').replace(' ans', ' ' + (t.au||'ans'));
+
+  modal.querySelector('.book-modal-header').innerHTML = coverHtml +
+    '<div class="book-modal-info"><div class="book-modal-universe">' + b.deco + '</div>' +
+    '<div class="book-modal-title">' + b.title.replace('\n',' ') + '</div>' +
+    '<div class="book-modal-meta">' + forText + '</div></div>' +
+    '<button class="book-modal-close" onclick="closeBookPreview()">✕</button>';
+
+  modal.querySelector('.book-modal-body').innerHTML =
+    '<div class="book-modal-badge">' + (t.book_extract||'📖 Extrait') + '</div>' +
+    '<div id="book-chap-loading" style="text-align:center;padding:2rem;color:#9C8AB4">' +
+    '<div style="font-size:32px;margin-bottom:0.5rem">✨</div>Chargement...</div>';
+
+  var createBtn = modal.querySelector('#book-modal-create-btn');
+  if (createBtn) createBtn.textContent = (t.book_create || '✨ Créer mon histoire personnalisée');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Generate excerpt via /api/assistant (always works)
+  var uname = t['un_'+universeKey+'_n'] || b.title.replace('\n',' ');
+  var chapLabel = t.chap || 'Chapitre';
+  var langInstr = t.lang || 'in French';
+  var msgContent = 'Write a very short children story preview ' + langInstr + '. Universe: ' + uname +
+    '. Write exactly 2 chapters. Each chapter: a short title (3-5 words) and 2-3 sentences of story text (max 50 words). ' +
+    'Format your response EXACTLY like this (no other text):\n' +
+    'CHAPTER1_TITLE: [title]\nCHAPTER1_TEXT: [text]\nCHAPTER2_TITLE: [title]\nCHAPTER2_TEXT: [text]';
+
+  fetch('/api/assistant', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({messages:[{role:'user',content:msgContent}]})
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if (!data.reply) throw new Error('no reply');
+    var lines = data.reply.split('\n');
+    var ch1Title='', ch1Text='', ch2Title='', ch2Text='';
+    lines.forEach(function(line){
+      if (line.startsWith('CHAPTER1_TITLE:')) ch1Title = line.replace('CHAPTER1_TITLE:','').trim();
+      else if (line.startsWith('CHAPTER1_TEXT:')) ch1Text = line.replace('CHAPTER1_TEXT:','').trim();
+      else if (line.startsWith('CHAPTER2_TITLE:')) ch2Title = line.replace('CHAPTER2_TITLE:','').trim();
+      else if (line.startsWith('CHAPTER2_TEXT:')) ch2Text = line.replace('CHAPTER2_TEXT:','').trim();
+    });
+    if (!ch1Text) throw new Error('parse fail');
+    var chapHtml =
+      '<div class="book-modal-chap"><div class="book-modal-chap-title"><span class="book-modal-chap-num">' + chapLabel + ' 1</span> 🌟 ' + ch1Title + '</div><div class="book-modal-chap-text">' + ch1Text + '</div></div>' +
+      '<div class="book-modal-chap"><div class="book-modal-chap-title"><span class="book-modal-chap-num">' + chapLabel + ' 2</span> ✨ ' + ch2Title + '</div><div class="book-modal-chap-text">' + ch2Text + '</div></div>';
+    if (modal.classList.contains('open')) {
+      modal.querySelector('.book-modal-body').innerHTML =
+        '<div class="book-modal-badge">' + (t.book_extract||'📖 Extrait') + '</div>' + chapHtml;
+    }
+  })
+  .catch(function(){
+    // Fallback: show static French story
+    var s = STORY_EXAMPLES[universeKey];
+    if (s && s[bookIndex]) {
+      var chapHtml = '';
+      s[bookIndex].chapters.slice(0,2).forEach(function(ch){
+        chapHtml += '<div class="book-modal-chap"><div class="book-modal-chap-title"><span class="book-modal-chap-num">' + chapLabel + ' ' + ch.num + '</span> ' + ch.emoji + ' ' + ch.title + '</div><div class="book-modal-chap-text">' + ch.text + '</div></div>';
+      });
+      if (modal.classList.contains('open')) {
+        modal.querySelector('.book-modal-body').innerHTML =
+          '<div class="book-modal-badge">' + (t.book_extract||'📖 Extrait') + '</div>' + chapHtml;
+      }
+    }
+  });
+}
+function closeBookPreview() {
+  document.getElementById('bookPreviewModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('bookPreviewModal');
+  if (modal) modal.addEventListener('click', function(e) {
+    if (e.target === this) closeBookPreview();
+  });
+});
+
 // ── CHAT WIDGET ──
 var chatOpen = false;
 
@@ -1889,4 +2405,15 @@ async function sendChatMessage() {
 }
 
 </script>
+
+<!-- BOOK PREVIEW MODAL -->
+<div class="book-modal" id="bookPreviewModal">
+  <div class="book-modal-box">
+    <div class="book-modal-header"></div>
+    <div class="book-modal-body"></div>
+    <div class="book-modal-footer">
+      <button class="book-modal-btn-create" id="book-modal-create-btn" onclick="closeBookPreview();showPage('generator')">✨ Créer mon histoire personnalisée</button>
+    </div>
+  </div>
+</div>
 </body>
