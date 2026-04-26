@@ -809,6 +809,76 @@ var STORY_EXAMPLES = {
 };
 
 
+
+var BOOKS_TITLES = {
+  fr: {
+    fees: ["La Licorne de Léa","Le Bal des Fées","Le Château Magique","L'Etoile de Zoé","Arc-en-ciel de Nina","La Baguette de Lola"],
+    espace: ["Emma et les Etoiles","La Planète de Tom","Astronaute Hugo","La Lune de Léo","Les Aliens de Max","La Galaxie de Mia"],
+    jungle: ["Lucas et le Lion","L'Elephant de Jade","Le Perroquet de Ana","Le Singe de Paul","La Foret de Léa","Le Zebre d'Elise"],
+    dragons: ["Le Dragon de Sofia","Le Château de Jules","Le Chevalier Noah","La Reine Amélie","Ecuyer Liam","Le Feu de Remy"],
+    pirates: ["Noah et le Trésor","Le Bateau de Sam","La Carte de Pirate","Les Rubis de Nina","Le Perroquet Pirate","La Mer de Jade"],
+    dinos: ["Jade et le Diplodocus","T-Rex et Lucas","Le Volcan de Tom","Oeuf de Mia","Le Fossile de Max","La Foret Prehistorique"],
+    superheros: ["Super Lucas","Eclair de Maya","Le Bouclier de Léo","Super Emma","Le Plus Fort Noah","Etoile de Sofia"],
+    marin: ["La Sirene de Léa","Le Dauphin d'Emma","La Pieuvre de Tom","Le Crabe de Mia","Les Poissons de Zoé","L'Ocean de Jade"],
+    foret: ["La Foret de Léa","Les Champignons Magiques","L'Elfe de Lucas","Le Renard de Mia","Le Gnome de Tom","Le Hibou de Clara"]
+  },
+  en: {
+    fees: ["Léa's Unicorn","The Fairy Ball","The Magic Castle","Zoé's Star","Nina's Rainbow","Lola's Magic Wand"],
+    espace: ["Emma and the Stars","Tom's Planet","Astronaut Hugo","Léo's Moon","Max's Aliens","Mia's Galaxy"],
+    jungle: ["Lucas and the Lion","Jade's Elephant","Ana's Parrot","Paul's Monkey","Léa's Forest","Elise's Zebra"],
+    dragons: ["Sofia's Dragon","Jules' Castle","Knight Noah","Queen Amélie","Squire Liam","Remy's Fire"],
+    pirates: ["Noah's Treasure","Sam's Boat","The Pirate Map","Nina's Rubies","The Pirate Parrot","Jade's Sea"],
+    dinos: ["Jade and the Diplodocus","T-Rex and Lucas","Tom's Volcano","Mia's Egg","Max's Fossil","The Prehistoric Forest"],
+    superheros: ["Super Lucas","Maya's Lightning","Léo's Shield","Super Emma","The Strongest Noah","Sofia's Star"],
+    marin: ["Léa's Mermaid","Emma's Dolphin","Tom's Octopus","Mia's Crab","Zoé's Fish","Jade's Ocean"],
+    foret: ["Léa's Forest","Magic Mushrooms","Lucas' Elf","Mia's Fox","Tom's Gnome","Clara's Owl"]
+  },
+  es: {
+    fees: ["El Unicornio de Léa","El Baile de las Hadas","El Castillo Mágico","La Estrella de Zoé","El Arco Iris de Nina","La Varita de Lola"],
+    espace: ["Emma y las Estrellas","El Planeta de Tom","Astronauta Hugo","La Luna de Léo","Los Aliens de Max","La Galaxia de Mia"],
+    jungle: ["Lucas y el León","El Elefante de Jade","El Loro de Ana","El Mono de Paul","El Bosque de Léa","La Cebra de Elise"],
+    dragons: ["El Dragón de Sofia","El Castillo de Jules","El Caballero Noah","La Reina Amélie","Escudero Liam","El Fuego de Remy"],
+    pirates: ["El Tesoro de Noah","El Barco de Sam","El Mapa Pirata","Los Rubíes de Nina","El Loro Pirata","El Mar de Jade"],
+    dinos: ["Jade y el Diplodocus","T-Rex y Lucas","El Volcán de Tom","El Huevo de Mia","El Fósil de Max","El Bosque Prehistórico"],
+    superheros: ["Super Lucas","El Rayo de Maya","El Escudo de Léo","Super Emma","El Más Fuerte Noah","La Estrella de Sofia"],
+    marin: ["La Sirena de Léa","El Delfín de Emma","El Pulpo de Tom","El Cangrejo de Mia","Los Peces de Zoé","El Océano de Jade"],
+    foret: ["El Bosque de Léa","Los Hongos Mágicos","El Elfo de Lucas","El Zorro de Mia","El Gnomo de Tom","El Búho de Clara"]
+  },
+  de: {
+    fees: ["Léas Einhorn","Der Feenball","Das Zaubercastle","Zoés Stern","Ninas Regenbogen","Lolas Zauberstab"],
+    espace: ["Emma und die Sterne","Toms Planet","Astronaut Hugo","Léos Mond","Max' Aliens","Mias Galaxie"],
+    jungle: ["Lucas und der Löwe","Jades Elefant","Anas Papagei","Pauls Affe","Léas Wald","Elises Zebra"],
+    dragons: ["Sofias Drache","Julius' Burg","Ritter Noah","Königin Amélie","Knappe Liam","Remys Feuer"],
+    pirates: ["Noahs Schatz","Sams Boot","Die Piratenkarte","Ninas Rubine","Der Piratenpapagei","Jades Meer"],
+    dinos: ["Jade und der Diplodocus","T-Rex und Lucas","Toms Vulkan","Mias Ei","Max' Fossil","Der Urwald"],
+    superheros: ["Super Lucas","Mayas Blitz","Léos Schild","Super Emma","Der Stärkste Noah","Sofias Stern"],
+    marin: ["Léas Meerjungfrau","Emmas Delfin","Toms Oktopus","Mias Krabbe","Zoés Fische","Jades Ozean"],
+    foret: ["Léas Wald","Magische Pilze","Lucas' Elfe","Mias Fuchs","Toms Gnom","Claras Eule"]
+  },
+  it: {
+    fees: ["L'Unicorno di Léa","Il Ballo delle Fate","Il Castello Magico","La Stella di Zoé","L'Arcobaleno di Nina","La Bacchetta di Lola"],
+    espace: ["Emma e le Stelle","Il Pianeta di Tom","Astronauta Hugo","La Luna di Léo","Gli Alieni di Max","La Galassia di Mia"],
+    jungle: ["Lucas e il Leone","L'Elefante di Jade","Il Pappagallo di Ana","La Scimmia di Paul","La Foresta di Léa","La Zebra di Elise"],
+    dragons: ["Il Drago di Sofia","Il Castello di Jules","Il Cavaliere Noah","La Regina Amélie","Lo Scudiero Liam","Il Fuoco di Remy"],
+    pirates: ["Il Tesoro di Noah","La Barca di Sam","La Mappa Pirata","I Rubini di Nina","Il Pappagallo Pirata","Il Mare di Jade"],
+    dinos: ["Jade e il Diplodoco","T-Rex e Lucas","Il Vulcano di Tom","L'Uovo di Mia","Il Fossile di Max","La Foresta Preistorica"],
+    superheros: ["Super Lucas","Il Fulmine di Maya","Lo Scudo di Léo","Super Emma","Il Più Forte Noah","La Stella di Sofia"],
+    marin: ["La Sirena di Léa","Il Delfino di Emma","Il Polpo di Tom","Il Granchio di Mia","I Pesci di Zoé","L'Oceano di Jade"],
+    foret: ["La Foresta di Léa","I Funghi Magici","L'Elfo di Lucas","La Volpe di Mia","Lo Gnomo di Tom","Il Gufo di Clara"]
+  },
+  pt: {
+    fees: ["O Unicórnio de Léa","O Baile das Fadas","O Castelo Mágico","A Estrela de Zoé","O Arco-íris de Nina","A Varinha de Lola"],
+    espace: ["Emma e as Estrelas","O Planeta de Tom","Astronauta Hugo","A Lua de Léo","Os Aliens de Max","A Galáxia de Mia"],
+    jungle: ["Lucas e o Leão","O Elefante de Jade","O Papagaio de Ana","O Macaco de Paul","A Floresta de Léa","A Zebra de Elise"],
+    dragons: ["O Dragão de Sofia","O Castelo de Jules","O Cavaleiro Noah","A Rainha Amélie","O Escudeiro Liam","O Fogo de Remy"],
+    pirates: ["O Tesouro de Noah","O Barco de Sam","O Mapa Pirata","As Ruínas de Nina","O Papagaio Pirata","O Mar de Jade"],
+    dinos: ["Jade e o Diplodoco","T-Rex e Lucas","O Vulcão de Tom","O Ovo de Mia","O Fóssil de Max","A Floresta Pré-histórica"],
+    superheros: ["Super Lucas","O Raio de Maya","O Escudo de Léo","Super Emma","O Mais Forte Noah","A Estrela de Sofia"],
+    marin: ["A Sereia de Léa","O Golfinho de Emma","O Polvo de Tom","O Caranguejo de Mia","Os Peixes de Zoé","O Oceano de Jade"],
+    foret: ["A Floresta de Léa","Os Cogumelos Mágicos","O Elfo de Lucas","A Raposa de Mia","O Gnomo de Tom","A Coruja de Clara"]
+  }
+};
+
 // ── PAGE STATE ──
 var S = { genre:"", univers:"", valeur:"gentillesse", longueur:"moyenne" };
 var currentStory = null;
@@ -1349,7 +1419,8 @@ function renderBooksSection(key) {
     html += '<div class="book-deco">' + b.deco + '</div>';
     html += '</div>';
     html += '<div>';
-    html += '<div class="book-title">' + b.title.replace('\n','<br>') + '</div>';
+    var langTitles = BOOKS_TITLES[currentLang] && BOOKS_TITLES[currentLang][key] ? BOOKS_TITLES[currentLang][key][i] : b.title.replace('\n',' ');
+    html += '<div class="book-title">' + langTitles + '</div>';
     var t2 = TR[currentLang] || TR['fr'];
     var forText = b.for.replace('Pour ', (t2.book_for_prefix||'Pour') + ' ').replace(' ans', ' ' + (t2.au||'ans'));
     html += '<div class="book-for">' + forText + '</div>';
@@ -2212,7 +2283,7 @@ function openBookPreview(universeKey, bookIndex) {
 
   modal.querySelector('.book-modal-header').innerHTML = coverHtml +
     '<div class="book-modal-info"><div class="book-modal-universe">' + b.deco + '</div>' +
-    '<div class="book-modal-title">' + b.title.replace('\n',' ') + '</div>' +
+    '<div class="book-modal-title">' + (BOOKS_TITLES[currentLang] && BOOKS_TITLES[currentLang][universeKey] ? BOOKS_TITLES[currentLang][universeKey][bookIndex] : b.title.replace('\n',' ')) + '</div>' +
     '<div class="book-modal-meta">' + forText + '</div></div>' +
     '<button class="book-modal-close" onclick="closeBookPreview()">✕</button>';
 
